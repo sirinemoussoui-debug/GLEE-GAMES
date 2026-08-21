@@ -4,8 +4,9 @@ export const TRANSLATIONS = {
   en: {
     // Brand & Header
     appName: 'Glee',
+    mainH1: 'Free Multiplayer Party Games for Friends & Groups',
     tagline: 'Play. Laugh. Challenge Your Friends.',
-    heroSubtitle: 'The ultimate party game hub for friends, campus nights, and group hangouts. Zero downloads required.',
+    heroSubtitle: 'Glee is a free multiplayer social party games website for friends, university students, parties, and group gatherings. Play Spy Game, Word Chain Bomb, Trivia Duel, Who\'s Most Likely To, and Emoji Decoder directly in your browser with zero downloads.',
     playNow: 'Play Now',
     exploreGames: 'Explore Games',
     rules: 'How to Play',
@@ -194,13 +195,26 @@ export const TRANSLATIONS = {
     // Global Rules Modal
     rulesModalTitle: 'Glee Game Rules & Guides',
     closeBtn: 'Got It, Let\'s Play!',
+
+    // Homepage SEO & Features Section
+    aboutGleeTitle: 'Why Play Glee with Friends & Groups?',
+    aboutGleeSubtitle: 'Designed for college campus hangouts, family nights, student clubs, and weekend parties.',
+    aboutFeature1Title: '5 Distinct Party Games',
+    aboutFeature1Desc: 'From social deduction in Spy Game to rapid-fire Word Chain Bomb and Campus Trivia, enjoy varied fun for any vibe.',
+    aboutFeature2Title: 'Pass & Play Simplicity',
+    aboutFeature2Desc: 'Play together using a single smartphone or tablet. No individual app downloads or account logins needed.',
+    aboutFeature3Title: '100% Free in Your Browser',
+    aboutFeature3Desc: 'Instant web access on iOS, Android, and desktop browsers with responsive layouts, crisp audio, and offline party vibes.',
+    aboutFeature4Title: 'Trilingual & RTL Support',
+    aboutFeature4Desc: 'Full support for English, Arabic (with native Right-to-Left formatting), and French with culturally adapted question packs.',
   },
 
   ar: {
     // Brand & Header
     appName: 'جلي (Glee)',
+    mainH1: 'ألعاب جماعية مجانية للأصدقاء والجمعات',
     tagline: 'العب. اضحك. تحدى أصحابك.',
-    heroSubtitle: 'المنصة المثالية لألعاب الحفلات، جمعات الأصدقاء، وسهرات الجامعة. العب فوراً من المتصفح بدون أي تحميل.',
+    heroSubtitle: 'جلي (Glee) هي منصة ألعاب جماعية مجانية للأصدقاء، طلاب الجامعة، والحفلات والجمعات. العب لعبة الجاسوس، قنبلة الكلمات، تحدي الثقافة، مين أكثر واحد، وفك شفرة الإيموجي مباشرة من المتصفح بدون أي تحميل.',
     playNow: 'العب الآن',
     exploreGames: 'تصفح الألعاب',
     rules: 'كيف تلعب؟',
@@ -389,13 +403,26 @@ export const TRANSLATIONS = {
     // Global Rules Modal
     rulesModalTitle: 'دليل وقواعد ألعاب جلي',
     closeBtn: 'فهمت، لنبدأ اللعب!',
+
+    // Homepage SEO & Features Section
+    aboutGleeTitle: 'لماذا تختار ألعاب جلي لجمعاتك وسهراتك؟',
+    aboutGleeSubtitle: 'مصممة خصيصاً لسهرات الأصدقاء، لقاءات الجامعة، والجمعات العائلية الممتعة.',
+    aboutFeature1Title: '٥ ألعاب جماعية متنوعة وممتعة',
+    aboutFeature1Desc: 'من التحقيق والذكاء في لعبة الجاسوس، إلى قنبلة الكلمات السريعة، وتصويت مين أكثر واحد، وتحديات الثقافة والإيموجي.',
+    aboutFeature2Title: 'مرر والعب على جهاز واحد',
+    aboutFeature2Desc: 'العبوا معاً باستخدام هاتف واحد أو تابلت مشترك بدون الحاجة لتحميل تطبيقات إضافية أو إنشاء حسابات.',
+    aboutFeature3Title: 'مجاني ١٠٠٪ وبدون أي تحميل',
+    aboutFeature3Desc: 'وصول فوري من متصفح الهاتف أو الكمبيوتر مجاناً وبدون إعلانات أو فترات انتظار.',
+    aboutFeature4Title: 'دعم كامل للغة العربية والاتجاه RTL',
+    aboutFeature4Desc: 'واجهة عربية أصيلة متناسقة مع حزم كلمات وأسئلة مستوحاة من الثقافة المحلية وسهرات الشباب.',
   },
 
   fr: {
     // Brand & Header
     appName: 'Glee',
+    mainH1: 'Jeux Festifs Multijoueurs Gratuits pour Amis et Groupes',
     tagline: 'Jouez. Riez. Défiez vos amis.',
-    heroSubtitle: 'Le centre ultime de jeux festifs pour vos soirées, le campus et les groupes d\'amis. Jouez instantanément sans téléchargement.',
+    heroSubtitle: 'Glee est un site web de jeux de société multijoueurs gratuits pour les amis, étudiants, soirées et réunions de groupe. Jouez au Jeu de l\'Espion, Bombe de Mots, Duel Trivia, Qui est le Plus Susceptible, et Décodeur d\'Émojis directement dans votre navigateur sans téléchargement.',
     playNow: 'Jouer Maintenant',
     exploreGames: 'Explorer les Jeux',
     rules: 'Règles du Jeu',
@@ -584,5 +611,17 @@ export const TRANSLATIONS = {
     // Global Rules Modal
     rulesModalTitle: 'Règles et Guides des Jeux Glee',
     closeBtn: 'Compris, Jouons !',
+
+    // Homepage SEO & Features Section
+    aboutGleeTitle: 'Pourquoi Choisir Glee pour Vos Soirées ?',
+    aboutGleeSubtitle: 'Idéal pour les soirées étudiantes, le campus, les réunions de famille et les fêtes entre amis.',
+    aboutFeature1Title: '5 Jeux Festifs Uniques',
+    aboutFeature1Desc: 'De la déduction sociale avec l\'Espion à la Bombe de Mots effrénée et aux quiz de culture générale, il y en a pour tous les goûts.',
+    aboutFeature2Title: 'Passez et Jouez sur un Écran',
+    aboutFeature2Desc: 'Jouez ensemble sur un seul smartphone ou une tablette sans téléchargements multiples ni inscription.',
+    aboutFeature3Title: '100% Gratuit et Sans Téléchargement',
+    aboutFeature3Desc: 'Accès instantané dans n\'importe quel navigateur web sur iOS, Android et PC sans publicité intrusive.',
+    aboutFeature4Title: 'Support Trilingue & RTL',
+    aboutFeature4Desc: 'Prise en charge complète du français, de l\'anglais et de l\'arabe avec une mise en page fluide et des packs adaptés.',
   },
 };

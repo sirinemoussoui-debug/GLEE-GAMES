@@ -11,6 +11,9 @@ import {
   Bomb,
   Brain,
   Smile,
+  CheckCircle2,
+  Smartphone,
+  Globe2,
   Zap,
 } from 'lucide-react';
 import { Language, GameType } from '../types';
@@ -39,25 +42,28 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
         <div className="absolute top-1/3 left-1/4 w-72 h-72 bg-orange-500/15 rounded-full blur-3xl pointer-events-none -z-10" />
 
         {/* Brand Tag Pill */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/15 text-orange-300 text-xs font-black uppercase tracking-wider mb-5 shadow-inner">
-          <Sparkles className="w-3.5 h-3.5 text-orange-400" />
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/15 text-orange-300 text-xs font-black uppercase tracking-wider mb-4 shadow-inner">
+          <Sparkles className="w-3.5 h-3.5 text-orange-400" aria-hidden="true" />
           <span>Multiplayer Social Party Hub</span>
         </div>
 
-        {/* Main Title */}
-        <div className="mb-3 relative">
-          <h1 className="text-6xl sm:text-8xl md:text-9xl font-black tracking-tighter text-white drop-shadow-lg">
+        {/* Brand Wordmark & Main H1 */}
+        <div className="mb-3 text-center max-w-3xl">
+          <div className="text-6xl sm:text-8xl md:text-9xl font-black tracking-tighter text-white drop-shadow-lg leading-none mb-3">
             GLEE
+          </div>
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-orange-400 tracking-tight leading-snug">
+            {t.mainH1}
           </h1>
         </div>
 
         {/* Tagline */}
-        <p className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-100 mb-2 max-w-2xl">
+        <p className="text-lg sm:text-xl md:text-2xl font-bold text-slate-100 mb-2 max-w-2xl">
           {t.tagline}
         </p>
 
         {/* Subtitle */}
-        <p className="text-slate-300 text-sm sm:text-base max-w-xl mx-auto mb-8 leading-relaxed">
+        <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto mb-8 leading-relaxed">
           {t.heroSubtitle}
         </p>
 
@@ -69,8 +75,9 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
               onStartGame('spy');
             }}
             className="w-full sm:w-auto px-9 py-4 bg-orange-600 rounded-2xl font-black text-lg text-white orange-glow hover:bg-orange-500 transition-all active:scale-95 flex items-center justify-center gap-2.5 cursor-pointer group shadow-xl"
+            aria-label="Start playing party games now"
           >
-            <Play className="w-5 h-5 fill-white group-hover:scale-110 transition-transform" />
+            <Play className="w-5 h-5 fill-white group-hover:scale-110 transition-transform" aria-hidden="true" />
             <span className="whitespace-nowrap">{t.playNow}</span>
           </button>
 
@@ -80,8 +87,9 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
               onOpenRules();
             }}
             className="w-full sm:w-auto px-7 py-4 rounded-2xl glass text-slate-200 hover:text-white hover:border-orange-400/50 hover:bg-white/10 font-bold text-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
+            aria-label="View game rules and guides"
           >
-            <BookOpen className="w-4 h-4 text-orange-400" />
+            <BookOpen className="w-4 h-4 text-orange-400" aria-hidden="true" />
             <span className="whitespace-nowrap">{t.rules}</span>
           </button>
         </div>
@@ -89,17 +97,17 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
         {/* Quick Highlights Bar */}
         <div className="grid grid-cols-3 gap-2 sm:gap-4 mt-10 pt-6 border-t border-white/10 w-full max-w-xl text-center">
           <div className="p-3 glass rounded-2xl">
-            <span className="text-2xl block mb-1">🎮</span>
+            <span className="text-2xl block mb-1" role="img" aria-label="Game controller">🎮</span>
             <div className="text-orange-400 font-black text-sm sm:text-base">5 Live Games</div>
             <div className="text-slate-400 text-xs mt-0.5 font-bold">100% Free</div>
           </div>
           <div className="p-3 glass rounded-2xl">
-            <span className="text-2xl block mb-1">👥</span>
+            <span className="text-2xl block mb-1" role="img" aria-label="Group of people">👥</span>
             <div className="text-purple-400 font-black text-sm sm:text-base">2–17 Players</div>
-            <div className="text-slate-400 text-xs mt-0.5 font-bold">Pass & Play</div>
+            <div className="text-slate-400 text-xs mt-0.5 font-bold">Pass &amp; Play</div>
           </div>
           <div className="p-3 glass rounded-2xl">
-            <span className="text-2xl block mb-1">🌍</span>
+            <span className="text-2xl block mb-1" role="img" aria-label="Globe">🌍</span>
             <div className="text-amber-400 font-black text-sm sm:text-base">Multilingual</div>
             <div className="text-slate-400 text-xs mt-0.5 font-bold">EN • عربي • FR</div>
           </div>
@@ -107,10 +115,10 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       </section>
 
       {/* Game Catalog Section */}
-      <section className="w-full max-w-5xl px-4 py-6 mb-12 space-y-6">
+      <section className="w-full max-w-5xl px-4 py-6 mb-8 space-y-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Flame className="w-5 h-5 text-orange-500" />
+            <Flame className="w-5 h-5 text-orange-500" aria-hidden="true" />
             <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight">
               Party Games Collection
             </h2>
@@ -135,18 +143,18 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
             <div>
               <div className="flex items-center justify-between gap-2 mb-3">
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-500/20 border border-orange-400/40 text-orange-300 text-xs font-black">
-                  <Sparkles className="w-3 h-3 text-orange-400" />
+                  <Sparkles className="w-3 h-3 text-orange-400" aria-hidden="true" />
                   {t.spyBadge}
                 </div>
                 <div className="flex items-center gap-1 text-xs font-bold text-slate-300">
-                  <Users className="w-3.5 h-3.5 text-purple-400" />
+                  <Users className="w-3.5 h-3.5 text-purple-400" aria-hidden="true" />
                   <span>{t.playersRangeSpy}</span>
                 </div>
               </div>
 
               <div className="flex items-start gap-4 mb-3">
                 <div className="w-13 h-13 rounded-2xl bg-orange-600 flex items-center justify-center orange-glow group-hover:scale-105 transition-transform shrink-0">
-                  <ShieldAlert className="w-7 h-7 text-white" />
+                  <ShieldAlert className="w-7 h-7 text-white" aria-hidden="true" />
                 </div>
                 <div>
                   <h3 className="text-xl sm:text-2xl font-black text-white group-hover:text-orange-400 transition-colors">
@@ -161,10 +169,10 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
 
             <div className="mt-5 pt-3.5 border-t border-white/10 flex items-center justify-between">
               <span className="text-xs font-bold text-orange-400 group-hover:text-orange-300 transition-colors">
-                Play Now • Categories & Custom Words
+                Play Now • Categories &amp; Custom Words
               </span>
               <div className="w-8 h-8 rounded-full bg-orange-600 text-white flex items-center justify-center group-hover:translate-x-1 transition-transform shadow-lg">
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </div>
             </div>
           </div>
@@ -182,18 +190,18 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
             <div>
               <div className="flex items-center justify-between gap-2 mb-3">
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/20 border border-purple-400/40 text-purple-300 text-xs font-black">
-                  <Flame className="w-3 h-3 text-purple-400" />
+                  <Flame className="w-3 h-3 text-purple-400" aria-hidden="true" />
                   {t.whoMostLikelyBadge}
                 </div>
                 <div className="flex items-center gap-1 text-xs font-bold text-slate-300">
-                  <Users className="w-3.5 h-3.5 text-purple-400" />
+                  <Users className="w-3.5 h-3.5 text-purple-400" aria-hidden="true" />
                   <span>{t.playersRangeWhos}</span>
                 </div>
               </div>
 
               <div className="flex items-start gap-4 mb-3">
                 <div className="w-13 h-13 rounded-2xl bg-purple-600 flex items-center justify-center group-hover:scale-105 transition-transform shrink-0 shadow-lg shadow-purple-600/30">
-                  <Eye className="w-7 h-7 text-white" />
+                  <Eye className="w-7 h-7 text-white" aria-hidden="true" />
                 </div>
                 <div>
                   <h3 className="text-xl sm:text-2xl font-black text-white group-hover:text-purple-400 transition-colors">
@@ -208,10 +216,10 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
 
             <div className="mt-5 pt-3.5 border-t border-white/10 flex items-center justify-between">
               <span className="text-xs font-bold text-purple-400 group-hover:text-purple-300 transition-colors">
-                Play Now • 105+ Questions & Live Voting
+                Play Now • 105+ Questions &amp; Live Voting
               </span>
               <div className="w-8 h-8 rounded-full bg-purple-600 text-white flex items-center justify-center group-hover:translate-x-1 transition-transform shadow-lg">
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </div>
             </div>
           </div>
@@ -229,18 +237,18 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
             <div>
               <div className="flex items-center justify-between gap-2 mb-3">
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-500/20 border border-red-400/40 text-red-300 text-xs font-black">
-                  <Bomb className="w-3 h-3 text-red-400" />
+                  <Bomb className="w-3 h-3 text-red-400" aria-hidden="true" />
                   {t.wordBombBadge}
                 </div>
                 <div className="flex items-center gap-1 text-xs font-bold text-slate-300">
-                  <Users className="w-3.5 h-3.5 text-purple-400" />
+                  <Users className="w-3.5 h-3.5 text-purple-400" aria-hidden="true" />
                   <span>{t.playersRangeBomb}</span>
                 </div>
               </div>
 
               <div className="flex items-start gap-4 mb-3">
                 <div className="w-13 h-13 rounded-2xl bg-red-600 flex items-center justify-center group-hover:scale-105 transition-transform shrink-0 shadow-lg shadow-red-600/30">
-                  <Bomb className="w-7 h-7 text-white" />
+                  <Bomb className="w-7 h-7 text-white" aria-hidden="true" />
                 </div>
                 <div>
                   <h3 className="text-xl sm:text-2xl font-black text-white group-hover:text-red-400 transition-colors">
@@ -255,10 +263,10 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
 
             <div className="mt-5 pt-3.5 border-t border-white/10 flex items-center justify-between">
               <span className="text-xs font-bold text-red-400 group-hover:text-red-300 transition-colors">
-                Play Now • Ticking Timer & Lives System
+                Play Now • Ticking Timer &amp; Lives System
               </span>
               <div className="w-8 h-8 rounded-full bg-red-600 text-white flex items-center justify-center group-hover:translate-x-1 transition-transform shadow-lg">
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </div>
             </div>
           </div>
@@ -276,18 +284,18 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
             <div>
               <div className="flex items-center justify-between gap-2 mb-3">
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/40 text-blue-300 text-xs font-black">
-                  <Brain className="w-3 h-3 text-blue-400" />
+                  <Brain className="w-3 h-3 text-blue-400" aria-hidden="true" />
                   {t.triviaDuelBadge}
                 </div>
                 <div className="flex items-center gap-1 text-xs font-bold text-slate-300">
-                  <Users className="w-3.5 h-3.5 text-purple-400" />
+                  <Users className="w-3.5 h-3.5 text-purple-400" aria-hidden="true" />
                   <span>{t.playersRangeTrivia}</span>
                 </div>
               </div>
 
               <div className="flex items-start gap-4 mb-3">
                 <div className="w-13 h-13 rounded-2xl bg-blue-600 flex items-center justify-center group-hover:scale-105 transition-transform shrink-0 shadow-lg shadow-blue-600/30">
-                  <Brain className="w-7 h-7 text-white" />
+                  <Brain className="w-7 h-7 text-white" aria-hidden="true" />
                 </div>
                 <div>
                   <h3 className="text-xl sm:text-2xl font-black text-white group-hover:text-blue-400 transition-colors">
@@ -302,10 +310,10 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
 
             <div className="mt-5 pt-3.5 border-t border-white/10 flex items-center justify-between">
               <span className="text-xs font-bold text-blue-400 group-hover:text-blue-300 transition-colors">
-                Play Now • 155+ Trivia Questions & Quiz Battle
+                Play Now • 155+ Trivia Questions &amp; Quiz Battle
               </span>
               <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center group-hover:translate-x-1 transition-transform shadow-lg">
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </div>
             </div>
           </div>
@@ -323,18 +331,18 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
             <div>
               <div className="flex items-center justify-between gap-2 mb-3">
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 text-xs font-black">
-                  <Smile className="w-3 h-3 text-amber-400" />
+                  <Smile className="w-3 h-3 text-amber-400" aria-hidden="true" />
                   {t.emojiDecoderBadge}
                 </div>
                 <div className="flex items-center gap-1 text-xs font-bold text-slate-300">
-                  <Users className="w-3.5 h-3.5 text-purple-400" />
+                  <Users className="w-3.5 h-3.5 text-purple-400" aria-hidden="true" />
                   <span>{t.playersRangeEmoji}</span>
                 </div>
               </div>
 
               <div className="flex items-start gap-4 mb-3">
                 <div className="w-13 h-13 rounded-2xl bg-amber-600 flex items-center justify-center group-hover:scale-105 transition-transform shrink-0 shadow-lg shadow-amber-600/30">
-                  <Smile className="w-7 h-7 text-white" />
+                  <Smile className="w-7 h-7 text-white" aria-hidden="true" />
                 </div>
                 <div>
                   <h3 className="text-xl sm:text-2xl font-black text-white group-hover:text-amber-400 transition-colors">
@@ -349,11 +357,81 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
 
             <div className="mt-5 pt-3.5 border-t border-white/10 flex items-center justify-between">
               <span className="text-xs font-bold text-amber-400 group-hover:text-amber-300 transition-colors">
-                Play Now • 105+ Visual Riddles, Hints & Multiple Choices
+                Play Now • 105+ Visual Riddles, Hints &amp; Multiple Choices
               </span>
               <div className="w-8 h-8 rounded-full bg-amber-600 text-white flex items-center justify-center group-hover:translate-x-1 transition-transform shadow-lg">
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SEO & Feature Overview Section */}
+      <section className="w-full max-w-5xl px-4 py-8 mb-12 border-t border-white/10">
+        <div className="text-center mb-8">
+          <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight mb-2">
+            {t.aboutGleeTitle}
+          </h2>
+          <p className="text-slate-300 text-sm max-w-xl mx-auto">
+            {t.aboutGleeSubtitle}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="glass rounded-2xl p-5 border border-white/10 flex flex-col justify-between">
+            <div>
+              <div className="w-10 h-10 rounded-xl bg-orange-500/20 border border-orange-500/30 flex items-center justify-center text-orange-400 mb-3">
+                <Sparkles className="w-5 h-5" aria-hidden="true" />
+              </div>
+              <h3 className="font-bold text-white text-base mb-1.5">
+                {t.aboutFeature1Title}
+              </h3>
+              <p className="text-slate-400 text-xs leading-relaxed">
+                {t.aboutFeature1Desc}
+              </p>
+            </div>
+          </div>
+
+          <div className="glass rounded-2xl p-5 border border-white/10 flex flex-col justify-between">
+            <div>
+              <div className="w-10 h-10 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-3">
+                <Smartphone className="w-5 h-5" aria-hidden="true" />
+              </div>
+              <h3 className="font-bold text-white text-base mb-1.5">
+                {t.aboutFeature2Title}
+              </h3>
+              <p className="text-slate-400 text-xs leading-relaxed">
+                {t.aboutFeature2Desc}
+              </p>
+            </div>
+          </div>
+
+          <div className="glass rounded-2xl p-5 border border-white/10 flex flex-col justify-between">
+            <div>
+              <div className="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-3">
+                <CheckCircle2 className="w-5 h-5" aria-hidden="true" />
+              </div>
+              <h3 className="font-bold text-white text-base mb-1.5">
+                {t.aboutFeature3Title}
+              </h3>
+              <p className="text-slate-400 text-xs leading-relaxed">
+                {t.aboutFeature3Desc}
+              </p>
+            </div>
+          </div>
+
+          <div className="glass rounded-2xl p-5 border border-white/10 flex flex-col justify-between">
+            <div>
+              <div className="w-10 h-10 rounded-xl bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 mb-3">
+                <Globe2 className="w-5 h-5" aria-hidden="true" />
+              </div>
+              <h3 className="font-bold text-white text-base mb-1.5">
+                {t.aboutFeature4Title}
+              </h3>
+              <p className="text-slate-400 text-xs leading-relaxed">
+                {t.aboutFeature4Desc}
+              </p>
             </div>
           </div>
         </div>

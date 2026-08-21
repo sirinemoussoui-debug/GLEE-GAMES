@@ -1,18 +1,90 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Glee - Play. Laugh. Challenge Your Friends.</title>
-    <meta name="description" content="Glee is a multiplayer social gaming platform for friends, university students, and parties. Play the Spy Game directly in your browser." />
+    
+    <!-- Primary Page Metadata -->
+    <title>Glee – Free Multiplayer Party Games for Friends &amp; Groups</title>
+    <meta name="title" content="Glee – Free Multiplayer Party Games for Friends &amp; Groups" />
+    <meta name="description" content="Play fun multiplayer party games with friends, students, and groups. Enjoy Spy Game, Word Chain Bomb, Trivia, Emoji Decoder and more. Free to play." />
+    <meta name="keywords" content="multiplayer party games, free party games, games for friends, group games, games for students, university party games, social games, multiplayer games, party games online, games to play with friends, Glee games, spy game, word bomb, trivia duel, emoji decoder" />
+    <meta name="author" content="Glee" />
+    <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#090d16" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://glee-games.vercel.app/" />
+
+    <!-- Favicon & Touch Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://glee-games.vercel.app/" />
+    <meta property="og:title" content="Glee – Free Multiplayer Party Games" />
+    <meta property="og:description" content="Fun multiplayer party games for friends, students, parties and social gatherings." />
+    <meta property="og:site_name" content="Glee" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="ar_AR" />
+    <meta property="og:locale:alternate" content="fr_FR" />
+    <meta property="og:image" content="https://glee-games.vercel.app/favicon.svg" />
+
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://glee-games.vercel.app/" />
+    <meta name="twitter:title" content="Glee – Free Multiplayer Party Games for Friends &amp; Groups" />
+    <meta name="twitter:description" content="Fun multiplayer party games for friends, students, parties and social gatherings." />
+    <meta name="twitter:image" content="https://glee-games.vercel.app/favicon.svg" />
+
+    <!-- Typography Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://glee-games.vercel.app/#website",
+          "url": "https://glee-games.vercel.app/",
+          "name": "Glee",
+          "description": "Free Multiplayer Party Games for Friends & Groups",
+          "inLanguage": ["en", "ar", "fr"]
+        },
+        {
+          "@type": "WebApplication",
+          "@id": "https://glee-games.vercel.app/#webapp",
+          "name": "Glee - Social Party Games Hub",
+          "url": "https://glee-games.vercel.app/",
+          "applicationCategory": "GameApplication",
+          "operatingSystem": "All modern browsers",
+          "browserRequirements": "Requires JavaScript. Requires HTML5.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "category": "Free"
+          },
+          "featureList": [
+            "Spy Game pass and play undercover deduction",
+            "Who's Most Likely To group voting with 105+ questions",
+            "Word Chain Bomb fast ticking adrenaline game",
+            "Campus Trivia Duel multiplayer quiz showdown",
+            "Emoji Decoder visual riddle puzzle game"
+          ],
+          "inLanguage": ["en", "ar", "fr"]
+        }
+      ]
+    }
+    </script>
   </head>
   <body class="bg-slate-950 text-slate-100 min-h-screen selection:bg-purple-500 selection:text-white">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-

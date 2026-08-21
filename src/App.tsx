@@ -71,6 +71,13 @@ export default function App() {
   useEffect(() => {
     document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = language;
+    if (language === 'ar') {
+      document.title = 'جلي (Glee) – ألعاب جماعية مجانية للأصدقاء والجمعات';
+    } else if (language === 'fr') {
+      document.title = 'Glee – Jeux Festifs Multijoueurs Gratuits pour Amis & Groupes';
+    } else {
+      document.title = 'Glee – Free Multiplayer Party Games for Friends & Groups';
+    }
   }, [language]);
 
   const handleToggleSound = () => {
