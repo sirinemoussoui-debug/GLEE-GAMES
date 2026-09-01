@@ -7,10 +7,20 @@ import {
   Plus,
   Trash2,
   Crown,
+  RotateCcw,
+  Sparkles,
+  Shuffle,
 } from 'lucide-react';
 import { Player, Language, WhosMostLikelyQuestion } from '../../types';
 import { TRANSLATIONS } from '../../translations';
-import { WHOS_MOST_LIKELY_QUESTIONS } from '../../data/whosMostLikely';
+import {
+  WHOS_MOST_LIKELY_QUESTIONS,
+  WHOS_CATEGORIES,
+  getQuestionsByCategory,
+  getCategoryDisplayName,
+  getCategoryIcon,
+  getIntensityMeta,
+} from '../../data/whosMostLikely';
 import { sound } from '../../utils/sound';
 import { GameOverScreen } from '../GameOverScreen';
 
@@ -28,15 +38,17 @@ export const WhosMostLikelyGame: React.FC<WhosMostLikelyGameProps> = ({
   onChooseGame,
 }) => {
   const t = TRANSLATIONS[language];
+  const isRtl = language === 'ar';
 
   // Game state
   const [phase, setPhase] = useState<'setup' | 'voting' | 'results' | 'game_over'>('setup');
   const [playerNameInput, setPlayerNameInput] = useState('');
   const [totalRounds, setTotalRounds] = useState(10);
+  const [selectedCategory, setSelectedCategory] = useState('all');
   const [currentRound, setCurrentRound] = useState(1);
   const [currentQuestion, setCurrentQuestion] = useState<WhosMostLikelyQuestion | null>(null);
   const [usedQuestionIds, setUsedQuestionIds] = useState<string[]>([]);
-  
+
   // Votes tally for current question: { [playerId]: number }
   const [votes, setVotes] = useState<Record<string, number>>({});
   const [roundWinners, setRoundWinners] = useState<Player[]>([]);
@@ -49,20 +61,24 @@ export const WhosMostLikelyGame: React.FC<WhosMostLikelyGameProps> = ({
     '#059669', '#7C3AED',
   ];
 
+  // Helper to pick next non-repeated question from active category pool
+  const pickNextQuestion = (excludedIds: string[] = []): WhosMostLikelyQuestion => {
+    const categoryQuestions = getQuestionsByCategory(selectedCategory);
+    const available = categoryQuestions.filter((q) => !excludedIds.includes(q.id));
+    const pool = available.length > 0 ? available : categoryQuestions;
+    return pool[Math.floor(Math.random() * pool.length)];
+  };
+
   // Start a new game
   const handleStartGame = () => {
     if (players.length < 3) return;
     sound.playSuccess();
-    
-    // Pick first random question
-    const available = WHOS_MOST_LIKELY_QUESTIONS.filter((q) => !usedQuestionIds.includes(q.id));
-    const pool = available.length > 0 ? available : WHOS_MOST_LIKELY_QUESTIONS;
-    const randomQ = pool[Math.floor(Math.random() * pool.length)];
 
-    setCurrentQuestion(randomQ);
-    setUsedQuestionIds([randomQ.id]);
+    const firstQ = pickNextQuestion([]);
+    setCurrentQuestion(firstQ);
+    setUsedQuestionIds([firstQ.id]);
     setCurrentRound(1);
-    
+
     // Reset votes
     const initialVotes: Record<string, number> = {};
     players.forEach((p) => {
@@ -133,10 +149,24 @@ export const WhosMostLikelyGame: React.FC<WhosMostLikelyGameProps> = ({
     }));
   };
 
+  // Skip current question for another one
+  const handleSkipQuestion = () => {
+    sound.playPop(450);
+    const nextQ = pickNextQuestion(usedQuestionIds);
+    setCurrentQuestion(nextQ);
+    setUsedQuestionIds((prev) => [...prev, nextQ.id]);
+
+    const initialVotes: Record<string, number> = {};
+    players.forEach((p) => {
+      initialVotes[p.id] = 0;
+    });
+    setVotes(initialVotes);
+  };
+
   // Reveal results
   const handleRevealResults = () => {
     sound.playReveal();
-    
+
     // Find max votes
     let maxVotes = 0;
     Object.values(votes).forEach((v: number) => {
@@ -147,7 +177,7 @@ export const WhosMostLikelyGame: React.FC<WhosMostLikelyGameProps> = ({
     let winners: Player[] = [];
     if (maxVotes > 0) {
       winners = players.filter((p) => (votes[p.id] || 0) === maxVotes);
-      
+
       // Award points (+100 points for receiving most votes)
       const updated = players.map((p) => {
         const isWinner = winners.some((w) => w.id === p.id);
@@ -182,12 +212,9 @@ export const WhosMostLikelyGame: React.FC<WhosMostLikelyGameProps> = ({
     const nextRoundNum = currentRound + 1;
     setCurrentRound(nextRoundNum);
 
-    const available = WHOS_MOST_LIKELY_QUESTIONS.filter((q) => !usedQuestionIds.includes(q.id));
-    const pool = available.length > 0 ? available : WHOS_MOST_LIKELY_QUESTIONS;
-    const randomQ = pool[Math.floor(Math.random() * pool.length)];
-
-    setCurrentQuestion(randomQ);
-    setUsedQuestionIds((prev) => [...prev, randomQ.id]);
+    const nextQ = pickNextQuestion(usedQuestionIds);
+    setCurrentQuestion(nextQ);
+    setUsedQuestionIds((prev) => [...prev, nextQ.id]);
 
     const initialVotes: Record<string, number> = {};
     players.forEach((p) => {
@@ -238,12 +265,17 @@ export const WhosMostLikelyGame: React.FC<WhosMostLikelyGameProps> = ({
   // SETUP PHASE
   // ----------------------------------------------------
   if (phase === 'setup') {
+    const totalCount = WHOS_MOST_LIKELY_QUESTIONS.length;
+
     return (
       <div className="w-full max-w-xl mx-auto px-4 py-8 space-y-6 animate-in fade-in duration-300">
         <div className="text-center space-y-2">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-black uppercase tracking-wider">
             <Flame className="w-4 h-4 text-orange-400" />
             <span>{t.whoMostLikelyTitle}</span>
+            <span className="bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded-full text-[10px] font-bold">
+              {totalCount}+
+            </span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
             {t.whosSetupTitle}
@@ -279,7 +311,7 @@ export const WhosMostLikelyGame: React.FC<WhosMostLikelyGameProps> = ({
               <button
                 type="button"
                 onClick={handleAddSampleSquad}
-                className="text-xs text-purple-400 hover:text-purple-300 font-bold transition-colors cursor-pointer py-1 px-2 rounded-lg bg-purple-500/10"
+                className="text-xs text-purple-400 hover:text-purple-300 font-bold transition-colors cursor-pointer py-1 px-2.5 rounded-lg bg-purple-500/10"
               >
                 ✨ {t.presetSquad}
               </button>
@@ -287,7 +319,7 @@ export const WhosMostLikelyGame: React.FC<WhosMostLikelyGameProps> = ({
                 <button
                   type="button"
                   onClick={() => onUpdatePlayers([])}
-                  className="text-xs text-rose-400 hover:text-rose-300 font-bold transition-colors cursor-pointer py-1 px-2 rounded-lg bg-rose-500/10"
+                  className="text-xs text-rose-400 hover:text-rose-300 font-bold transition-colors cursor-pointer py-1 px-2.5 rounded-lg bg-rose-500/10"
                 >
                   {t.clearPlayers}
                 </button>
@@ -309,7 +341,7 @@ export const WhosMostLikelyGame: React.FC<WhosMostLikelyGameProps> = ({
                 {t.minPlayersWarning}
               </div>
             ) : (
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-56 overflow-y-auto pr-1">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-52 overflow-y-auto pr-1">
                 {players.map((p) => (
                   <div
                     key={p.id}
@@ -335,6 +367,54 @@ export const WhosMostLikelyGame: React.FC<WhosMostLikelyGameProps> = ({
                 ))}
               </div>
             )}
+          </div>
+
+          {/* Category / Theme Selector */}
+          <div className="space-y-2.5 pt-2 border-t border-white/10">
+            <div className="flex items-center justify-between">
+              <label className="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-purple-400" />
+                <span>{t.selectCategoryLabel}</span>
+              </label>
+              <span className="text-[11px] text-purple-300 font-bold bg-purple-500/10 px-2 py-0.5 rounded-full border border-purple-500/20">
+                {t.allCategoriesBadge}
+              </span>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5 max-h-48 overflow-y-auto pr-1">
+              {WHOS_CATEGORIES.map((cat) => {
+                const count = cat.id === 'all'
+                  ? WHOS_MOST_LIKELY_QUESTIONS.length
+                  : WHOS_MOST_LIKELY_QUESTIONS.filter((q) => q.category === cat.id).length;
+                const isSelected = selectedCategory === cat.id;
+
+                return (
+                  <button
+                    key={cat.id}
+                    type="button"
+                    onClick={() => {
+                      sound.playPop(540);
+                      setSelectedCategory(cat.id);
+                    }}
+                    className={`p-2 rounded-xl text-left border transition-all cursor-pointer flex items-center gap-2 ${
+                      isSelected
+                        ? 'bg-purple-600/30 border-purple-400 text-white shadow-md'
+                        : 'bg-white/5 border-white/5 text-slate-300 hover:bg-white/10 hover:text-white'
+                    }`}
+                  >
+                    <span className="text-base shrink-0">{cat.icon}</span>
+                    <div className="min-w-0 flex-1">
+                      <div className="text-xs font-bold truncate">
+                        {getCategoryDisplayName(cat.id, language)}
+                      </div>
+                      <div className="text-[10px] text-slate-400 font-medium">
+                        {count} Qs
+                      </div>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
           {/* Rounds Count */}
@@ -367,7 +447,7 @@ export const WhosMostLikelyGame: React.FC<WhosMostLikelyGameProps> = ({
           <button
             onClick={handleStartGame}
             disabled={players.length < 3}
-            className="w-full py-4 px-6 rounded-2xl bg-orange-600 hover:bg-orange-500 disabled:opacity-40 text-white font-black text-base orange-glow transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95"
+            className="w-full py-4 px-6 rounded-2xl bg-orange-600 hover:bg-orange-500 disabled:opacity-40 text-white font-black text-base orange-glow transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95 shadow-xl"
           >
             <Flame className="w-5 h-5" />
             <span>{t.startWhosGame}</span>
@@ -388,33 +468,62 @@ export const WhosMostLikelyGame: React.FC<WhosMostLikelyGameProps> = ({
   // VOTING PHASE
   // ----------------------------------------------------
   if (phase === 'voting') {
+    const intensity = currentQuestion?.intensity || 'light';
+    const intensityMeta = getIntensityMeta(intensity, language);
+    const categoryName = currentQuestion
+      ? getCategoryDisplayName(currentQuestion.category, language)
+      : '';
+    const categoryIcon = currentQuestion
+      ? getCategoryIcon(currentQuestion.category)
+      : '✨';
+
     return (
       <div className="w-full max-w-xl mx-auto px-4 py-6 space-y-6 animate-in fade-in duration-300">
         {/* Header Bar */}
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
+        <div className="flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             <span className="px-3 py-1 rounded-xl bg-purple-500/20 text-purple-400 text-xs font-black">
               {t.round} {currentRound} {t.of} {totalRounds}
             </span>
-            <span className="px-2.5 py-1 rounded-xl bg-white/5 text-slate-400 text-xs font-bold">
-              {currentQuestion?.category?.toUpperCase()}
+            <span className="px-2.5 py-1 rounded-xl bg-white/10 text-slate-200 text-xs font-bold flex items-center gap-1">
+              <span>{categoryIcon}</span>
+              <span>{categoryName}</span>
+            </span>
+            <span
+              className={`px-2.5 py-1 rounded-xl border text-[11px] font-bold ${intensityMeta.colorClass}`}
+            >
+              {intensityMeta.label}
             </span>
           </div>
 
-          <button
-            onClick={onChooseGame}
-            className="text-xs text-slate-400 hover:text-white font-bold transition-colors cursor-pointer"
-          >
-            {t.chooseAnotherGame}
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={handleSkipQuestion}
+              title="Skip question"
+              className="p-1.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer flex items-center gap-1 text-xs font-bold"
+            >
+              <Shuffle className="w-3.5 h-3.5" />
+            </button>
+            <button
+              onClick={onChooseGame}
+              className="text-xs text-slate-400 hover:text-white font-bold transition-colors cursor-pointer"
+            >
+              {t.chooseAnotherGame}
+            </button>
+          </div>
         </div>
 
         {/* Big Question Card */}
         <div className="glass rounded-3xl p-6 sm:p-8 space-y-4 shadow-2xl border-2 border-purple-500/30 text-center relative overflow-hidden">
-          <div className="w-12 h-12 mx-auto rounded-2xl bg-purple-600/30 border border-purple-400/40 flex items-center justify-center text-2xl">
-            🔥
+          <div className="w-12 h-12 mx-auto rounded-2xl bg-purple-600/30 border border-purple-400/40 flex items-center justify-center text-2xl shadow-inner">
+            {categoryIcon}
           </div>
-          <h2 className="text-xl sm:text-2xl font-black text-white leading-snug">
+          <h2
+            className={`text-xl sm:text-2xl font-black text-white leading-snug ${
+              isRtl ? 'font-arabic' : ''
+            }`}
+            dir={isRtl ? 'rtl' : 'ltr'}
+          >
             {getQuestionText(currentQuestion)}
           </h2>
           <p className="text-xs text-purple-300 font-bold">
@@ -511,13 +620,16 @@ export const WhosMostLikelyGame: React.FC<WhosMostLikelyGameProps> = ({
           <span>{t.whoGotMostVotes}</span>
         </div>
 
-        <h3 className="text-lg font-bold text-slate-200">
+        <h3
+          className={`text-lg font-bold text-slate-200 ${isRtl ? 'font-arabic' : ''}`}
+          dir={isRtl ? 'rtl' : 'ltr'}
+        >
           "{getQuestionText(currentQuestion)}"
         </h3>
 
         {/* Winner Avatars */}
         {roundWinners.length > 0 ? (
-          <div className="flex items-center justify-center gap-4 py-2">
+          <div className="flex items-center justify-center gap-4 py-2 flex-wrap">
             {roundWinners.map((w) => (
               <div key={w.id} className="flex flex-col items-center animate-bounce">
                 <div

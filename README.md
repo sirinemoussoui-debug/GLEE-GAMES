@@ -1,6 +1,6 @@
- Glee 🎮
+# Kari Games 🎮
 
-Glee is a multiplayer social party games web application designed for friends, students, parties, and social gatherings.                                                      
+Kari Games is a multiplayer social party games web application designed for friends, students, parties, and social gatherings.                                                      
  
 *Features=
 - 🎮 Multiplayer party games

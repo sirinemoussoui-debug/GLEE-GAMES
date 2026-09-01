@@ -77,25 +77,54 @@ export interface RoundHistory {
 // ----------------------------------------------------
 // NEW GAME 1: WHO'S MOST LIKELY TO
 // ----------------------------------------------------
+export type MostLikelyIntensity = 'light' | 'embarrassing' | 'bold' | 'chaotic';
+
 export interface WhosMostLikelyQuestion {
   id: string;
   category: string;
+  intensity?: MostLikelyIntensity;
   en: string;
   ar: string;
   fr: string;
+}
+
+export interface WhosCategoryMeta {
+  id: string;
+  icon: string;
+  nameEn: string;
+  nameAr: string;
+  nameFr: string;
 }
 
 export type WhosMostLikelyPhase = 'setup' | 'voting' | 'results' | 'game_over';
 
 export interface WhosMostLikelySettings {
   totalRounds: number;
-  selectedCategories: string[];
+  selectedCategory: string;
   pointsPerVote: number;
 }
 
 // ----------------------------------------------------
 // NEW GAME 2: WORD CHAIN BOMB
 // ----------------------------------------------------
+export type WordBombDifficulty = 'easy' | 'medium' | 'hard';
+
+export interface WordBombChallenge {
+  id: string;
+  category: string;
+  difficulty: WordBombDifficulty;
+  icon: string;
+  letterEn?: string;
+  letterAr?: string;
+  letterFr?: string;
+  promptEn: string;
+  promptAr: string;
+  promptFr: string;
+  starterWordsEn?: string[];
+  starterWordsAr?: string[];
+  starterWordsFr?: string[];
+}
+
 export interface WordBombCategory {
   id: string;
   icon: string;
@@ -160,16 +189,19 @@ export interface EmojiPuzzle {
   en: {
     answer: string;
     options: string[];
+    explanation?: string;
     hint?: string;
   };
   ar: {
     answer: string;
     options: string[];
+    explanation?: string;
     hint?: string;
   };
   fr: {
     answer: string;
     options: string[];
+    explanation?: string;
     hint?: string;
   };
 }

@@ -1,6 +1,6 @@
 {
-  "name": "Glee - Multiplayer Social Party Games",
-  "description": "A vibrant multiplayer social gaming platform for friends and parties, featuring the Spy Game with multilingual support (EN, AR, FR), pass-and-play mechanics, and dynamic scoring.",
+  "name": "Kari Games - Multiplayer Social Party Games",
+  "description": "A vibrant multiplayer social party games hub featuring Spy Game, Emoji Decoder, Who's Most Likely, Word Bomb, and Trivia Duel with trilingual support (EN, AR, FR), pass-and-play mechanics, and dynamic scoring.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

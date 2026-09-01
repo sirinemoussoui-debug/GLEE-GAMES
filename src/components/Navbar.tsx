@@ -3,6 +3,7 @@ import { Volume2, VolumeX, Globe, HelpCircle, Home, Sparkles } from 'lucide-reac
 import { Language } from '../types';
 import { TRANSLATIONS } from '../translations';
 import { sound } from '../utils/sound';
+import { KariIconMark, KariLetterA } from './common/KariLogo';
 
 interface NavbarProps {
   language: Language;
@@ -34,15 +35,20 @@ export const Navbar: React.FC<NavbarProps> = ({
             sound.playPop(520);
             onGoHome();
           }}
-          className="flex items-center gap-3 group text-left cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 rounded-xl p-1"
-          aria-label="Glee Home"
+          className="flex items-center gap-2.5 group text-start cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 rounded-xl p-1"
+          aria-label="Kari Games Home"
         >
-          <div className="w-10 h-10 bg-orange-600 rounded-xl flex items-center justify-center font-black text-2xl text-white orange-glow group-hover:scale-105 transition-transform shrink-0">
-            G
+          <KariIconMark size={38} className="group-hover:scale-105 transition-transform" />
+          <div className="flex items-baseline gap-1.5">
+            <span className="text-xl sm:text-2xl font-black tracking-tight flex items-center bg-gradient-to-r from-orange-400 via-amber-300 to-purple-400 bg-clip-text text-transparent">
+              <span>K</span>
+              <KariLetterA />
+              <span>RI</span>
+            </span>
+            <span className="text-[10px] sm:text-xs font-black tracking-widest uppercase px-2 py-0.5 rounded-md bg-orange-500/20 text-orange-300 border border-orange-500/30">
+              {language === 'ar' ? 'غيمز' : 'GAMES'}
+            </span>
           </div>
-          <span className="text-2xl font-black tracking-tight bg-gradient-to-r from-orange-400 via-amber-300 to-purple-400 bg-clip-text text-transparent">
-            {t.appName}
-          </span>
         </button>
 
         {/* Action Controls Zone */}

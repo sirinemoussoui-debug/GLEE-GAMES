@@ -27,6 +27,7 @@ import {
 } from './types';
 import { WORD_CATEGORIES, DEFAULT_AVATARS } from './data/words';
 import { sound } from './utils/sound';
+import { KariLetterA, KariIconMark } from './components/common/KariLogo';
 
 export default function App() {
   const [language, setLanguage] = useState<Language>('en');
@@ -61,7 +62,7 @@ export default function App() {
   const [settings, setSettings] = useState<SpyGameSettings>({
     totalRounds: 3,
     timerSeconds: 120, // 2 minutes default
-    selectedCategories: ['places', 'food', 'campus', 'objects'],
+    selectedCategories: ['places', 'countries', 'food', 'animals', 'wonders', 'cinema', 'arts', 'student', 'objects'],
     spyCount: 1,
     allowSpyGuess: true,
     customWords: [],
@@ -72,11 +73,11 @@ export default function App() {
     document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = language;
     if (language === 'ar') {
-      document.title = 'جلي (Glee) – ألعاب جماعية مجانية للأصدقاء والجمعات';
+      document.title = 'كاري غيمز – ألعاب جماعية مجانية للأصدقاء والمجموعات';
     } else if (language === 'fr') {
-      document.title = 'Glee – Jeux Festifs Multijoueurs Gratuits pour Amis & Groupes';
+      document.title = 'Kari Games – Jeux de groupe gratuits pour amis et joueurs';
     } else {
-      document.title = 'Glee – Free Multiplayer Party Games for Friends & Groups';
+      document.title = 'Kari Games – Free Multiplayer Party Games for Friends & Groups';
     }
   }, [language]);
 
@@ -435,8 +436,17 @@ export default function App() {
       />
 
       {/* Footer */}
-      <footer className="w-full py-4 text-center border-t border-white/5 text-xs text-slate-400">
-        <p>Glee — Play. Laugh. Challenge Your Friends.</p>
+      <footer className="w-full py-5 text-center border-t border-white/5 text-xs text-slate-400 flex flex-col sm:flex-row items-center justify-center gap-2">
+        <div className="flex items-center gap-1.5 font-bold text-slate-300">
+          <KariIconMark size={18} glow={false} />
+          <span className="flex items-center">
+            <span>K</span>
+            <KariLetterA className="w-[0.8em] h-[0.9em] mx-[0.01em]" />
+            <span>RI GAMES</span>
+          </span>
+        </div>
+        <span className="hidden sm:inline text-slate-600">•</span>
+        <p className="text-slate-400">Play. Laugh. Challenge Your Friends.</p>
       </footer>
     </div>
   );

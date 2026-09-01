@@ -1,16 +1,47 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
   <defs>
-    <linearGradient id="gleeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="kariGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#EA580C" />
       <stop offset="50%" stop-color="#F97316" />
-      <stop offset="100%" stop-color="#9333EA" />
+      <stop offset="100%" stop-color="#A855F7" />
     </linearGradient>
     <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#EA580C" flood-opacity="0.4" />
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#EA580C" flood-opacity="0.45" />
     </filter>
   </defs>
-  <rect width="100" height="100" rx="28" fill="#0b0f19" />
-  <rect x="4" y="4" width="92" height="92" rx="24" fill="url(#gleeGrad)" fill-opacity="0.15" stroke="url(#gleeGrad)" stroke-width="2" />
-  <path d="M 52 26 C 36 26 26 36 26 50 C 26 64 36 74 52 74 C 65 74 72 66 73 55 L 50 55 L 50 46 L 82 46 C 83 49 83 52 83 55 C 83 71 71 84 52 84 C 31 84 16 69 16 50 C 16 31 31 16 52 16 C 64 16 73 21 79 28 L 71 35 C 66 30 60 26 52 26 Z" fill="url(#gleeGrad)" filter="url(#glow)" />
-  <circle cx="76" cy="24" r="5" fill="#FBBF24" />
+
+  <!-- Background App Card Container -->
+  <rect width="100" height="100" rx="28" fill="#090d16" />
+  <rect x="3" y="3" width="94" height="94" rx="26" fill="url(#kariGrad)" fill-opacity="0.12" stroke="url(#kariGrad)" stroke-width="2.5" />
+
+  <!-- The Iconic Smiling 'A' Brand Glyph -->
+  <g filter="url(#glow)">
+    <!-- Outer 'A' Body -->
+    <path
+      d="M 50 16 C 53.5 16 56.5 18 58 21.5 L 82.5 72 C 84.5 76 81.5 81 77 81 L 67 81 C 64 81 61.5 79 60 76 L 56 68 L 44 68 L 40 76 C 38.5 79 36 81 33 81 L 23 81 C 18.5 81 15.5 76 17.5 72 L 42 21.5 C 43.5 18 46.5 16 50 16 Z"
+      fill="url(#kariGrad)"
+    />
+
+    <!-- Inner Triangular Face Cavity -->
+    <path
+      d="M 50 33 L 60.5 58 L 39.5 58 Z"
+      fill="#090d16"
+    />
+
+    <!-- Friendly Eyes -->
+    <circle cx="46.5" cy="46" r="2.4" fill="#FDBA74" />
+    <circle cx="53.5" cy="46" r="2.4" fill="#FDBA74" />
+
+    <!-- Subtle Smile Arc -->
+    <path
+      d="M 45 52 Q 50 56.5 55 52"
+      fill="none"
+      stroke="#FDBA74"
+      stroke-width="2.2"
+      stroke-linecap="round"
+    />
+  </g>
+
+  <!-- Top Right Sparkle Star -->
+  <circle cx="80" cy="20" r="4" fill="#FBBF24" />
 </svg>

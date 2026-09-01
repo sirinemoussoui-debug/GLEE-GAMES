@@ -12,10 +12,14 @@ import {
   X,
   Info,
   MapPin,
+  Globe,
   Utensils,
+  PawPrint,
+  Landmark,
+  Film,
+  Palette,
   GraduationCap,
   Package,
-  Film,
 } from 'lucide-react';
 import { Player, Language, SpyGameSettings, WordItem } from '../types';
 import { TRANSLATIONS } from '../translations';
@@ -46,10 +50,14 @@ export const SpySetup: React.FC<SpySetupProps> = ({
 
   const categoryIconMap: Record<string, React.ReactNode> = {
     MapPin: <MapPin className="w-4 h-4" />,
+    Globe: <Globe className="w-4 h-4" />,
     Utensils: <Utensils className="w-4 h-4" />,
+    PawPrint: <PawPrint className="w-4 h-4" />,
+    Landmark: <Landmark className="w-4 h-4" />,
+    Film: <Film className="w-4 h-4" />,
+    Palette: <Palette className="w-4 h-4" />,
     GraduationCap: <GraduationCap className="w-4 h-4" />,
     Package: <Package className="w-4 h-4" />,
-    Film: <Film className="w-4 h-4" />,
     Sparkles: <Sparkles className="w-4 h-4" />,
   };
 

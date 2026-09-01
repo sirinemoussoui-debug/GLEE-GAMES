@@ -1,758 +1,96 @@
-import { WhosMostLikelyQuestion } from '../types';
+import { WhosMostLikelyQuestion, WhosCategoryMeta, Language } from '../types';
+import { WHOS_CATEGORIES } from './most_likely/categories';
+import { CAMPUS_QUESTIONS } from './most_likely/campus';
+import { FUNNY_QUESTIONS } from './most_likely/funny';
+import { EMBARRASSING_QUESTIONS } from './most_likely/embarrassing';
+import { MYSTERIOUS_QUESTIONS } from './most_likely/mysterious';
+import { BOLD_QUESTIONS } from './most_likely/bold';
+import { CHAOTIC_QUESTIONS } from './most_likely/chaotic';
+import { FRIENDSHIP_QUESTIONS } from './most_likely/friendship';
+import { EVERYDAY_QUESTIONS } from './most_likely/everyday';
+import { PERSONALITY_QUESTIONS } from './most_likely/personality';
+import { ENTERTAINMENT_QUESTIONS } from './most_likely/entertainment';
+import { TRAVEL_QUESTIONS } from './most_likely/travel';
+import { FOOD_QUESTIONS } from './most_likely/food';
+import { HYPOTHETICAL_QUESTIONS } from './most_likely/hypothetical';
 
+export { WHOS_CATEGORIES };
+
+// MASTER 350+ QUESTIONS DATABASE
 export const WHOS_MOST_LIKELY_QUESTIONS: WhosMostLikelyQuestion[] = [
-  // Campus & Student Life
-  {
-    id: 'w1',
-    category: 'campus',
-    en: 'Who is most likely to fall asleep during a 9 AM lecture and snore loudly?',
-    ar: 'مين أكثر واحد ممكن ينام في محاضرة الصباح ويطلع صوت شخير؟',
-    fr: 'Qui est le plus susceptible de s\'endormir en amphi à 9h et de ronfler ?',
-  },
-  {
-    id: 'w2',
-    category: 'campus',
-    en: 'Who is most likely to pull an all-nighter before an exam and still get the highest grade?',
-    ar: 'مين أكثر واحد ممكن يسهر ليلة الامتحان بالكامل ويجيب أعلى علامة؟',
-    fr: 'Qui est le plus susceptible de faire une nuit blanche avant un examen et d\'avoir 20/20 ?',
-  },
-  {
-    id: 'w3',
-    category: 'campus',
-    en: 'Who is most likely to leave an entire group project until the last 2 hours?',
-    ar: 'مين أكثر واحد ممكن يأجل مشروع التخرج الجماعي لآخر ساعتين قبل التسليم؟',
-    fr: 'Qui est le plus susceptible de faire tout le projet de groupe dans les 2 dernières heures ?',
-  },
-  {
-    id: 'w4',
-    category: 'campus',
-    en: 'Who is most likely to argue passionately with a professor just to prove a point?',
-    ar: 'مين أكثر واحد ممكن يجادل الدكتور بنقاش فلسفي طويل بس عشان يثبت إنه صح؟',
-    fr: 'Qui est le plus susceptible de débattre avec le professeur juste pour avoir raison ?',
-  },
-  {
-    id: 'w5',
-    category: 'campus',
-    en: 'Who is most likely to accidentally walk into the wrong lecture hall and sit through the entire class?',
-    ar: 'مين أكثر واحد ممكن يدخل قاعة غلط بالغلط ويجلس يستمع للمحاضرة كاملة؟',
-    fr: 'Qui est le plus susceptible d\'entrer dans le mauvais cours et d\'y rester par gêne ?',
-  },
-  {
-    id: 'w6',
-    category: 'campus',
-    en: 'Who is most likely to spend all their monthly allowance on iced coffee and boba in the first 4 days?',
-    ar: 'مين أكثر واحد ممكن يصرف كل مصروفه الشهري على القهوة والمشروبات بأول 4 أيام؟',
-    fr: 'Qui est le plus susceptible de dépenser tout son budget en café glacé dès la première semaine ?',
-  },
-  {
-    id: 'w7',
-    category: 'campus',
-    en: 'Who is most likely to forget they had an exam until 15 minutes before it starts?',
-    ar: 'مين أكثر واحد ممكن ينسى إن عنده امتحان إلا قبل ربع ساعة من البداية؟',
-    fr: 'Qui est le plus susceptible d\'oublier un examen jusqu\'à 15 minutes avant le début ?',
-  },
-  {
-    id: 'w8',
-    category: 'campus',
-    en: 'Who is most likely to become a university campus legend or student council president?',
-    ar: 'مين أكثر واحد ممكن يصير أسطورة في الجامعة أو رئيس اتحاد الطلاب؟',
-    fr: 'Qui est le plus susceptible de devenir président du BDE ou une légende du campus ?',
-  },
-  {
-    id: 'w9',
-    category: 'campus',
-    en: 'Who is most likely to bring a full gourmet 3-course meal into a quiet library study zone?',
-    ar: 'مين أكثر واحد ممكن يجيب وجبة طعام كاملة ومقرمشة داخل أهدأ زاوية بالمكتبة؟',
-    fr: 'Qui est le plus susceptible d\'amener un festin complet dans la zone silencieuse de la BU ?',
-  },
-  {
-    id: 'w10',
-    category: 'campus',
-    en: 'Who is most likely to drop their pencil 10 times in a dead-silent exam hall?',
-    ar: 'مين أكثر واحد ممكن يطيح قلمه عشر مرات في قاعة امتحان هادئة تماماً؟',
-    fr: 'Qui est le plus susceptible de faire tomber son stylo 10 fois dans une salle d\'examen silencieuse ?',
-  },
-
-  // Party & Social Chaos
-  {
-    id: 'w11',
-    category: 'party',
-    en: 'Who is most likely to start a spontaneous dance circle at a gathering?',
-    ar: 'مين أكثر واحد ممكن فجأة يفتح حلبة رقص في أي جمعة؟',
-    fr: 'Qui est le plus susceptible de lancer un cercle de danse spontané en soirée ?',
-  },
-  {
-    id: 'w12',
-    category: 'party',
-    en: 'Who is most likely to lose their phone, keys, and jacket in the first hour of going out?',
-    ar: 'مين أكثر واحد ممكن يضيع جواله ومفاتيحه وجاكيته بأول ساعة من الخرجة؟',
-    fr: 'Qui est le plus susceptible de perdre ses clés, son téléphone et sa veste en 1h de soirée ?',
-  },
-  {
-    id: 'w13',
-    category: 'party',
-    en: 'Who is most likely to accidentally become best friends with the DJ or party host within 5 minutes?',
-    ar: 'مين أكثر واحد ممكن يصاحب الـ DJ أو صاحب المكان بخمس دقائق؟',
-    fr: 'Qui est le plus susceptible de devenir meilleur pote avec le DJ en 5 minutes ?',
-  },
-  {
-    id: 'w14',
-    category: 'party',
-    en: 'Who is most likely to be found hanging out with the host\'s cat or dog instead of socializing?',
-    ar: 'مين أكثر واحد ممكن تلاقيه جالس يلعب مع قطة أو كلب صاحب البيت وساحب على الناس؟',
-    fr: 'Qui est le plus susceptible de passer la soirée à caresser le chat de l\'hôte plutôt que de parler ?',
-  },
-  {
-    id: 'w15',
-    category: 'party',
-    en: 'Who is most likely to order 50 nuggets at 3 AM for everyone?',
-    ar: 'مين أكثر واحد ممكن يطلب 50 قطعة ناجتس الساعة 3 الفجر للكل؟',
-    fr: 'Qui est le plus susceptible de commander 50 nuggets à 3h du matin pour tout le monde ?',
-  },
-  {
-    id: 'w16',
-    category: 'party',
-    en: 'Who is most likely to give an emotional, tearful friendship speech in the middle of a party?',
-    ar: 'مين أكثر واحد ممكن يلقي خطاب مؤثر ويدمع عن معنى الصداقة بنص السهرة؟',
-    fr: 'Qui est le plus susceptible de faire un discours émouvant et plein de larmes sur l\'amitié en pleine fête ?',
-  },
-  {
-    id: 'w17',
-    category: 'party',
-    en: 'Who is most likely to leave the party without saying goodbye to anyone (the Irish exit)?',
-    ar: 'مين أكثر واحد ممكن يختفي من السهرة بدون ما يودع أي أحد؟',
-    fr: 'Qui est le plus susceptible de partir à l\'anglaise sans dire au revoir à personne ?',
-  },
-  {
-    id: 'w18',
-    category: 'party',
-    en: 'Who is most likely to accidentally break a glass while laughing too hard?',
-    ar: 'مين أكثر واحد ممكن يكسر كاس وهو يضحك بقوة؟',
-    fr: 'Qui est le plus susceptible de casser un verre en riant trop fort ?',
-  },
-  {
-    id: 'w19',
-    category: 'party',
-    en: 'Who is most likely to hijack the aux cord or Spotify queue and play weird throwback songs?',
-    ar: 'مين أكثر واحد ممكن يخطف سلك الموسيقى ويشغل أغاني قديمة غريبة؟',
-    fr: 'Qui est le plus susceptible de confisquer l\'enceinte pour passer de vieilles musiques bizarres ?',
-  },
-  {
-    id: 'w20',
-    category: 'party',
-    en: 'Who is most likely to suggest doing an escape room or midnight road trip right now?',
-    ar: 'مين أكثر واحد ممكن يقترح نسوي رحلة طريق أو لعبة هروب في نص الليل حالاً؟',
-    fr: 'Qui est le plus susceptible de proposer un escape game ou un road trip nocturne sur un coup de tête ?',
-  },
-
-  // Tech & Social Media Habits
-  {
-    id: 'w21',
-    category: 'habits',
-    en: 'Who is most likely to have 97 unread group chat messages and 4,000 unread emails?',
-    ar: 'مين أكثر واحد عنده آلاف الإيميلات غير المقروءة ومئات رسائل الواتساب المعلقة؟',
-    fr: 'Qui est le plus susceptible d\'avoir 4 000 emails non lus et 90 messages en attente ?',
-  },
-  {
-    id: 'w22',
-    category: 'habits',
-    en: 'Who is most likely to accidentally send a screenshot back to the person they took the screenshot of?',
-    ar: 'مين أكثر واحد ممكن يصور الشاشة ويرسل السكرين شوت لنفس الشخص اللي صوره بالغلط؟',
-    fr: 'Qui est le plus susceptible d\'envoyer la capture d\'écran à la personne concernée par erreur ?',
-  },
-  {
-    id: 'w23',
-    category: 'habits',
-    en: 'Who is most likely to have a daily screen time of over 11 hours on TikTok / Reels?',
-    ar: 'مين أكثر واحد مدة استخدام شاشته على تيك توك تتعدى 10 ساعات يومياً؟',
-    fr: 'Qui est le plus susceptible d\'avoir 11h de temps d\'écran quotidien sur TikTok / Reels ?',
-  },
-  {
-    id: 'w24',
-    category: 'habits',
-    en: 'Who is most likely to reply with "on my way" while still laying in bed wearing pajamas?',
-    ar: 'مين أكثر واحد يكتب "أنا في الطريق وجاي" وهو أصلاً لسا متغطي بسريره؟',
-    fr: 'Qui est le plus susceptible de répondre "j\'arrive" alors qu\'il est encore sous la couette en pyjama ?',
-  },
-  {
-    id: 'w25',
-    category: 'habits',
-    en: 'Who is most likely to become an unexpected viral influencer overnight by doing something silly?',
-    ar: 'مين أكثر واحد ممكن يصير تريند ومشهور فجأة بسبب موقف مضحك صوره؟',
-    fr: 'Qui est le plus susceptible de devenir influenceur viral du jour au lendemain grâce à une bêtise ?',
-  },
-  {
-    id: 'w26',
-    category: 'habits',
-    en: 'Who is most likely to lose their phone while holding it in their hand?',
-    ar: 'مين أكثر واحد ممكن يدور على جواله وهو ماسكه بيده؟',
-    fr: 'Qui est le plus susceptible de chercher son téléphone alors qu\'il l\'a dans la main ?',
-  },
-  {
-    id: 'w27',
-    category: 'habits',
-    en: 'Who is most likely to spend 45 minutes finding the perfect lighting for one photo?',
-    ar: 'مين أكثر واحد ممكن يجلس 40 دقيقة يدور على الإضاءة المناسبة لصورة واحدة؟',
-    fr: 'Qui est le plus susceptible de passer 45 minutes à chercher la bonne lumière pour une photo ?',
-  },
-  {
-    id: 'w28',
-    category: 'habits',
-    en: 'Who is most likely to buy something ridiculous after seeing it in a 3 AM targeted ad?',
-    ar: 'مين أكثر واحد ممكن يشتري شي غريب وغبي بسبب إعلان طلع له الفجر؟',
-    fr: 'Qui est le plus susceptible d\'acheter un gadget absurde à 3h du matin sur une pub Insta ?',
-  },
-  {
-    id: 'w29',
-    category: 'habits',
-    en: 'Who is most likely to have their phone battery constantly on 1%?',
-    ar: 'مين أكثر واحد نسبة شحن جواله دائماً وأبداً 1%؟',
-    fr: 'Qui est le plus susceptible d\'avoir constamment son téléphone à 1% de batterie ?',
-  },
-  {
-    id: 'w30',
-    category: 'habits',
-    en: 'Who is most likely to send a 7-minute voice note instead of typing a simple sentence?',
-    ar: 'مين أكثر واحد يرسل فويس نوت مدتها 7 دقائق بدل ما يكتب جملة واحدة؟',
-    fr: 'Qui est le plus susceptible d\'envoyer un message vocal de 7 minutes pour dire un truc simple ?',
-  },
-
-  // Future & Success Predictions
-  {
-    id: 'w31',
-    category: 'future',
-    en: 'Who is most likely to found a billion-dollar tech startup in their garage?',
-    ar: 'مين أكثر واحد ممكن يبدأ شركة ناشئة وتصير قيمتها مليارات الدولارات؟',
-    fr: 'Qui est le plus susceptible de créer une startup valant des milliards dans son garage ?',
-  },
-  {
-    id: 'w32',
-    category: 'future',
-    en: 'Who is most likely to move to a remote tropical island and open a surf shop?',
-    ar: 'مين أكثر واحد ممكن يهاجر لجزيرة استوائية ويفتح محل ركوب أمواج؟',
-    fr: 'Qui est le plus susceptible de tout plaquer pour ouvrir une cabane de surf sur une île ?',
-  },
-  {
-    id: 'w33',
-    category: 'future',
-    en: 'Who is most likely to write a bestselling tell-all autobiography exposing everyone?',
-    ar: 'مين أكثر واحد ممكن يألف كتاب مذكرات يبيع ملايين النسخ ويفضح فيه أصحابه؟',
-    fr: 'Qui est le plus susceptible d\'écrire une autobiographie à succès en révélant les secrets de tout le monde ?',
-  },
-  {
-    id: 'w34',
-    category: 'future',
-    en: 'Who is most likely to win the lottery and not tell anyone, but suddenly show up in a supercar?',
-    ar: 'مين أكثر واحد ممكن يربح اليانصيب وما يقول لأحد وفجأة يجي بسيارة فيراري؟',
-    fr: 'Qui est le plus susceptible de gagner au loto en secret et d\'arriver en supercar sans explication ?',
-  },
-  {
-    id: 'w35',
-    category: 'future',
-    en: 'Who is most likely to become a famous chef with their own cooking show?',
-    ar: 'مين أكثر واحد ممكن يصير شيف مشهور وعنده برنامج طبخ خاص فيه؟',
-    fr: 'Qui est le plus susceptible d\'avoir sa propre émission culinaire à la télévision ?',
-  },
-  {
-    id: 'w36',
-    category: 'future',
-    en: 'Who is most likely to accidentally become the president or prime minister of a country?',
-    ar: 'مين أكثر واحد ممكن يصير رئيس دولة بالصدفة البحتة؟',
-    fr: 'Qui est le plus susceptible de devenir président par pur concours de circonstances ?',
-  },
-  {
-    id: 'w37',
-    category: 'future',
-    en: 'Who is most likely to adopt 10 stray dogs and cats within the next 5 years?',
-    ar: 'مين أكثر واحد ممكن يتبنى 10 قطط وكلاب في بيته بالسنوات الجاية؟',
-    fr: 'Qui est le plus susceptible d\'adopter 10 chiens et chats abandonnés d\'ici 5 ans ?',
-  },
-  {
-    id: 'w38',
-    category: 'future',
-    en: 'Who is most likely to be the first human on a commercial mission to Mars?',
-    ar: 'مين أكثر واحد ممكن يكون أول مسافر في رحلة سياحية لكوكب المريخ؟',
-    fr: 'Qui est le plus susceptible d\'embarquer sur le premier vol touristique vers Mars ?',
-  },
-  {
-    id: 'w39',
-    category: 'future',
-    en: 'Who is most likely to end up on a reality TV game show and win it all?',
-    ar: 'مين أكثر واحد ممكن يشارك ببرنامج تلفزيون واقع ويفوز بالمركز الأول؟',
-    fr: 'Qui est le plus susceptible de participer à une télé-réalité d\'aventure et de gagner ?',
-  },
-  {
-    id: 'w40',
-    category: 'future',
-    en: 'Who is most likely to retire at age 35 by inventing something ridiculous?',
-    ar: 'مين أكثر واحد ممكن يتقاعد بعمر 35 سنة باختراع شي مضحك بس عبقري؟',
-    fr: 'Qui est le plus susceptible de prendre sa retraite à 35 ans grâce à une invention farfelue ?',
-  },
-
-  // Survival & Action Adventures
-  {
-    id: 'w41',
-    category: 'survival',
-    en: 'Who is most likely to survive the longest in a zombie apocalypse?',
-    ar: 'مين أكثر واحد ممكن يعيش أطول فترة لو صار هجوم زومبي حقيقي؟',
-    fr: 'Qui est le plus susceptible de survivre le plus longtemps dans une apocalypse zombie ?',
-  },
-  {
-    id: 'w42',
-    category: 'survival',
-    en: 'Who is most likely to get eliminated first in a reality survival show on a deserted island?',
-    ar: 'مين أكثر واحد ممكن يستسلم وينطرد أول يوم في برنامج بقاء على جزيرة مهجورة؟',
-    fr: 'Qui est le plus susceptible de se faire éliminer au premier jour sur Koh-Lanta ?',
-  },
-  {
-    id: 'w43',
-    category: 'survival',
-    en: 'Who is most likely to successfully befriend a bear or wild wolf in the forest?',
-    ar: 'مين أكثر واحد ممكن يقنع دب أو ذئب مفترس يصير صديقه بالغابة؟',
-    fr: 'Qui est le plus susceptible de se faire ami avec un ours en forêt ?',
-  },
-  {
-    id: 'w44',
-    category: 'survival',
-    en: 'Who is most likely to get completely lost even with Google Maps turned on?',
-    ar: 'مين أكثر واحد ممكن يضيع بالشارع حتى وجوجل ماب شغال بيده؟',
-    fr: 'Qui est le plus susceptible de se perdre même avec le GPS allumé ?',
-  },
-  {
-    id: 'w45',
-    category: 'survival',
-    en: 'Who is most likely to scream at the top of their lungs because of a tiny harmless bug?',
-    ar: 'مين أكثر واحد يصرخ بأعلى صوته لو شاف حشرة صغيرة غير مؤذية؟',
-    fr: 'Qui est le plus susceptible de crier comme un fou à la vue d\'une minuscule araignée ?',
-  },
-  {
-    id: 'w46',
-    category: 'survival',
-    en: 'Who is most likely to know random emergency survival hacks like picking locks or making fires?',
-    ar: 'مين أكثر واحد يعرف حيل نجاة عشوائية مثل فتح الأقفال وإشعال النار بالحجر؟',
-    fr: 'Qui est le plus susceptible de connaître des techniques de survie bizarres comme crocheter une serrure ?',
-  },
-  {
-    id: 'w47',
-    category: 'survival',
-    en: 'Who is most likely to accidentally set off the fire alarm while making toast or popcorn?',
-    ar: 'مين أكثر واحد يشغل إنذار الحريق وهو يحمص توست أو يسوي فشار؟',
-    fr: 'Qui est le plus susceptible de déclencher l\'alarme incendie en faisant des toasts ?',
-  },
-  {
-    id: 'w48',
-    category: 'survival',
-    en: 'Who is most likely to attempt a dangerous parkour stunt over a sofa and fail miserably?',
-    ar: 'مين أكثر واحد ممكن يسوي حركة باركور فوق الكنبة ويفشل ويطيح بشكل مضحك؟',
-    fr: 'Qui est le plus susceptible de tenter un salto au-dessus du canapé et de se rétamer ?',
-  },
-  {
-    id: 'w49',
-    category: 'survival',
-    en: 'Who is most likely to jump into cold sea water fully clothed just for a dare?',
-    ar: 'مين أكثر واحد ممكن ينط في البحر بملابسه كاملة عشان تحدي من أصحابه؟',
-    fr: 'Qui est le plus susceptible de sauter dans la mer glacée tout habillé sur un simple cap ou pas cap ?',
-  },
-  {
-    id: 'w50',
-    category: 'survival',
-    en: 'Who is most likely to lock themselves out of their own house at 2 AM?',
-    ar: 'مين أكثر واحد ممكن يقفل باب البيت والمفتاح داخله الساعة 2 بالليل؟',
-    fr: 'Qui est le plus susceptible de s\'enfermer dehors sans clés au milieu de la nuit ?',
-  },
-
-  // Food & Quirks
-  {
-    id: 'w51',
-    category: 'quirks',
-    en: 'Who is most likely to eat pizza for breakfast, lunch, and dinner 3 days in a row?',
-    ar: 'مين أكثر واحد ممكن يفطر ويتغدى ويتعشى بيتزا 3 أيام متتالية بدون ملل؟',
-    fr: 'Qui est le plus susceptible de manger de la pizza matin, midi et soir pendant 3 jours ?',
-  },
-  {
-    id: 'w52',
-    category: 'quirks',
-    en: 'Who is most likely to put hot sauce or ketchup on literally every dish they eat?',
-    ar: 'مين أكثر واحد يحط شطة حارة أو كتشب على أي أكل حتى لو كان حلى؟',
-    fr: 'Qui est le plus susceptible de mettre de la sauce piquante ou du ketchup sur absolument tout ?',
-  },
-  {
-    id: 'w53',
-    category: 'quirks',
-    en: 'Who is most likely to spend 30 minutes reading the entire menu and then order the exact same thing as always?',
-    ar: 'مين أكثر واحد يقرأ المنيو نصف ساعة وبالأخير يطلب نفس الوجبة اللي يطلبها كل مرة؟',
-    fr: 'Qui est le plus susceptible de lire toute la carte pendant 30 min pour commander la même chose que d\'habitude ?',
-  },
-  {
-    id: 'w54',
-    category: 'quirks',
-    en: 'Who is most likely to steal french fries from someone else\'s plate after saying "I\'m not hungry"?',
-    ar: 'مين أكثر واحد يقول "أنا مو جيعان" وبعد دقيقة يسرق بطاطس من صحنك؟',
-    fr: 'Qui est le plus susceptible de dire "je n\'ai pas faim" puis de piquer des frites dans ton assiette ?',
-  },
-  {
-    id: 'w55',
-    category: 'quirks',
-    en: 'Who is most likely to order delivery food from a restaurant that is literally 200 meters away?',
-    ar: 'مين أكثر واحد يطلب دليفري من مطعم يبعد عن بيته دقيقة مشي بس من الكسل؟',
-    fr: 'Qui est le plus susceptible de se faire livrer un repas d\'un resto situé à 200m de chez lui ?',
-  },
-  {
-    id: 'w56',
-    category: 'quirks',
-    en: 'Who is most likely to cry during an animated Disney or Pixar movie?',
-    ar: 'مين أكثر واحد ممكن تدمع عيونه وهو يتفرج فيلم ديزني أو كرتون مؤثر؟',
-    fr: 'Qui est le plus susceptible de pleurer devant un film d\'animation Pixar ou Disney ?',
-  },
-  {
-    id: 'w57',
-    category: 'quirks',
-    en: 'Who is most likely to talk to inanimate objects like their car or computer when they malfunction?',
-    ar: 'مين أكثر واحد يكلم سيارته أو لابتوبه لما يعلق ويعاتبهم وكأنهم أشخاص؟',
-    fr: 'Qui est le plus susceptible de disputer son ordinateur ou sa voiture quand ils ne marchent pas ?',
-  },
-  {
-    id: 'w58',
-    category: 'quirks',
-    en: 'Who is most likely to laugh at the most inappropriate, serious moments?',
-    ar: 'مين أكثر واحد تجيه نوبة ضحك في أكثر المواقف الجدية والمحرجة؟',
-    fr: 'Qui est le plus susceptible d\'avoir un fou rire au moment le plus inapproprié et sérieux ?',
-  },
-  {
-    id: 'w59',
-    category: 'quirks',
-    en: 'Who is most likely to sing dramatically at the top of their lungs in the shower or car?',
-    ar: 'مين أكثر واحد يغني بأعلى صوته وكأنه بحفل غنائي وهو يسوق أو بالحمام؟',
-    fr: 'Qui est le plus susceptible de chanter à tue-tête dans sa voiture comme s\'il était en plein concert ?',
-  },
-  {
-    id: 'w60',
-    category: 'quirks',
-    en: 'Who is most likely to remember someone\'s birthday from 8 years ago without checking Facebook?',
-    ar: 'مين أكثر واحد ذاكرته خارقة ويتذكر تواريخ ميلاد الجميع وتفاصيل صغيرة من زمان؟',
-    fr: 'Qui est le plus susceptible de se souvenir de l\'anniversaire d\'une personne rencontré il y a 5 ans ?',
-  },
-
-  // Drama & Romance
-  {
-    id: 'w61',
-    category: 'romance',
-    en: 'Who is most likely to fall in love after making 3 seconds of eye contact on the subway?',
-    ar: 'مين أكثر واحد ممكن يقع في الحب بسبب نظرة عابرة مدتها 3 ثوان في المترو؟',
-    fr: 'Qui est le plus susceptible de tomber amoureux après 3 secondes de regard dans le métro ?',
-  },
-  {
-    id: 'w62',
-    category: 'romance',
-    en: 'Who is most likely to accidentally like an Instagram photo from 2017 while stalking?',
-    ar: 'مين أكثر واحد ممكن يحط لايك بالغلط على صورة قديمة من 2017 وهو يتصفح بروفايل شخص؟',
-    fr: 'Qui est le plus susceptible de liker par erreur une photo Instagram de 2017 en stalkant ?',
-  },
-  {
-    id: 'w63',
-    category: 'romance',
-    en: 'Who is most likely to overthink a two-word text message for 4 hours?',
-    ar: 'مين أكثر واحد يقعد يحلل رسالة من كلمتين لمدة 4 ساعات مع أصحابه؟',
-    fr: 'Qui est le plus susceptible de suranalyser un SMS de deux mots pendant 4 heures ?',
-  },
-  {
-    id: 'w64',
-    category: 'romance',
-    en: 'Who is most likely to plan a dream wedding Pinterest board in secret?',
-    ar: 'مين أكثر واحد مسوي بورد سري لحفل زفافه المستقبلي وكل تفاصيل الديكور؟',
-    fr: 'Qui est le plus susceptible d\'avoir un tableau Pinterest secret pour son futur mariage ?',
-  },
-  {
-    id: 'w65',
-    category: 'romance',
-    en: 'Who is most likely to ghost someone and then reappear 6 months later like nothing happened?',
-    ar: 'مين أكثر واحد ممكن يختفي فجأة وبعد 6 أشهر يرجع يسلم وكأن شيئاً لم يكن؟',
-    fr: 'Qui est le plus susceptible de ghoster quelqu\'un puis de réapparaître 6 mois après comme si de rien n\'était ?',
-  },
-  {
-    id: 'w66',
-    category: 'romance',
-    en: 'Who is most likely to give incredible romantic relationship advice but be completely single?',
-    ar: 'مين أكثر واحد يعطي نصائح عاطفية أسطورية لأصحابه وهو أصلاً حكيم وسينجل؟',
-    fr: 'Qui est le plus susceptible de donner les meilleurs conseils de couple tout en étant célibataire endurci ?',
-  },
-  {
-    id: 'w67',
-    category: 'romance',
-    en: 'Who is most likely to buy flowers for themselves because they deserve it?',
-    ar: 'مين أكثر واحد ممكن يشتري ورد لنفسه كهدية تقديراً للذات؟',
-    fr: 'Qui est le plus susceptible de s\'offrir un gros bouquet de fleurs à lui-même ?',
-  },
-  {
-    id: 'w68',
-    category: 'romance',
-    en: 'Who is most likely to create a shared Spotify playlist on the first date?',
-    ar: 'مين أكثر واحد يسوي قائمة أغاني مشتركة على سبوتيفاي من أول لقاء؟',
-    fr: 'Qui est le plus susceptible de créer une playlist Spotify commune dès le premier rencard ?',
-  },
-  {
-    id: 'w69',
-    category: 'romance',
-    en: 'Who is most likely to accidentally reveal a surprise party secret 10 minutes before it happens?',
-    ar: 'مين أكثر واحد يفضح مفاجأة حفلة عيد ميلاد قبل موعدها بربع ساعة بسبب زلة لسان؟',
-    fr: 'Qui est le plus susceptible de gaffer et de gâcher une fête surprise 10 minutes avant ?',
-  },
-  {
-    id: 'w70',
-    category: 'romance',
-    en: 'Who is most likely to re-read their old text conversations from 3 years ago and cringe?',
-    ar: 'مين أكثر واحد يرجع يقرأ محادثاته القديمة قبل 3 سنوات وينحرج من نفسه؟',
-    fr: 'Qui est le plus susceptible de relire ses anciens messages d\'il y a 3 ans et d\'avoir honte ?',
-  },
-
-  // Travel & Extreme Adventures
-  {
-    id: 'w71',
-    category: 'travel',
-    en: 'Who is most likely to book a spontaneous flight to another country with 2 hours notice?',
-    ar: 'مين أكثر واحد ممكن يحجز تذكرة طيران لدولة ثانية قبل موعد الرحلة بساعتين؟',
-    fr: 'Qui est le plus susceptible de réserver un vol pour l\'étranger 2 heures avant le décollage ?',
-  },
-  {
-    id: 'w72',
-    category: 'travel',
-    en: 'Who is most likely to pack 4 huge suitcases for a 2-day weekend getaway?',
-    ar: 'مين أكثر واحد يجهز 4 شنط سفر ضخمة لرحلة مدتها يومين بس في الويكند؟',
-    fr: 'Qui est le plus susceptible d\'emporter 3 grosses valises pour un week-end de 2 jours ?',
-  },
-  {
-    id: 'w73',
-    category: 'travel',
-    en: 'Who is most likely to try extreme bungee jumping or skydiving without hesitation?',
-    ar: 'مين أكثر واحد ممكن ينط قفز مظلي أو بانجي بدون أي تردد أو خوف؟',
-    fr: 'Qui est le plus susceptible de faire un saut en parachute sans la moindre hésitation ?',
-  },
-  {
-    id: 'w74',
-    category: 'travel',
-    en: 'Who is most likely to miss their boarding gate while eating a sandwich at the airport?',
-    ar: 'مين أكثر واحد ممكن تفوته الطائرة وهو جالس ياكل ساندويتش عند بوابة ثانية؟',
-    fr: 'Qui est le plus susceptible de rater son avion parce qu\'il mangeait un sandwich à l\'aéroport ?',
-  },
-  {
-    id: 'w75',
-    category: 'travel',
-    en: 'Who is most likely to try weird street food that nobody else dares to touch?',
-    ar: 'مين أكثر واحد يجرب أغرب أكلات الشارع الشعبية اللي الكل يخاف منها؟',
-    fr: 'Qui est le plus susceptible de goûter à la street food la plus bizarre en voyage ?',
-  },
-  {
-    id: 'w76',
-    category: 'travel',
-    en: 'Who is most likely to make friends with local residents and end up invited to a family wedding abroad?',
-    ar: 'مين أكثر واحد يصاحب أهل البلد في السفر ويعزموه على عرس عائلي؟',
-    fr: 'Qui est le plus susceptible de sympathiser avec des inconnus et d\'être invité à un mariage local à l\'étranger ?',
-  },
-  {
-    id: 'w77',
-    category: 'travel',
-    en: 'Who is most likely to lose their passport on the day they are flying back home?',
-    ar: 'مين أكثر واحد ممكن يضيع جواز سفره بيوم الرجعة للمطار؟',
-    fr: 'Qui est le plus susceptible d\'égarer son passeport le jour du vol retour ?',
-  },
-  {
-    id: 'w78',
-    category: 'travel',
-    en: 'Who is most likely to spend the entire vacation budget on souvenirs nobody needs?',
-    ar: 'مين أكثر واحد يصرف كل ميزانية السفر على هدايا ومغناطيس ثلاجة وتذكارات؟',
-    fr: 'Qui est le plus susceptible de dépenser tout son budget vacances en bibelots et souvenirs ?',
-  },
-  {
-    id: 'w79',
-    category: 'travel',
-    en: 'Who is most likely to take 1,500 photos in 2 days and post none of them?',
-    ar: 'مين أكثر واحد يصور 1500 صورة بيومين وما ينشر ولا وحدة منهم؟',
-    fr: 'Qui est le plus susceptible de prendre 1 500 photos en 2 jours et de n\'en poster aucune ?',
-  },
-  {
-    id: 'w80',
-    category: 'travel',
-    en: 'Who is most likely to climb a mountain just to see the sunrise at 5 AM?',
-    ar: 'مين أكثر واحد ممكن يتسلق جبل الفجر بس عشان يشوف الشروق؟',
-    fr: 'Qui est le plus susceptible de monter au sommet d\'une montagne à 5h du matin pour le lever de soleil ?',
-  },
-
-  // Daily Life & Funny Situations
-  {
-    id: 'w81',
-    category: 'daily',
-    en: 'Who is most likely to wave enthusiastically at a stranger thinking it was someone they know?',
-    ar: 'مين أكثر واحد يلوح بحماس لشخص غريب بالشارع وهو يحسبه صديقه؟',
-    fr: 'Qui est le plus susceptible de faire un grand signe à un parfait inconnu en le confondant avec un pote ?',
-  },
-  {
-    id: 'w82',
-    category: 'daily',
-    en: 'Who is most likely to push a door that clearly says "PULL" in giant letters?',
-    ar: 'مين أكثر واحد يدفع الباب اللي مكتوب عليه "اسحب" بحجم عملاق؟',
-    fr: 'Qui est le plus susceptible de pousser une porte où il est écrit "TIRER" en gros ?',
-  },
-  {
-    id: 'w83',
-    category: 'daily',
-    en: 'Who is most likely to accidentally wear mismatched shoes or socks to an important event?',
-    ar: 'مين أكثر واحد ممكن يلبس جوارب أو جزمة مختلفة لمناسبة مهمة بدون ما ينتبه؟',
-    fr: 'Qui est le plus susceptible de porter deux chaussettes dépareillées à un entretien ?',
-  },
-  {
-    id: 'w84',
-    category: 'daily',
-    en: 'Who is most likely to set 14 alarms every 5 minutes in the morning and snooze all of them?',
-    ar: 'مين أكثر واحد يحط 14 منبه كل 5 دقائق الصباح ويطفيهم كلهم ويكمل نوم؟',
-    fr: 'Qui est le plus susceptible de mettre 14 réveils d\'affilée et de tous les repousser ?',
-  },
-  {
-    id: 'w85',
-    category: 'daily',
-    en: 'Who is most likely to stay up until 4 AM watching YouTube tutorials on a topic they will never use?',
-    ar: 'مين أكثر واحد يسهر للفجر يتفرج وثائقي أو شروحات عن أشياء ما راح يستعملها بحياته؟',
-    fr: 'Qui est le plus susceptible de regarder des tutos YouTube bizarres jusqu\'à 4h du matin ?',
-  },
-  {
-    id: 'w86',
-    category: 'daily',
-    en: 'Who is most likely to say "I\'m going on a strict diet" and buy ice cream 2 hours later?',
-    ar: 'مين أكثر واحد يقول "من اليوم ببدا دايت قاسي" وبعد ساعتين يطلب آيس كريم وبرجر؟',
-    fr: 'Qui est le plus susceptible d\'annoncer un régime strict et d\'acheter de la glace 2 heures plus tard ?',
-  },
-  {
-    id: 'w87',
-    category: 'daily',
-    en: 'Who is most likely to have the messiest room but somehow know exactly where everything is?',
-    ar: 'مين أكثر واحد غرفته في قمة الفوضى لكن يعرف مكان كل غرض بالمليمتر؟',
-    fr: 'Qui est le plus susceptible d\'avoir une chambre en bazar total mais de savoir exactement où chaque chose est rangée ?',
-  },
-  {
-    id: 'w88',
-    category: 'daily',
-    en: 'Who is most likely to keep a plant alive for less than 72 hours?',
-    ar: 'مين أكثر واحد النبتة عنده ما تعيش أكثر من 3 أيام وتموت؟',
-    fr: 'Qui est le plus susceptible de faire mourir une plante en moins de 3 jours ?',
-  },
-  {
-    id: 'w89',
-    category: 'daily',
-    en: 'Who is most likely to spend 20 minutes looking for their glasses while wearing them on their head?',
-    ar: 'مين أكثر واحد يدور على نظارته وهي أصلاً على راسه؟',
-    fr: 'Qui est le plus susceptible de chercher ses lunettes alors qu\'elles sont sur sa tête ?',
-  },
-  {
-    id: 'w90',
-    category: 'daily',
-    en: 'Who is most likely to accidentally reply-all to a university-wide or company email?',
-    ar: 'مين أكثر واحد ممكن يضغط "رد على الجميع" بإيميل رسمي بالغلط؟',
-    fr: 'Qui est le plus susceptible de faire "Répondre à tous" sur un email officiel ?',
-  },
-
-  // Pop Culture & Gaming
-  {
-    id: 'w91',
-    category: 'gaming',
-    en: 'Who is most likely to rage-quit a video game and blame the controller/lag?',
-    ar: 'مين أكثر واحد يعصب ويقفل لعبة الفيديو ويلوم يد التحكم والنت؟',
-    fr: 'Qui est le plus susceptible de rager et d\'accuser la manette ou la connexion ?',
-  },
-  {
-    id: 'w92',
-    category: 'gaming',
-    en: 'Who is most likely to binge-watch an entire 10-episode TV series in a single Saturday?',
-    ar: 'مين أكثر واحد ممكن يخلص موسم كامل من 10 حلقات في يوم سبت واحد؟',
-    fr: 'Qui est le plus susceptible d\'avaler une saison complète de 10 épisodes en un samedi ?',
-  },
-  {
-    id: 'w93',
-    category: 'gaming',
-    en: 'Who is most likely to know the lyrics to every single song played on the radio?',
-    ar: 'مين أكثر واحد حافظ كلمات كل أغنية تشتغل في الراديو مهما كانت قديمة أو جديدة؟',
-    fr: 'Qui est le plus susceptible de connaître toutes les paroles de chaque musique à la radio ?',
-  },
-  {
-    id: 'w94',
-    category: 'gaming',
-    en: 'Who is most likely to cosplay as their favorite superhero at a movie premiere?',
-    ar: 'مين أكثر واحد ممكن يلبس زي بطله المفضل في افتتاح الفيلم بالسينما؟',
-    fr: 'Qui est le plus susceptible de venir en cosplay de super-héros à l\'avant-première au ciné ?',
-  },
-  {
-    id: 'w95',
-    category: 'gaming',
-    en: 'Who is most likely to spend 5 hours customizing their video game character\'s face and outfit?',
-    ar: 'مين أكثر واحد يجلس 5 ساعات يعدل شكل وملابس شخصية اللعبة قبل ما يبدأ يلعب؟',
-    fr: 'Qui est le plus susceptible de passer 5 heures à personnaliser l\'avatar de son personnage dans un jeu ?',
-  },
-  {
-    id: 'w96',
-    category: 'gaming',
-    en: 'Who is most likely to become a pro esports gamer or Twitch streamer?',
-    ar: 'مين أكثر واحد ممكن يصير لاعب ألعاب إلكترونية محترف أو ستريمر مشهور؟',
-    fr: 'Qui est le plus susceptible de devenir joueur e-sport pro ou streamer Twitch ?',
-  },
-  {
-    id: 'w97',
-    category: 'gaming',
-    en: 'Who is most likely to recite full movie quotes word-for-word while watching the movie?',
-    ar: 'مين أكثر واحد يقعد يقول كلام الفيلم مع الممثلين وهو يتفرج ويحرق على الكل؟',
-    fr: 'Qui est le plus susceptible de réciter les répliques du film mot pour mot pendant la séance ?',
-  },
-  {
-    id: 'w98',
-    category: 'gaming',
-    en: 'Who is most likely to collect expensive limited-edition sneaker drops or collectible figurines?',
-    ar: 'مين أكثر واحد يجمع أحذية نادرة أو مجسمات غالية لهواياته؟',
-    fr: 'Qui est le plus susceptible de collectionner des sneakers rares ou des figurines de collection ?',
-  },
-  {
-    id: 'w99',
-    category: 'gaming',
-    en: 'Who is most likely to start a passionate 2-hour debate on Marvel vs DC or anime?',
-    ar: 'مين أكثر واحد يفتح نقاش ناري بالساعات عن أفضل أنمي أو مارفل ضد دي سي؟',
-    fr: 'Qui est le plus susceptible de lancer un débat enflammé de 2h sur les animes ou Marvel vs DC ?',
-  },
-  {
-    id: 'w100',
-    category: 'gaming',
-    en: 'Who is most likely to win every single board game and party game tonight?',
-    ar: 'مين أكثر واحد يفوز بكل ألعاب الطاولة وتحديات الليلة بلا منازع؟',
-    fr: 'Qui est le plus susceptible de remporter tous les jeux de société ce soir ?',
-  },
-  {
-    id: 'w101',
-    category: 'campus',
-    en: 'Who is most likely to borrow a jacket or hoodie and never return it?',
-    ar: 'مين أكثر واحد يستعير جاكيت أو هودي وما يرجعه أبداً؟',
-    fr: 'Qui est le plus susceptible d\'emprunter un sweat et de ne jamais le rendre ?',
-  },
-  {
-    id: 'w102',
-    category: 'party',
-    en: 'Who is most likely to take 50 selfies and post only 1 on their close friends story?',
-    ar: 'مين أكثر واحد يصور 50 سيلفي وينزل صورة وحدة بس بالكلوز فريندز؟',
-    fr: 'Qui est le plus susceptible de prendre 50 selfies pour n\'en poster qu\'un seul en story amis proches ?',
-  },
-  {
-    id: 'w103',
-    category: 'survival',
-    en: 'Who is most likely to survive on only coffee and snacks for 48 straight hours?',
-    ar: 'مين أكثر واحد يعيش على القهوة والسناكس بس لمدة يومين متواصلين؟',
-    fr: 'Qui est le plus susceptible de tenir 48 heures uniquement au café et aux chips ?',
-  },
-  {
-    id: 'w104',
-    category: 'future',
-    en: 'Who is most likely to write an international hit song by accident?',
-    ar: 'مين أكثر واحد ممكن يألف أغنية بالصدفة وتصير تريند عالمي في كل مكان؟',
-    fr: 'Qui est le plus susceptible d\'écrire un hit musical mondial par pur accident ?',
-  },
-  {
-    id: 'w105',
-    category: 'habits',
-    en: 'Who is most likely to have 15 unfinished draft messages in their notes app?',
-    ar: 'مين أكثر واحد عنده في الملاحظات مسودات وكلام غير مكتمل من سنوات؟',
-    fr: 'Qui est le plus susceptible d\'avoir 15 brouillons de messages non envoyés dans son appli notes ?',
-  },
+  ...CAMPUS_QUESTIONS,
+  ...FUNNY_QUESTIONS,
+  ...EMBARRASSING_QUESTIONS,
+  ...MYSTERIOUS_QUESTIONS,
+  ...BOLD_QUESTIONS,
+  ...CHAOTIC_QUESTIONS,
+  ...FRIENDSHIP_QUESTIONS,
+  ...EVERYDAY_QUESTIONS,
+  ...PERSONALITY_QUESTIONS,
+  ...ENTERTAINMENT_QUESTIONS,
+  ...TRAVEL_QUESTIONS,
+  ...FOOD_QUESTIONS,
+  ...HYPOTHETICAL_QUESTIONS,
 ];
+
+/**
+ * Filter questions by category (or all if 'all' is provided)
+ */
+export function getQuestionsByCategory(categoryId: string = 'all'): WhosMostLikelyQuestion[] {
+  if (!categoryId || categoryId === 'all') {
+    return WHOS_MOST_LIKELY_QUESTIONS;
+  }
+  return WHOS_MOST_LIKELY_QUESTIONS.filter((q) => q.category === categoryId);
+}
+
+/**
+ * Get category display name
+ */
+export function getCategoryDisplayName(categoryId: string, lang: Language): string {
+  const cat = WHOS_CATEGORIES.find((c) => c.id === categoryId);
+  if (!cat) return categoryId;
+  if (lang === 'ar') return cat.nameAr;
+  if (lang === 'fr') return cat.nameFr;
+  return cat.nameEn;
+}
+
+/**
+ * Get category icon
+ */
+export function getCategoryIcon(categoryId: string): string {
+  const cat = WHOS_CATEGORIES.find((c) => c.id === categoryId);
+  return cat ? cat.icon : '✨';
+}
+
+/**
+ * Intensity label & color
+ */
+export function getIntensityMeta(intensity: string = 'light', lang: Language = 'en'): { label: string; colorClass: string; icon: string } {
+  switch (intensity) {
+    case 'embarrassing':
+      return {
+        label: lang === 'ar' ? 'موقف محرج 😳' : lang === 'fr' ? 'Gênant 😳' : 'Awkward 😳',
+        colorClass: 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20',
+        icon: '😳',
+      };
+    case 'bold':
+      return {
+        label: lang === 'ar' ? 'جرأة ورومانسية 🔥' : lang === 'fr' ? 'Audacieux 🔥' : 'Bold 🔥',
+        colorClass: 'bg-rose-500/10 text-rose-600 dark:text-rose-400 border-rose-500/20',
+        icon: '🔥',
+      };
+    case 'chaotic':
+      return {
+        label: lang === 'ar' ? 'قمة الفوضى 😈' : lang === 'fr' ? 'Chaotique 😈' : 'Chaotic 😈',
+        colorClass: 'bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20',
+        icon: '😈',
+      };
+    case 'light':
+    default:
+      return {
+        label: lang === 'ar' ? 'خفيف وممتع 😂' : lang === 'fr' ? 'Léger & Drôle 😂' : 'Lighthearted 😂',
+        colorClass: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20',
+        icon: '😂',
+      };
+  }
+}

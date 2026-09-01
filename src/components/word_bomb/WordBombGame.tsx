@@ -14,10 +14,17 @@ import {
   AlertTriangle,
   Sparkles,
   Zap,
+  HelpCircle,
+  Shuffle,
+  Compass,
 } from 'lucide-react';
-import { Player, Language, WordBombCategory } from '../../types';
+import { Player, Language, WordBombChallenge, WordBombDifficulty } from '../../types';
 import { TRANSLATIONS } from '../../translations';
-import { WORD_BOMB_CATEGORIES } from '../../data/wordBomb';
+import {
+  ALL_WORD_BOMB_CHALLENGES,
+  WORD_BOMB_THEMES,
+  WordBombSelector,
+} from '../../data/wordBomb';
 import { sound } from '../../utils/sound';
 import { GameOverScreen } from '../GameOverScreen';
 
@@ -44,9 +51,13 @@ export const WordBombGame: React.FC<WordBombGameProps> = ({
   const [baseTimerSeconds, setBaseTimerSeconds] = useState(15);
   const [secondsRemaining, setSecondsRemaining] = useState(15);
 
-  // Active category
-  const [currentCategory, setCurrentCategory] = useState<WordBombCategory | null>(null);
-  const [usedCategories, setUsedCategories] = useState<string[]>([]);
+  // Settings
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [selectedDifficulty, setSelectedDifficulty] = useState<'all' | WordBombDifficulty>('all');
+
+  // Active challenge
+  const [currentChallenge, setCurrentChallenge] = useState<WordBombChallenge | null>(null);
+  const [showStarterHints, setShowStarterHints] = useState<boolean>(false);
   
   // Turn state
   const [currentTurnIndex, setCurrentTurnIndex] = useState(0);
@@ -55,9 +66,6 @@ export const WordBombGame: React.FC<WordBombGameProps> = ({
   const [explodedPlayer, setExplodedPlayer] = useState<Player | null>(null);
   const [duplicateWarning, setDuplicateWarning] = useState<string | null>(null);
 
-  // Timer interval ref
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
-
   const avatarColors = [
     '#EF4444', '#F97316', '#F59E0B', '#10B981', '#06B6D4',
     '#3B82F6', '#8B5CF6', '#EC4899', '#6366F1', '#14B8A6',
@@ -65,10 +73,27 @@ export const WordBombGame: React.FC<WordBombGameProps> = ({
     '#059669', '#7C3AED',
   ];
 
-  // Helper for category localized name
-  const getCategoryName = (cat: WordBombCategory | null) => {
-    if (!cat) return '';
-    return language === 'ar' ? cat.nameAr : language === 'fr' ? cat.nameFr : cat.nameEn;
+  // Helper for challenge localized prompt
+  const getChallengePrompt = (c: WordBombChallenge | null) => {
+    if (!c) return '';
+    return language === 'ar' ? c.promptAr : language === 'fr' ? c.promptFr : c.promptEn;
+  };
+
+  // Helper for challenge localized letter
+  const getChallengeLetter = (c: WordBombChallenge | null) => {
+    if (!c) return null;
+    if (language === 'ar') return c.letterAr || null;
+    if (language === 'fr') return c.letterFr || null;
+    return c.letterEn || null;
+  };
+
+  // Helper for challenge starter words
+  const getStarterWords = (c: WordBombChallenge | null) => {
+    if (!c) return [];
+    if (language === 'ar' && c.starterWordsAr) return c.starterWordsAr;
+    if (language === 'fr' && c.starterWordsFr) return c.starterWordsFr;
+    if (c.starterWordsEn) return c.starterWordsEn;
+    return [];
   };
 
   // Add player
@@ -136,12 +161,11 @@ export const WordBombGame: React.FC<WordBombGameProps> = ({
 
   // Start new round
   const startNewRound = (currentPlayers: Player[], roundNum: number) => {
-    const available = WORD_BOMB_CATEGORIES.filter((c) => !usedCategories.includes(c.id));
-    const pool = available.length > 0 ? available : WORD_BOMB_CATEGORIES;
-    const chosenCat = pool[Math.floor(Math.random() * pool.length)];
+    const diffFilter = selectedDifficulty === 'all' ? undefined : selectedDifficulty;
+    const challenge = WordBombSelector.getNextChallenge(selectedCategory, diffFilter);
 
-    setCurrentCategory(chosenCat);
-    setUsedCategories((prev) => [...prev, chosenCat.id]);
+    setCurrentChallenge(challenge);
+    setShowStarterHints(false);
     setUsedWordsThisRound([]);
     setTypedWord('');
     setDuplicateWarning(null);
@@ -156,6 +180,15 @@ export const WordBombGame: React.FC<WordBombGameProps> = ({
     setCurrentTurnIndex(firstIndex);
     setSecondsRemaining(baseTimerSeconds);
     setPhase('playing');
+  };
+
+  // Reroll challenge during active round
+  const handleRerollChallenge = () => {
+    sound.playPop(580);
+    const diffFilter = selectedDifficulty === 'all' ? undefined : selectedDifficulty;
+    const newChallenge = WordBombSelector.getNextChallenge(selectedCategory, diffFilter);
+    setCurrentChallenge(newChallenge);
+    setShowStarterHints(false);
   };
 
   // Active players
@@ -228,7 +261,7 @@ export const WordBombGame: React.FC<WordBombGameProps> = ({
       );
       if (isDuplicate) {
         sound.playWrong();
-        setDuplicateWarning(`"${wordToAdd}" was already used this round!`);
+        setDuplicateWarning(`"${wordToAdd}" ${language === 'ar' ? 'تمت الإجابة بها مسبقاً!' : 'was already used this round!'}`);
         return;
       }
       setUsedWordsThisRound((prev) => [wordToAdd, ...prev]);
@@ -255,8 +288,8 @@ export const WordBombGame: React.FC<WordBombGameProps> = ({
     }
 
     setCurrentTurnIndex(nextIdx);
-    // Slight randomized timer pressure
-    const nextTimer = Math.max(7, baseTimerSeconds - Math.floor(usedWordsThisRound.length / 3));
+    // Slight acceleration as round progresses
+    const nextTimer = Math.max(7, baseTimerSeconds - Math.floor(usedWordsThisRound.length / 4));
     setSecondsRemaining(nextTimer);
   };
 
@@ -276,6 +309,7 @@ export const WordBombGame: React.FC<WordBombGameProps> = ({
   // Restart
   const handleRestart = () => {
     sound.playPop(500);
+    WordBombSelector.resetHistory();
     const resetPlayers = players.map((p) => ({
       ...p,
       score: 0,
@@ -283,7 +317,6 @@ export const WordBombGame: React.FC<WordBombGameProps> = ({
       isEliminated: false,
     }));
     onUpdatePlayers(resetPlayers);
-    setUsedCategories([]);
     setCurrentRound(1);
     startNewRound(resetPlayers, 1);
   };
@@ -307,15 +340,18 @@ export const WordBombGame: React.FC<WordBombGameProps> = ({
   }
 
   // ----------------------------------------------------
-  // SETUP
+  // SETUP PHASE
   // ----------------------------------------------------
   if (phase === 'setup') {
     return (
-      <div className="w-full max-w-xl mx-auto px-4 py-8 space-y-6 animate-in fade-in duration-300">
+      <div className="w-full max-w-2xl mx-auto px-4 py-6 space-y-6 animate-in fade-in duration-300">
         <div className="text-center space-y-2">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-black uppercase tracking-wider">
             <Bomb className="w-4 h-4 text-red-400 animate-pulse" />
             <span>{t.wordBombTitle}</span>
+            <span className="px-2 py-0.5 rounded-full bg-red-500/20 text-red-300 text-[10px] font-bold">
+              500+ {language === 'ar' ? 'تحدي' : 'Challenges'}
+            </span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
             {t.bombSetupTitle}
@@ -381,7 +417,7 @@ export const WordBombGame: React.FC<WordBombGameProps> = ({
                 {t.minPlayersWarning}
               </div>
             ) : (
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-56 overflow-y-auto pr-1">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-48 overflow-y-auto pr-1">
                 {players.map((p) => (
                   <div
                     key={p.id}
@@ -409,55 +445,129 @@ export const WordBombGame: React.FC<WordBombGameProps> = ({
             )}
           </div>
 
-          {/* Timer Setting */}
+          {/* Category Theme Selector */}
           <div className="space-y-2 pt-2 border-t border-white/10">
+            <div className="flex items-center justify-between">
+              <label className="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+                <Compass className="w-3.5 h-3.5 text-red-400" />
+                <span>{t.bombCategorySelect}</span>
+              </label>
+              <span className="text-[11px] text-red-400 font-bold">
+                {WORD_BOMB_THEMES.find((c) => c.id === selectedCategory)?.[
+                  language === 'ar' ? 'nameAr' : language === 'fr' ? 'nameFr' : 'nameEn'
+                ] || t.allThemes}
+              </span>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 max-h-36 overflow-y-auto pr-1">
+              {WORD_BOMB_THEMES.map((theme) => {
+                const name = language === 'ar' ? theme.nameAr : language === 'fr' ? theme.nameFr : theme.nameEn;
+                const isSelected = selectedCategory === theme.id;
+                return (
+                  <button
+                    key={theme.id}
+                    type="button"
+                    onClick={() => {
+                      sound.playPop(520);
+                      setSelectedCategory(theme.id);
+                    }}
+                    className={`p-2.5 rounded-xl text-xs font-bold transition-all text-start flex items-center gap-2 cursor-pointer ${
+                      isSelected
+                        ? 'bg-red-600 text-white ring-2 ring-red-400'
+                        : 'bg-white/5 text-slate-300 hover:bg-white/10'
+                    }`}
+                  >
+                    <span>{theme.icon}</span>
+                    <span className="truncate">{name}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Difficulty Setting */}
+          <div className="space-y-2">
             <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider">
-              {t.bombTimerSetting}
+              {t.bombDifficultyLabel}
             </label>
-            <div className="grid grid-cols-3 gap-2">
-              {[10, 15, 20].map((secs) => (
+            <div className="grid grid-cols-4 gap-2">
+              {[
+                { id: 'all', label: t.bombDiffAll },
+                { id: 'easy', label: t.bombDiffEasy },
+                { id: 'medium', label: t.bombDiffMedium },
+                { id: 'hard', label: t.bombDiffHard },
+              ].map((diff) => (
                 <button
-                  key={secs}
+                  key={diff.id}
                   type="button"
                   onClick={() => {
                     sound.playPop(500);
-                    setBaseTimerSeconds(secs);
+                    setSelectedDifficulty(diff.id as any);
                   }}
-                  className={`py-2.5 rounded-xl font-black text-xs transition-all cursor-pointer ${
-                    baseTimerSeconds === secs
+                  className={`py-2 rounded-xl font-bold text-xs transition-all cursor-pointer truncate px-1 ${
+                    selectedDifficulty === diff.id
                       ? 'bg-red-600 text-white shadow-lg shadow-red-600/30'
                       : 'bg-white/5 text-slate-300 hover:bg-white/10'
                   }`}
                 >
-                  {secs}s
+                  {diff.label}
                 </button>
               ))}
             </div>
           </div>
 
-          {/* Rounds */}
-          <div className="space-y-2">
-            <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider">
-              {t.totalRounds}
-            </label>
-            <div className="grid grid-cols-3 gap-2">
-              {[3, 5, 8].map((count) => (
-                <button
-                  key={count}
-                  type="button"
-                  onClick={() => {
-                    sound.playPop(500);
-                    setTotalRounds(count);
-                  }}
-                  className={`py-2.5 rounded-xl font-black text-xs transition-all cursor-pointer ${
-                    totalRounds === count
-                      ? 'bg-orange-600 text-white shadow-lg shadow-orange-600/30'
-                      : 'bg-white/5 text-slate-300 hover:bg-white/10'
-                  }`}
-                >
-                  {count} {t.round}s
-                </button>
-              ))}
+          {/* Timer Setting & Rounds */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* Timer */}
+            <div className="space-y-2">
+              <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider">
+                {t.bombTimerSetting}
+              </label>
+              <div className="grid grid-cols-3 gap-2">
+                {[10, 15, 20].map((secs) => (
+                  <button
+                    key={secs}
+                    type="button"
+                    onClick={() => {
+                      sound.playPop(500);
+                      setBaseTimerSeconds(secs);
+                    }}
+                    className={`py-2.5 rounded-xl font-black text-xs transition-all cursor-pointer ${
+                      baseTimerSeconds === secs
+                        ? 'bg-red-600 text-white shadow-lg shadow-red-600/30'
+                        : 'bg-white/5 text-slate-300 hover:bg-white/10'
+                    }`}
+                  >
+                    {secs}s
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Rounds */}
+            <div className="space-y-2">
+              <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider">
+                {t.totalRounds}
+              </label>
+              <div className="grid grid-cols-3 gap-2">
+                {[3, 5, 8].map((count) => (
+                  <button
+                    key={count}
+                    type="button"
+                    onClick={() => {
+                      sound.playPop(500);
+                      setTotalRounds(count);
+                    }}
+                    className={`py-2.5 rounded-xl font-black text-xs transition-all cursor-pointer ${
+                      totalRounds === count
+                        ? 'bg-orange-600 text-white shadow-lg shadow-orange-600/30'
+                        : 'bg-white/5 text-slate-300 hover:bg-white/10'
+                    }`}
+                  >
+                    {count} {t.round}s
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -483,10 +593,12 @@ export const WordBombGame: React.FC<WordBombGameProps> = ({
   }
 
   // ----------------------------------------------------
-  // PLAYING / TICKING BOMB PHASE
+  // PLAYING / ACTIVE BOMB PHASE
   // ----------------------------------------------------
   if (phase === 'playing') {
     const isUrgent = secondsRemaining <= 4;
+    const letter = getChallengeLetter(currentChallenge);
+    const starterWords = getStarterWords(currentChallenge);
 
     return (
       <div className="w-full max-w-xl mx-auto px-4 py-6 space-y-6 animate-in fade-in duration-300">
@@ -496,6 +608,11 @@ export const WordBombGame: React.FC<WordBombGameProps> = ({
             <span className="px-3 py-1 rounded-xl bg-red-500/20 text-red-400 text-xs font-black">
               {t.round} {currentRound} / {totalRounds}
             </span>
+            {currentChallenge?.difficulty && (
+              <span className="px-2.5 py-1 rounded-xl bg-white/10 text-slate-300 text-[11px] font-bold capitalize">
+                {currentChallenge.difficulty}
+              </span>
+            )}
           </div>
 
           <button
@@ -533,34 +650,84 @@ export const WordBombGame: React.FC<WordBombGameProps> = ({
           </div>
 
           {/* Animated Bomb & Countdown */}
-          <div className="relative py-2">
+          <div className="relative py-1">
             <div
-              className={`w-32 h-32 mx-auto rounded-full flex flex-col items-center justify-center text-white shadow-2xl border-4 transition-transform duration-200 ${
+              className={`w-28 h-28 mx-auto rounded-full flex flex-col items-center justify-center text-white shadow-2xl border-4 transition-transform duration-200 ${
                 isUrgent
-                  ? 'bg-red-600 border-yellow-400 scale-110 shadow-red-600/60 animate-ping-short'
+                  ? 'bg-red-600 border-yellow-400 scale-110 shadow-red-600/60'
                   : 'bg-red-900/60 border-red-500/50'
               }`}
             >
               <Bomb
-                className={`w-8 h-8 mb-1 ${
+                className={`w-7 h-7 mb-1 ${
                   isUrgent ? 'text-yellow-300 animate-spin' : 'text-red-400'
                 }`}
               />
-              <span className="text-4xl font-black tracking-tight font-mono">
+              <span className="text-3xl font-black tracking-tight font-mono">
                 {secondsRemaining}s
               </span>
             </div>
           </div>
 
-          {/* Category Highlight */}
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-4 space-y-1">
-            <div className="text-[11px] font-black text-red-400 uppercase tracking-wider">
-              {t.categoryTarget}
+          {/* Dynamic Challenge Prompt Card */}
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-5 space-y-2.5 text-center">
+            <div className="flex items-center justify-between text-[11px] font-black uppercase tracking-wider text-red-400">
+              <span className="flex items-center gap-1.5">
+                <span>{currentChallenge?.icon || '💣'}</span>
+                <span>{t.categoryTarget}</span>
+              </span>
+              {letter && (
+                <span className="px-2.5 py-0.5 rounded-md bg-red-500/20 text-red-300 font-black text-xs">
+                  {language === 'ar' ? `حرف (${letter})` : `Letter (${letter})`}
+                </span>
+              )}
             </div>
-            <div className="text-xl sm:text-2xl font-black text-white flex items-center justify-center gap-2">
-              <span>{currentCategory?.icon}</span>
-              <span>{getCategoryName(currentCategory)}</span>
+
+            <h2 className="text-xl sm:text-2xl font-black text-white leading-snug">
+              {getChallengePrompt(currentChallenge)}
+            </h2>
+
+            {/* Reroll or hints toggles */}
+            <div className="flex items-center justify-center gap-3 pt-1">
+              <button
+                type="button"
+                onClick={handleRerollChallenge}
+                className="text-[11px] font-bold text-slate-400 hover:text-white transition-colors cursor-pointer py-1 px-2.5 rounded-lg bg-white/5 hover:bg-white/10 flex items-center gap-1"
+              >
+                <Shuffle className="w-3 h-3 text-red-400" />
+                <span>{t.skipChallenge}</span>
+              </button>
+
+              {starterWords.length > 0 && (
+                <button
+                  type="button"
+                  onClick={() => setShowStarterHints((prev) => !prev)}
+                  className="text-[11px] font-bold text-amber-400 hover:text-amber-300 transition-colors cursor-pointer py-1 px-2.5 rounded-lg bg-amber-500/10 flex items-center gap-1"
+                >
+                  <HelpCircle className="w-3 h-3" />
+                  <span>{showStarterHints ? t.hideHints : t.showHints}</span>
+                </button>
+              )}
             </div>
+
+            {/* Starter Hints Preview */}
+            {showStarterHints && starterWords.length > 0 && (
+              <div className="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-left animate-in fade-in">
+                <div className="text-[10px] font-bold text-amber-300 uppercase tracking-wider mb-1">
+                  {t.hintsLabel}
+                </div>
+                <div className="flex flex-wrap gap-1">
+                  {starterWords.slice(0, 5).map((hint, idx) => (
+                    <span
+                      key={idx}
+                      className="px-2 py-0.5 rounded-md bg-white/10 text-amber-200 text-xs font-semibold"
+                    >
+                      {hint}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           {duplicateWarning && (
@@ -570,7 +737,7 @@ export const WordBombGame: React.FC<WordBombGameProps> = ({
             </div>
           )}
 
-          {/* Optional Word Input / Quick Pass Button */}
+          {/* Word Input & Pass Bomb Button */}
           <div className="space-y-3">
             <div className="flex gap-2">
               <input
@@ -583,7 +750,7 @@ export const WordBombGame: React.FC<WordBombGameProps> = ({
                 onKeyDown={(e) => {
                   if (e.key === 'Enter') handlePassBomb();
                 }}
-                placeholder="Type word (or say aloud) & pass..."
+                placeholder={language === 'ar' ? 'اكتب كلمتك (أو قلها شفهياً) ومرر...' : 'Type word (or say aloud) & pass...'}
                 className="flex-1 bg-white/5 border border-white/10 rounded-2xl px-4 py-3 text-white text-sm focus:outline-none focus:border-red-500 transition-colors"
               />
             </div>

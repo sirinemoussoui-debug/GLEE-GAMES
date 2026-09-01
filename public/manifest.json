@@ -1,0 +1,17 @@
+{
+  "name": "Kari Games",
+  "short_name": "Kari Games",
+  "description": "Kari Games offers free multiplayer party games, quizzes, guessing games and social games to play with friends and groups.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#090d16",
+  "theme_color": "#090d16",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

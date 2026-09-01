@@ -19,6 +19,7 @@ import {
 import { Language, GameType } from '../types';
 import { TRANSLATIONS } from '../translations';
 import { sound } from '../utils/sound';
+import { KariIconMark, KariLetterA } from './common/KariLogo';
 
 interface HomeScreenProps {
   language: Language;
@@ -48,10 +49,25 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
         </div>
 
         {/* Brand Wordmark & Main H1 */}
-        <div className="mb-3 text-center max-w-3xl">
-          <div className="text-6xl sm:text-8xl md:text-9xl font-black tracking-tighter text-white drop-shadow-lg leading-none mb-3">
-            GLEE
+        <div className="mb-4 text-center max-w-3xl flex flex-col items-center">
+          <div className="flex flex-col items-center justify-center gap-2 mb-3">
+            {/* Primary Wordmark with Custom Smiling 'A' */}
+            <div className="flex items-center justify-center font-black tracking-tighter text-white drop-shadow-xl leading-none text-6xl sm:text-8xl md:text-9xl font-display">
+              <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-purple-400 bg-clip-text text-transparent flex items-center">
+                <span>K</span>
+                <KariLetterA className="w-[0.84em] h-[0.92em] mx-[0.02em] drop-shadow-md" />
+                <span>RI</span>
+              </span>
+            </div>
+
+            {/* Secondary GAMES subtitle / Arabic badge */}
+            <div className="flex items-center gap-2">
+              <span className="text-xs sm:text-sm md:text-base font-black tracking-[0.3em] uppercase px-4 py-1 rounded-full bg-gradient-to-r from-orange-500/20 to-purple-500/20 text-orange-300 border border-orange-500/30 shadow-sm">
+                {language === 'ar' ? 'كاري غيمز' : 'GAMES'}
+              </span>
+            </div>
           </div>
+
           <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-orange-400 tracking-tight leading-snug">
             {t.mainH1}
           </h1>
@@ -371,10 +387,10 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       <section className="w-full max-w-5xl px-4 py-8 mb-12 border-t border-white/10">
         <div className="text-center mb-8">
           <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight mb-2">
-            {t.aboutGleeTitle}
+            {t.aboutBrandTitle}
           </h2>
           <p className="text-slate-300 text-sm max-w-xl mx-auto">
-            {t.aboutGleeSubtitle}
+            {t.aboutBrandSubtitle}
           </p>
         </div>
 

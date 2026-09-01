@@ -1,4 +1,4 @@
-// Web Audio API Synthesizer for Glee Party Sound Effects
+// Web Audio API Synthesizer for Kari Games Party Sound Effects
 
 class SoundManager {
   private ctx: AudioContext | null = null;
@@ -6,7 +6,7 @@ class SoundManager {
 
   constructor() {
     // Check localStorage preference
-    const saved = localStorage.getItem('glee_sound_muted');
+    const saved = localStorage.getItem('kari_sound_muted') ?? localStorage.getItem('glee_sound_muted');
     if (saved !== null) {
       this.isMuted = saved === 'true';
     }
@@ -30,7 +30,7 @@ class SoundManager {
 
   public toggleMute(): boolean {
     this.isMuted = !this.isMuted;
-    localStorage.setItem('glee_sound_muted', String(this.isMuted));
+    localStorage.setItem('kari_sound_muted', String(this.isMuted));
     if (!this.isMuted) {
       this.playPop();
     }
@@ -39,7 +39,7 @@ class SoundManager {
 
   public setMuted(muted: boolean) {
     this.isMuted = muted;
-    localStorage.setItem('glee_sound_muted', String(muted));
+    localStorage.setItem('kari_sound_muted', String(muted));
   }
 
   public playPop(freq = 600, duration = 0.08) {
