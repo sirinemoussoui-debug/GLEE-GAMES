@@ -3,7 +3,7 @@ import { EmojiPuzzle } from '../../types';
 export const ANIMAL_EMOJI_PUZZLES: EmojiPuzzle[] = [
   {
     id: 'an-1',
-    emojis: '🦘🇦🇺🥊👶🌿💨',
+    emojis: '🇦🇺🥊👶🌿💨🏜️',
     category: 'animals',
     difficulty: 'easy',
     en: {
@@ -12,7 +12,7 @@ export const ANIMAL_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'Australian marsupial known for powerful hind legs, large tail, hopping locomotion, and pouch (marsupium) for carrying joeys.',
     },
     ar: {
-      answer: 'الكنغر (Kangaroo)',
+      answer: 'الكنغر',
       options: ['الكنغر', 'الكوالا', 'الومبات', 'الولب'],
       explanation: 'الحيوان الجرابي الأسترالي الشهير بالقفز القوي وساقيه الخلفيتين ووجود جيب في بطن الأنثى لحمل الصغير.',
     },
@@ -33,7 +33,7 @@ export const ANIMAL_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'China\'s national treasure bear characterized by its black-and-white coat and diet consisting almost entirely of bamboo.',
     },
     ar: {
-      answer: 'الباندا العملاق (Giant Panda)',
+      answer: 'الباندا العملاق',
       options: ['الباندا العملاق', 'الباندا الأحمر', 'الدب القطبي', 'دب الشمس'],
       explanation: 'الرمز الوطني الصيني الشهير بفروه الأبيض والأسود الجذاب ونظامه الغذائي الذي يعتمد بالكامل تقريباً على خيزران البامبو.',
     },
@@ -54,7 +54,7 @@ export const ANIMAL_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'Specialized lizard known for color-changing skin, independently moving eyes, and lightning-fast projectile tongue.',
     },
     ar: {
-      answer: 'الحرباء (Chameleon)',
+      answer: 'الحرباء',
       options: ['الحرباء', 'الوزغ (أبو بريص)', 'الإغوانا', 'تنين كومودو'],
       explanation: 'الزاحف العجيب القادر على تغيير لون جلده للتمويه وعينيه اللتين تتحركان بشكل مستقل ولسانه السريع لاصطياد الحشرات.',
     },
@@ -66,21 +66,21 @@ export const ANIMAL_EMOJI_PUZZLES: EmojiPuzzle[] = [
   },
   {
     id: 'an-4',
-    emojis: '🐧❄️🧊🏊‍♂️🖤🤍🇦🇶',
+    emojis: '❄️🧊🏊‍♂️🖤🤍🇦🇶🐟',
     category: 'animals',
     difficulty: 'easy',
     en: {
-      answer: 'Penguin (Emperor Penguin)',
+      answer: 'Penguin',
       options: ['Penguin', 'Puffin', 'Albatross', 'Seal'],
       explanation: 'Flightless aquatic bird of the Southern Hemisphere wearing a natural tuxedo and swimming gracefully in freezing waters.',
     },
     ar: {
-      answer: 'البطريق (Penguin)',
+      answer: 'البطريق',
       options: ['البطريق', 'البفن', 'القطرس', 'الفقمة'],
       explanation: 'طائر بحري لا يطير يعيش في المناطق الجليدية بالقطب الجنوبي، ويتميز بمشيته الظريفة وسباحته الماهرة تحت الماء.',
     },
     fr: {
-      answer: 'Manchot / Pingouin',
+      answer: 'Manchot (Pingouin)',
       options: ['Manchot (Pingouin)', 'Macareux', 'Albatros', 'Phoque'],
       explanation: 'Oiseau marin incapable de voler mais excellent nageur vivant dans les eaux glaciales de l\'hémisphère sud.',
     },
@@ -96,7 +96,7 @@ export const ANIMAL_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'The fastest land mammal on Earth, capable of accelerating from 0 to 100 km/h in just 3 seconds across African savannas.',
     },
     ar: {
-      answer: 'الفهد الصياد - الشيتا (Cheetah)',
+      answer: 'الفهد الصياد (الشيتا)',
       options: ['الفهد الصياد (الشيتا)', 'النمر المرقط', 'الجاغوار', 'الببر'],
       explanation: 'أسرع حيوان ثديي على وجه الأرض ينطلق من الصفر إلى 100 كم/س في أقل من 3 ثوانٍ في سهول السافانا.',
     },
@@ -117,7 +117,7 @@ export const ANIMAL_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'Slow-moving tropical mammal hanging upside-down in rainforest canopies with the slowest metabolic rate of any non-hibernating mammal.',
     },
     ar: {
-      answer: 'الكسلان (Sloth)',
+      answer: 'الكسلان',
       options: ['الكسلان', 'الكوالا', 'آكل النمل', 'المدرع'],
       explanation: 'الحيوان الثديي الأكثر بطئاً في العالم الذي يعيش متعلقاً بفروع الأشجار في الغابات المطيرة وينام لأكثر من 15 ساعة يومياً.',
     },
@@ -133,12 +133,12 @@ export const ANIMAL_EMOJI_PUZZLES: EmojiPuzzle[] = [
     category: 'animals',
     difficulty: 'easy',
     en: {
-      answer: 'Flamingo (Greater Flamingo)',
+      answer: 'Flamingo',
       options: ['Flamingo', 'Stork', 'Pelican', 'Crane'],
       explanation: 'Tall pink wading bird that gets its vibrant color from beta-carotene in the shrimp and algae it consumes, often resting on one leg.',
     },
     ar: {
-      answer: 'طيور النحام - الفلامنجو (Flamingo)',
+      answer: 'طائر النحام (الفلامنجو)',
       options: ['طائر النحام (الفلامنجو)', 'اللقلق', 'البجع', 'الكركي'],
       explanation: 'طائر مائي أنيق بلون وردي زاهٍ يكتسبه من أكل الروبيان والطحالب الغنية بالكاروتين ويقف بمهارة على ساق واحدة.',
     },
@@ -159,7 +159,7 @@ export const ANIMAL_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'Nocturnal rodent engineer with orange iron-rich teeth known for chopping trees to build river dams and lodges.',
     },
     ar: {
-      answer: 'القندس (Beaver)',
+      answer: 'القندس',
       options: ['القندس', 'قضاعة الماء', 'خلد الماء', 'كابيبارا'],
       explanation: 'مهندس الطبيعة ذو الأسنان القوية والذيل المفلطح الذي يقطع الأشجار ويبني السدود المائية الحصينة على الأنهار.',
     },

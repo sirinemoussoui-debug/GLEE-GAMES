@@ -73,7 +73,7 @@ export const PassAndReveal: React.FC<PassAndRevealProps> = ({
     <div className="w-full max-w-lg mx-auto px-4 py-6 animate-in fade-in duration-300">
       {/* Round & Step Status */}
       <div className="flex items-center justify-between mb-4">
-        <span className="text-xs font-extrabold uppercase tracking-wider text-purple-400 bg-purple-950/60 border border-purple-500/30 px-3 py-1 rounded-full">
+        <span className="text-xs font-extrabold uppercase tracking-wider text-purple-400 bg-purple-950/60 border border-purple-500/30 px-3 py-1 rounded-xl">
           {t.round} {currentRound} {t.of} {totalRounds}
         </span>
         <span className="text-xs font-bold text-slate-400">

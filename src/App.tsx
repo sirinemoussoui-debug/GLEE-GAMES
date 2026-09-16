@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Navbar } from './components/Navbar';
-import { HomeScreen } from './components/HomeScreen';
+import { LandingPage } from './components/landing/LandingPage';
+import { GameHub } from './components/hub/GameHub';
 import { SpySetup } from './components/SpySetup';
 import { PassAndReveal } from './components/PassAndReveal';
 import { DiscussionPhase } from './components/DiscussionPhase';
@@ -29,16 +30,63 @@ import { WORD_CATEGORIES, DEFAULT_AVATARS } from './data/words';
 import { sound } from './utils/sound';
 import { KariLetterA, KariIconMark } from './components/common/KariLogo';
 
+export type AppScreen =
+  | 'landing'
+  | 'lobby'
+  | 'spy_game'
+  | 'whos_most_likely'
+  | 'word_bomb'
+  | 'trivia'
+  | 'emoji';
+
+const getScreenFromHash = (): AppScreen => {
+  if (typeof window === 'undefined') return 'landing';
+  const hash = window.location.hash.toLowerCase();
+  if (hash === '#hub' || hash === '#lobby' || hash === '#games') return 'lobby';
+  if (hash === '#spy' || hash === '#spy_game') return 'spy_game';
+  if (hash === '#whos' || hash === '#whos_most_likely' || hash === '#who') return 'whos_most_likely';
+  if (hash === '#bomb' || hash === '#word_bomb') return 'word_bomb';
+  if (hash === '#trivia' || hash === '#trivia_duel') return 'trivia';
+  if (hash === '#emoji' || hash === '#emoji_decoder') return 'emoji';
+  return 'landing';
+};
+
+const getHashFromScreen = (screen: AppScreen): string => {
+  switch (screen) {
+    case 'lobby':
+      return '#hub';
+    case 'spy_game':
+      return '#spy';
+    case 'whos_most_likely':
+      return '#whos';
+    case 'word_bomb':
+      return '#bomb';
+    case 'trivia':
+      return '#trivia';
+    case 'emoji':
+      return '#emoji';
+    default:
+      return '';
+  }
+};
+
 export default function App() {
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguage] = useState<Language>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = (localStorage.getItem('kari_language') || localStorage.getItem('language')) as Language;
+      const validLanguages: Language[] = ['en', 'ar', 'fr', 'it', 'ru', 'tr', 'es', 'zh', 'ko'];
+      if (saved && validLanguages.includes(saved)) {
+        return saved;
+      }
+    }
+    return 'en';
+  });
   const [isMuted, setIsMuted] = useState<boolean>(sound.getMuted());
   const [isRulesOpen, setIsRulesOpen] = useState(false);
   const [isLeaderboardOpen, setIsLeaderboardOpen] = useState(false);
 
-  // Screen routing
-  const [currentScreen, setCurrentScreen] = useState<
-    'home' | 'spy_game' | 'whos_most_likely' | 'word_bomb' | 'trivia' | 'emoji'
-  >('home');
+  // Screen routing (defaults to URL hash or landing page)
+  const [currentScreen, setCurrentScreen] = useState<AppScreen>(() => getScreenFromHash());
 
   // Spy Game State
   const [spyPhase, setSpyPhase] = useState<SpyGamePhase>('setup');
@@ -68,18 +116,59 @@ export default function App() {
     customWords: [],
   });
 
-  // Sync RTL and lang attribute
+  // Sync RTL, lang attribute, persistence, and title
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.setItem('kari_language', language);
+      } catch (e) {
+        // Safe fallback if storage quota exceeded or disabled
+      }
+    }
     document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = language;
-    if (language === 'ar') {
-      document.title = 'كاري غيمز – ألعاب جماعية مجانية للأصدقاء والمجموعات';
-    } else if (language === 'fr') {
-      document.title = 'Kari Games – Jeux de groupe gratuits pour amis et joueurs';
-    } else {
-      document.title = 'Kari Games – Free Multiplayer Party Games for Friends & Groups';
-    }
+
+    const titles: Record<Language, string> = {
+      en: 'GLEE GAMES – Free Multiplayer Party Games for Friends & Groups',
+      ar: 'غلي غيمز (GLEE GAMES) – ألعاب جماعية مجانية للأصدقاء والمجموعات',
+      fr: 'GLEE GAMES – Jeux de groupe gratuits pour amis et joueurs',
+      it: 'GLEE GAMES – Giochi di gruppo gratuiti per amici e feste',
+      ru: 'GLEE GAMES – Бесплатные игры для компании друзей и вечеринок',
+      tr: 'GLEE GAMES – Arkadaş Grupları İçin Ücretsiz Parti Oyunları',
+      es: 'GLEE GAMES – Juegos de fiesta multijugador gratis para amigos',
+      zh: 'GLEE GAMES – 朋友聚会免费多人派对游戏平台',
+      ko: 'GLEE GAMES – 친구들과 함께하는 무료 멀티플레이어 파티 게임',
+    };
+    document.title = titles[language] || titles.en;
   }, [language]);
+
+  // Browser History & URL Hash Sync
+  useEffect(() => {
+    const handleHashChange = () => {
+      const targetScreen = getScreenFromHash();
+      setCurrentScreen(targetScreen);
+      if (targetScreen === 'spy_game') {
+        setSpyPhase('setup');
+      }
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    window.addEventListener('popstate', handleHashChange);
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener('popstate', handleHashChange);
+    };
+  }, []);
+
+  const navigateTo = useCallback((screen: AppScreen) => {
+    setCurrentScreen(screen);
+    const targetHash = getHashFromScreen(screen);
+    if (window.location.hash !== targetHash) {
+      window.history.pushState(null, '', targetHash || window.location.pathname);
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
   const handleToggleSound = () => {
     const muted = sound.toggleMute();
@@ -87,18 +176,20 @@ export default function App() {
   };
 
   const handleStartGameType = (gameType: GameType) => {
+    let screen: AppScreen = 'spy_game';
     if (gameType === 'spy') {
-      setCurrentScreen('spy_game');
+      screen = 'spy_game';
       setSpyPhase('setup');
-    } else if (gameType === 'whos_most_likely') {
-      setCurrentScreen('whos_most_likely');
+    } else if (gameType === 'whos_most_likely' || gameType === 'who_most_likely') {
+      screen = 'whos_most_likely';
     } else if (gameType === 'word_bomb') {
-      setCurrentScreen('word_bomb');
-    } else if (gameType === 'trivia') {
-      setCurrentScreen('trivia');
-    } else if (gameType === 'emoji') {
-      setCurrentScreen('emoji');
+      screen = 'word_bomb';
+    } else if (gameType === 'trivia' || gameType === 'trivia_duel') {
+      screen = 'trivia';
+    } else if (gameType === 'emoji' || gameType === 'emoji_decoder') {
+      screen = 'emoji';
     }
+    navigateTo(screen);
   };
 
   // Helper to pick a random secret word for Spy Game
@@ -262,8 +353,13 @@ export default function App() {
     setSpyPhase('setup');
   };
 
-  const handleGoHome = () => {
-    setCurrentScreen('home');
+  const handleGoLanding = () => {
+    navigateTo('landing');
+    setSpyPhase('setup');
+  };
+
+  const handleGoLobby = () => {
+    navigateTo('lobby');
     setSpyPhase('setup');
   };
 
@@ -276,18 +372,31 @@ export default function App() {
         language={language}
         onLanguageChange={setLanguage}
         onOpenRules={() => setIsRulesOpen(true)}
-        onGoHome={handleGoHome}
+        onGoHome={handleGoLanding}
+        onGoLobby={handleGoLobby}
         isMuted={isMuted}
         onToggleSound={handleToggleSound}
-        isInGame={currentScreen !== 'home'}
+        currentScreen={currentScreen}
       />
 
       {/* Main Content Area */}
-      <main className="flex-1 flex flex-col justify-center max-w-5xl w-full mx-auto p-2 sm:p-4">
-        {currentScreen === 'home' && (
-          <HomeScreen
+      <main className="flex-1 flex flex-col justify-center max-w-6xl w-full mx-auto p-2 sm:p-4">
+        {/* Page 1: Landing / Welcome Screen */}
+        {currentScreen === 'landing' && (
+          <LandingPage
             language={language}
-            onStartGame={handleStartGameType}
+            onStartPlaying={handleGoLobby}
+            onOpenRules={() => setIsRulesOpen(true)}
+            onSelectGameDirect={handleStartGameType}
+          />
+        )}
+
+        {/* Page 2: Game Hub Arcade Lobby */}
+        {currentScreen === 'lobby' && (
+          <GameHub
+            language={language}
+            onSelectGame={handleStartGameType}
+            onBackToLanding={handleGoLanding}
             onOpenRules={() => setIsRulesOpen(true)}
           />
         )}
@@ -362,7 +471,7 @@ export default function App() {
                 onNextRound={handleStartNextRound}
                 onViewLeaderboard={() => setIsLeaderboardOpen(true)}
                 onRestartGame={handleRestartSpy}
-                onChooseAnotherGame={handleGoHome}
+                onChooseAnotherGame={handleGoLobby}
               />
             )}
 
@@ -372,7 +481,7 @@ export default function App() {
                 players={players}
                 onRestartGame={handleRestartSpy}
                 onNextRound={handleAddExtraRound}
-                onChooseAnotherGame={handleGoHome}
+                onChooseAnotherGame={handleGoLobby}
               />
             )}
           </>
@@ -384,7 +493,7 @@ export default function App() {
             language={language}
             players={players}
             onUpdatePlayers={setPlayers}
-            onChooseGame={handleGoHome}
+            onChooseGame={handleGoLobby}
           />
         )}
 
@@ -394,7 +503,7 @@ export default function App() {
             language={language}
             players={players}
             onUpdatePlayers={setPlayers}
-            onChooseGame={handleGoHome}
+            onChooseGame={handleGoLobby}
           />
         )}
 
@@ -404,7 +513,7 @@ export default function App() {
             language={language}
             players={players}
             onUpdatePlayers={setPlayers}
-            onChooseGame={handleGoHome}
+            onChooseGame={handleGoLobby}
           />
         )}
 
@@ -414,7 +523,7 @@ export default function App() {
             language={language}
             players={players}
             onUpdatePlayers={setPlayers}
-            onChooseGame={handleGoHome}
+            onChooseGame={handleGoLobby}
           />
         )}
       </main>
@@ -440,9 +549,7 @@ export default function App() {
         <div className="flex items-center gap-1.5 font-bold text-slate-300">
           <KariIconMark size={18} glow={false} />
           <span className="flex items-center">
-            <span>K</span>
-            <KariLetterA className="w-[0.8em] h-[0.9em] mx-[0.01em]" />
-            <span>RI GAMES</span>
+            <span>GLEE GAMES</span>
           </span>
         </div>
         <span className="hidden sm:inline text-slate-600">•</span>

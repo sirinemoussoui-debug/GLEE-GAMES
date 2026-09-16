@@ -514,7 +514,7 @@ export const WhosMostLikelyGame: React.FC<WhosMostLikelyGameProps> = ({
         </div>
 
         {/* Big Question Card */}
-        <div className="glass rounded-3xl p-6 sm:p-8 space-y-4 shadow-2xl border-2 border-purple-500/30 text-center relative overflow-hidden">
+        <div className="glass rounded-2xl sm:rounded-3xl p-5 sm:p-8 space-y-4 shadow-2xl border border-purple-500/30 bg-slate-900/80 text-center relative overflow-hidden">
           <div className="w-12 h-12 mx-auto rounded-2xl bg-purple-600/30 border border-purple-400/40 flex items-center justify-center text-2xl shadow-inner">
             {categoryIcon}
           </div>
@@ -540,22 +540,22 @@ export const WhosMostLikelyGame: React.FC<WhosMostLikelyGameProps> = ({
                 <div
                   key={p.id}
                   onClick={() => handleVoteForPlayer(p.id)}
-                  className={`p-3 rounded-2xl border transition-all cursor-pointer select-none active:scale-95 flex flex-col items-center justify-center text-center relative ${
+                  className={`min-h-[96px] p-3 sm:p-3.5 rounded-2xl border transition-all cursor-pointer select-none active:scale-95 flex flex-col items-center justify-center text-center relative ${
                     voteCount > 0
-                      ? 'bg-purple-600/20 border-purple-500 shadow-lg shadow-purple-600/20'
-                      : 'bg-white/5 border-white/10 hover:bg-white/10'
+                      ? 'bg-purple-600/25 border-purple-400 ring-2 ring-purple-500/30 shadow-lg shadow-purple-900/40'
+                      : 'bg-white/[0.04] border-white/10 hover:bg-white/[0.08] hover:border-white/20 shadow-sm'
                   }`}
                 >
                   {/* Badge with vote count */}
                   {voteCount > 0 && (
-                    <div className="absolute top-2 right-2 flex items-center gap-1">
+                    <div className="absolute top-2 right-2 rtl:right-auto rtl:left-2 flex items-center gap-1.5">
                       <span className="w-6 h-6 rounded-full bg-orange-600 text-white font-black text-xs flex items-center justify-center shadow">
                         +{voteCount}
                       </span>
                       <button
                         onClick={(e) => handleDecrementVote(e, p.id)}
                         title="Remove 1 vote"
-                        className="w-5 h-5 rounded-full bg-black/40 hover:bg-rose-600 text-slate-300 hover:text-white text-[10px] flex items-center justify-center cursor-pointer transition-colors"
+                        className="w-6 h-6 rounded-full bg-black/60 border border-white/20 hover:bg-rose-600 hover:border-rose-400 text-slate-200 font-bold text-xs flex items-center justify-center transition-colors shadow cursor-pointer"
                       >
                         -
                       </button>
@@ -563,7 +563,7 @@ export const WhosMostLikelyGame: React.FC<WhosMostLikelyGameProps> = ({
                   )}
 
                   <div
-                    className="w-11 h-11 rounded-2xl flex items-center justify-center text-base font-black text-white mb-2 shadow"
+                    className="w-11 h-11 rounded-2xl flex items-center justify-center text-base font-black text-white mb-2 shadow-md ring-2 ring-white/10"
                     style={{ backgroundColor: p.avatarColor }}
                   >
                     {p.name.charAt(0).toUpperCase()}

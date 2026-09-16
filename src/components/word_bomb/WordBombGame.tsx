@@ -601,11 +601,11 @@ export const WordBombGame: React.FC<WordBombGameProps> = ({
     const starterWords = getStarterWords(currentChallenge);
 
     return (
-      <div className="w-full max-w-xl mx-auto px-4 py-6 space-y-6 animate-in fade-in duration-300">
+      <div className="w-full max-w-xl mx-auto px-4 py-6 pb-8 sm:pb-6 space-y-6 animate-in fade-in duration-300">
         {/* Top Status Bar */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="px-3 py-1 rounded-xl bg-red-500/20 text-red-400 text-xs font-black">
+            <span className="px-3 py-1 rounded-xl bg-red-500/20 border border-red-500/30 text-red-400 text-xs font-black">
               {t.round} {currentRound} / {totalRounds}
             </span>
             {currentChallenge?.difficulty && (

@@ -1,4 +1,4 @@
-export type Language = 'en' | 'ar' | 'fr';
+export type Language = 'en' | 'ar' | 'fr' | 'it' | 'ru' | 'tr' | 'es' | 'zh' | 'ko';
 
 export type GameType =
   | 'spy'

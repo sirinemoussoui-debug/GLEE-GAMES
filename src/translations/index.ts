@@ -1,12 +1,18 @@
 import { Language } from '../types';
+import { it } from './locales/it';
+import { ru } from './locales/ru';
+import { tr } from './locales/tr';
+import { es } from './locales/es';
+import { zh } from './locales/zh';
+import { ko } from './locales/ko';
 
 export const TRANSLATIONS = {
   en: {
     // Brand & Header
-    appName: 'Kari Games',
+    appName: 'Glee Games',
     mainH1: 'Free Multiplayer Party Games for Friends & Groups',
     tagline: 'Play. Laugh. Challenge Your Friends.',
-    heroSubtitle: 'Kari Games is a free multiplayer social party games website for friends, university students, parties, and group gatherings. Play Spy Game, Word Chain Bomb, Trivia Duel, Who\'s Most Likely To, and Emoji Decoder directly in your browser with zero downloads.',
+    heroSubtitle: 'Glee Games is a free multiplayer social party games website for friends, university students, parties, and group gatherings. Play Spy Game, Word Chain Bomb, Trivia Duel, Who\'s Most Likely To, and Emoji Decoder directly in your browser with zero downloads.',
     playNow: 'Play Now',
     exploreGames: 'Explore Games',
     rules: 'How to Play',
@@ -34,6 +40,51 @@ export const TRANSLATIONS = {
     clearPlayers: 'Clear All',
     totalRounds: 'Total Rounds',
     minPlayersWarning: 'Please add enough players to start this game.',
+
+    // Landing Page
+    landingBadge: 'Multiplayer Social Party Hub',
+    landingTagline: 'Play. Laugh. Compete. Together.',
+    landingSupportingText: 'Quick multiplayer games made for friends, parties, and unforgettable moments.',
+    startPlayingBtn: 'START PLAYING',
+    landingVisualCue: '5 games • Multiplayer • Free to play',
+    exploreArcade: 'Explore Games',
+    featuresTitle: 'Instant Fun, Zero Friction',
+    featuresSubtitle: 'Everything you need for an epic party game night.',
+    featureFreeNoDownload: 'Zero Downloads',
+    featureFreeNoDownloadDesc: 'Play instantly in any browser on any phone, tablet, or desktop.',
+    featurePassAndPlay: 'Pass & Play',
+    featurePassAndPlayDesc: 'Gather everyone around a single screen. No accounts, no installs.',
+    featureFivePartyGames: '5 Original Games',
+    featureFivePartyGamesDesc: 'Deception, rapid-fire words, trivia duels, hot takes, and emoji riddles.',
+
+    // Game Hub / Arcade Lobby
+    gameHubTitle: 'CHOOSE YOUR GAME',
+    gameHubSubtitle: 'Pick a game. Gather your friends. Let the chaos begin.',
+    backToLanding: 'Home',
+    backToLobby: 'Lobby',
+    allGamesFilter: 'All Games',
+    partyCategory: 'Party & Social',
+    speedCategory: 'Fast & Reflex',
+    triviaCategory: 'Brain & Quiz',
+    playGameBtn: 'PLAY',
+    playersLabel: 'Players',
+    gameActivePill: 'Playable Now',
+    jumpBackIn: 'Jump Back In',
+    lastPlayed: 'Last Played',
+    resumeGame: 'Resume',
+    partyEntryTitle: 'ONE DEVICE. ONE PARTY. 5 GAMES.',
+    partyEntrySubtitle: 'Gather your friends around a single screen. Pass and play with zero setup.',
+    arcadeManualHeader: 'ARCADE MANUAL',
+    arcadeManualSub: 'Operational rules for each party module',
+    lockedInToPlay: 'Ready to Launch',
+    selectToPreview: 'Select Game',
+
+    // Game Taglines for Cards
+    spyGameCardTagline: 'Can you find the spy?',
+    whosMostLikelyCardTagline: 'Expose your friends.',
+    wordBombCardTagline: "Think fast. Don't get caught.",
+    triviaDuelCardTagline: 'Challenge your knowledge.',
+    emojiDecoderCardTagline: 'Decode it before time runs out.',
 
     // Game 1: Spy Game
     spyGameTitle: 'Spy Game',
@@ -266,11 +317,11 @@ export const TRANSLATIONS = {
     categoryBadgeCulture: 'General Culture',
 
     // Global Rules Modal
-    rulesModalTitle: 'Kari Games Game Rules & Guides',
+    rulesModalTitle: 'Glee Games Game Rules & Guides',
     closeBtn: 'Got It, Let\'s Play!',
 
     // Homepage SEO & Features Section
-    aboutBrandTitle: 'Why Play Kari Games with Friends & Groups?',
+    aboutBrandTitle: 'Why Play Glee Games with Friends & Groups?',
     aboutBrandSubtitle: 'Designed for college campus hangouts, family nights, student clubs, and weekend parties.',
     aboutFeature1Title: '5 Distinct Party Games',
     aboutFeature1Desc: 'From social deduction in Spy Game to rapid-fire Word Chain Bomb and Campus Trivia, enjoy varied fun for any vibe.',
@@ -284,10 +335,10 @@ export const TRANSLATIONS = {
 
   ar: {
     // Brand & Header
-    appName: 'كاري غيمز (Kari Games)',
+    appName: 'غلي غيمز (Glee Games)',
     mainH1: 'ألعاب جماعية مجانية للأصدقاء والمجموعات',
     tagline: 'العب. اضحك. تحدى أصحابك.',
-    heroSubtitle: 'كاري غيمز (Kari Games) هي منصة ألعاب جماعية مجانية للأصدقاء، طلاب الجامعة، والحفلات والجمعات. العب لعبة الجاسوس، قنبلة الكلمات، تحدي الثقافة، مين أكثر واحد، وفك شفرة الإيموجي مباشرة من المتصفح بدون أي تحميل.',
+    heroSubtitle: 'غلي غيمز (Glee Games) هي منصة ألعاب جماعية مجانية للأصدقاء، طلاب الجامعة، والحفلات والجمعات. العب لعبة الجاسوس، قنبلة الكلمات، تحدي الثقافة، مين أكثر واحد، وفك شفرة الإيموجي مباشرة من المتصفح بدون أي تحميل.',
     playNow: 'العب الآن',
     exploreGames: 'تصفح الألعاب',
     rules: 'كيف تلعب؟',
@@ -315,6 +366,51 @@ export const TRANSLATIONS = {
     clearPlayers: 'مسح الكل',
     totalRounds: 'عدد الجولات',
     minPlayersWarning: 'يرجى إضافة عدد كافٍ من اللاعبين للبدء.',
+
+    // Landing Page
+    landingBadge: 'منصة الألعاب الاجتماعية والجمعات',
+    landingTagline: 'العب. اضحك. نافس. معاً.',
+    landingSupportingText: 'ألعاب جماعية سريعة وممتعة مصممة للأصحاب، الحفلات، واللحظات التي لا تُنسى.',
+    startPlayingBtn: 'ابدأ اللعب الآن',
+    landingVisualCue: '٥ ألعاب • جماعية • مجانية بالكامل',
+    exploreArcade: 'تصفح الألعاب',
+    featuresTitle: 'متعة فورية وبدون أي تعقيد',
+    featuresSubtitle: 'كل ما تحتاجه لسهرة ألعاب حماسية مع الأصدقاء.',
+    featureFreeNoDownload: 'بدون أي تحميل',
+    featureFreeNoDownloadDesc: 'العب مباشرة في المتصفح على أي هاتف أو تابلت أو كمبيوتر.',
+    featurePassAndPlay: 'مرر والعب',
+    featurePassAndPlayDesc: 'اجتمعوا حول جهاز واحد بدون تسجيل دخول أو تطبيقات معقدة.',
+    featureFivePartyGames: '٥ ألعاب متنوعة',
+    featureFivePartyGamesDesc: 'تحقيق وذكاء، قنبلة الكلمات، معارك ثقافة، تصويتات جريئة، وألغاز إيموجي.',
+
+    // Game Hub / Arcade Lobby
+    gameHubTitle: 'اختر لعبتك',
+    gameHubSubtitle: 'اختر لعبة. اجمع أصحابك. ودع الحماس والضحك يبدأ!',
+    backToLanding: 'الرئيسية',
+    backToLobby: 'صالة الألعاب',
+    allGamesFilter: 'جميع الألعاب',
+    partyCategory: 'اجتماعية وتحقيق',
+    speedCategory: 'سرعة وتحدي',
+    triviaCategory: 'ثقافة وذكاء',
+    playGameBtn: 'العب الآن',
+    playersLabel: 'لاعبين',
+    gameActivePill: 'جاهزة للعب',
+    jumpBackIn: 'عد إلى اللعب',
+    lastPlayed: 'آخر لعبة لُعبت',
+    resumeGame: 'استئناف',
+    partyEntryTitle: 'جهاز واحد. شلّة واحدة. ٥ ألعاب.',
+    partyEntrySubtitle: 'اجتمعوا حول شاشة واحدة. مرروا الجهاز والعبوا فوراً دون تعقيد أو حسابات.',
+    arcadeManualHeader: 'دليل الصالة',
+    arcadeManualSub: 'تعليمات وطريقة تشغيل كل لعبة',
+    lockedInToPlay: 'جاهزة للبدء',
+    selectToPreview: 'اختر للمعاينة',
+
+    // Game Taglines for Cards
+    spyGameCardTagline: 'هل يمكنك كشف الجاسوس؟',
+    whosMostLikelyCardTagline: 'اكشف أسرار أصحابك.',
+    wordBombCardTagline: 'فكر بسرعة قبل الانفجار.',
+    triviaDuelCardTagline: 'تحدى معلوماتك وثقافتك.',
+    emojiDecoderCardTagline: 'فك الشفرة قبل نفاد الوقت.',
 
     // Game 1: Spy Game
     spyGameTitle: 'لعبة الجاسوس',
@@ -547,11 +643,11 @@ export const TRANSLATIONS = {
     categoryBadgeCulture: 'ثقافة واختراعات',
 
     // Global Rules Modal
-    rulesModalTitle: 'دليل وقواعد ألعاب كاري غيمز',
+    rulesModalTitle: 'دليل وقواعد ألعاب غلي غيمز (Glee Games)',
     closeBtn: 'فهمت، لنبدأ اللعب!',
 
     // Homepage SEO & Features Section
-    aboutBrandTitle: 'لماذا تختار ألعاب كاري غيمز لجمعاتك وسهراتك؟',
+    aboutBrandTitle: 'لماذا تختار ألعاب غلي غيمز (Glee Games) لجمعاتك وسهراتك؟',
     aboutBrandSubtitle: 'مصممة خصيصاً لسهرات الأصدقاء، لقاءات الجامعة، والجمعات العائلية الممتعة.',
     aboutFeature1Title: '٥ ألعاب جماعية متنوعة وممتعة',
     aboutFeature1Desc: 'من التحقيق والذكاء في لعبة الجاسوس، إلى قنبلة الكلمات السريعة، وتصويت مين أكثر واحد، وتحديات الثقافة والإيموجي.',
@@ -565,10 +661,10 @@ export const TRANSLATIONS = {
 
   fr: {
     // Brand & Header
-    appName: 'Kari Games',
+    appName: 'Glee Games',
     mainH1: 'Jeux de groupe gratuits pour amis et joueurs',
     tagline: 'Jouez. Riez. Défiez vos amis.',
-    heroSubtitle: 'Kari Games est un site web de jeux de société multijoueurs gratuits pour les amis, étudiants, soirées et réunions de groupe. Jouez au Jeu de l\'Espion, Bombe de Mots, Duel Trivia, Qui est le Plus Susceptible, et Décodeur d\'Émojis directement dans votre navigateur sans téléchargement.',
+    heroSubtitle: 'Glee Games est un site web de jeux de société multijoueurs gratuits pour les amis, étudiants, soirées et réunions de groupe. Jouez au Jeu de l\'Espion, Bombe de Mots, Duel Trivia, Qui est le Plus Susceptible, et Décodeur d\'Émojis directement dans votre navigateur sans téléchargement.',
     playNow: 'Jouer Maintenant',
     exploreGames: 'Explorer les Jeux',
     rules: 'Règles du Jeu',
@@ -596,6 +692,51 @@ export const TRANSLATIONS = {
     clearPlayers: 'Tout Effacer',
     totalRounds: 'Nombre de Manches',
     minPlayersWarning: 'Veuillez ajouter assez de joueurs pour démarrer.',
+
+    // Landing Page
+    landingBadge: 'Plateforme de Jeux Multijoueurs & Soirées',
+    landingTagline: 'Jouez. Riez. Affrontez-vous. Ensemble.',
+    landingSupportingText: 'Des jeux multijoueurs rapides créés pour les amis, les soirées et les moments inoubliables.',
+    startPlayingBtn: 'COMMENCER À JOUER',
+    landingVisualCue: '5 jeux • Multijoueur • 100% Gratuit',
+    exploreArcade: "Explorer l'Arcade",
+    featuresTitle: 'Plaisir Immédiat, Zéro Friction',
+    featuresSubtitle: "Tout ce qu'il vous faut pour une soirée jeux mémorable.",
+    featureFreeNoDownload: 'Zéro Téléchargement',
+    featureFreeNoDownloadDesc: 'Jouez instantanément dans votre navigateur sur mobile, tablette ou PC.',
+    featurePassAndPlay: 'Passez et Jouez',
+    featurePassAndPlayDesc: "Réunissez-vous autour d'un seul écran. Pas de compte, pas d'installation.",
+    featureFivePartyGames: '5 Jeux Festifs',
+    featureFivePartyGamesDesc: 'Déduction sociale, bombe de mots, duels de culture, votes et énigmes émojis.',
+
+    // Game Hub / Arcade Lobby
+    gameHubTitle: 'CHOISISSEZ VOTRE JEU',
+    gameHubSubtitle: 'Choisissez un jeu. Rassemblez vos amis. Que le chaos commence !',
+    backToLanding: 'Accueil',
+    backToLobby: 'Hub de Jeux',
+    allGamesFilter: 'Tous les Jeux',
+    partyCategory: 'Social & Déduction',
+    speedCategory: 'Vitesse & Réflexes',
+    triviaCategory: 'Quiz & Culture',
+    playGameBtn: 'JOUER',
+    playersLabel: 'Joueurs',
+    gameActivePill: 'Prêt à Jouer',
+    jumpBackIn: 'Reprendre',
+    lastPlayed: 'Dernière partie',
+    resumeGame: 'Reprendre',
+    partyEntryTitle: 'UN ÉCRAN. UN GROUPE. 5 JEUX.',
+    partyEntrySubtitle: 'Rassemblez vos amis autour d\'un seul écran. Passez le téléphone et jouez sans attendre.',
+    arcadeManualHeader: 'MANUEL DE L\'ARCADE',
+    arcadeManualSub: 'Règles et fonctionnement de chaque jeu',
+    lockedInToPlay: 'Prêt à Lancer',
+    selectToPreview: 'Choisir le jeu',
+
+    // Game Taglines for Cards
+    spyGameCardTagline: "Pourrez-vous démasquer l'espion ?",
+    whosMostLikelyCardTagline: 'Affichez vos amis sans filtre.',
+    wordBombCardTagline: "Pensez vite avant l'explosion.",
+    triviaDuelCardTagline: 'Défiez vos connaissances.',
+    emojiDecoderCardTagline: 'Décodez avant la fin du chrono.',
 
     // Game 1: Spy Game
     spyGameTitle: 'Jeu de l\'Espion',
@@ -828,11 +969,11 @@ export const TRANSLATIONS = {
     categoryBadgeCulture: 'Culture & Inventions',
 
     // Global Rules Modal
-    rulesModalTitle: 'Règles et Guides des Jeux Kari Games',
+    rulesModalTitle: 'Règles et Guides des Jeux Glee Games',
     closeBtn: 'Compris, Jouons !',
 
     // Homepage SEO & Features Section
-    aboutBrandTitle: 'Pourquoi Choisir Kari Games pour Vos Soirées ?',
+    aboutBrandTitle: 'Pourquoi Choisir Glee Games pour Vos Soirées ?',
     aboutBrandSubtitle: 'Idéal pour les soirées étudiantes, le campus, les réunions de famille et les fêtes entre amis.',
     aboutFeature1Title: '5 Jeux Festifs Uniques',
     aboutFeature1Desc: 'De la déduction sociale avec l\'Espion à la Bombe de Mots effrénée et aux quiz de culture générale, il y en a pour tous les goûts.',
@@ -843,4 +984,10 @@ export const TRANSLATIONS = {
     aboutFeature4Title: 'Support Trilingue & RTL',
     aboutFeature4Desc: 'Prise en charge complète du français, de l\'anglais et de l\'arabe avec une mise en page fluide et des packs adaptés.',
   },
+  it,
+  ru,
+  tr,
+  es,
+  zh,
+  ko,
 };

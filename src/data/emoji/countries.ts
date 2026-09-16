@@ -12,7 +12,7 @@ export const COUNTRY_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'Home of the Eiffel Tower, the Louvre museum, haute cuisine, and croissants.',
     },
     ar: {
-      answer: 'فرنسا (France)',
+      answer: 'فرنسا',
       options: ['فرنسا', 'إيطاليا', 'إسبانيا', 'بلجيكا'],
       explanation: 'بلد برج إيفل ومتحف اللوفر والمخبوزات الفرنسية الشهيرة وفنون الطهي الرفيعة.',
     },
@@ -24,7 +24,7 @@ export const COUNTRY_EMOJI_PUZZLES: EmojiPuzzle[] = [
   },
   {
     id: 'ctry-2',
-    emojis: '🍕🍝🏛️🛵☕🇮🇹',
+    emojis: '🍕🍝🏛️🛵☕🎨',
     category: 'countries',
     difficulty: 'easy',
     en: {
@@ -33,7 +33,7 @@ export const COUNTRY_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'Famous for the Roman Colosseum, authentic pizza, pasta traditions, and Renaissance art.',
     },
     ar: {
-      answer: 'إيطاليا (Italy)',
+      answer: 'إيطاليا',
       options: ['إيطاليا', 'اليونان', 'إسبانيا', 'البرتغال'],
       explanation: 'موطن الكولوسيوم الروماني والبيتزا والباستا الأصيلة وفنون عصر النهضة.',
     },
@@ -54,7 +54,7 @@ export const COUNTRY_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'Land of cherry blossoms, Mount Fuji, high-speed Shinkansen bullet trains, sushi, and anime.',
     },
     ar: {
-      answer: 'اليابان (Japan)',
+      answer: 'اليابان',
       options: ['اليابان', 'كوريا الجنوبية', 'الصين', 'فيتنام'],
       explanation: 'كوكب اليابان، موطن جبل فوجي وقطارات الرصاصة السريعة والسوشي وزهور الكرز والأنمي.',
     },
@@ -75,7 +75,7 @@ export const COUNTRY_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'The island continent famous for kangaroos, koalas, the Great Barrier Reef, and the Outback.',
     },
     ar: {
-      answer: 'أستراليا (Australia)',
+      answer: 'أستراليا',
       options: ['أستراليا', 'نيوزيلندا', 'جنوب أفريقيا', 'كندا'],
       explanation: 'القارة والجزيرة الكبرى المشهورة بالكنغر والكوالا والحاجز المرجاني العظيم والصحراء الشاسعة.',
     },
@@ -96,7 +96,7 @@ export const COUNTRY_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'The northern nation famous for maple syrup, ice hockey, vast wilderness, and the Rocky Mountains.',
     },
     ar: {
-      answer: 'كندا (Canada)',
+      answer: 'كندا',
       options: ['كندا', 'النرويج', 'السويد', 'فنلندا'],
       explanation: 'البلد الشمالي المشهور بشراب القيقب وهوكي الجليد والغابات الشاسعة وورقة القيقب في علمه.',
     },
@@ -108,7 +108,7 @@ export const COUNTRY_EMOJI_PUZZLES: EmojiPuzzle[] = [
   },
   {
     id: 'ctry-6',
-    emojis: '🏜️🐫🌴🇩🇿🍲🏛️',
+    emojis: '🏜️🐫🌴🍲🏛️📜',
     category: 'countries',
     difficulty: 'easy',
     en: {
@@ -117,7 +117,7 @@ export const COUNTRY_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'The largest country in Africa, home to the Tassili n\'Ajjer Sahara plateau, Roman ruins, and rich heritage.',
     },
     ar: {
-      answer: 'الجزائر (Algeria)',
+      answer: 'الجزائر',
       options: ['الجزائر', 'المغرب', 'تونس', 'مصر'],
       explanation: 'أكبر دولة في أفريقيا بمساحتها، وموطن صحراء الطاسيلي الشاسعة والآثار الرومانية العريقة وتاريخ المليون ونصف شهيد.',
     },
@@ -138,7 +138,7 @@ export const COUNTRY_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'The 5-time FIFA World Cup champions, home of the Amazon Rainforest and Rio Carnival.',
     },
     ar: {
-      answer: 'البرازيل (Brazil)',
+      answer: 'البرازيل',
       options: ['البرازيل', 'الأرجنتين', 'كولومبيا', 'بيرو'],
       explanation: 'بطل كأس العالم لكرة القدم 5 مرات، وموطن غابات الأمازون المطيرة وكرنفال ريو دي جانيرو الصاخب.',
     },
@@ -159,7 +159,7 @@ export const COUNTRY_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'The birthplace of Islam, home of Makkah, Madinah, vast desert dunes, and futuristic mega-projects.',
     },
     ar: {
-      answer: 'المملكة العربية السعودية (Saudi Arabia)',
+      answer: 'المملكة العربية السعودية',
       options: ['المملكة العربية السعودية', 'الإمارات', 'قطر', 'عُمان'],
       explanation: 'مهبط الوحي وأرض الحرمين الشريفين في مكة والمدينة، والكثبان الرملية الذهبية والمشاريع المستقبلية الكبرى.',
     },
@@ -171,7 +171,7 @@ export const COUNTRY_EMOJI_PUZZLES: EmojiPuzzle[] = [
   },
   {
     id: 'ctry-9',
-    emojis: '🌮🥑🪅🌶️🌵 пирамида',
+    emojis: '🌮🥑🪅🌶️🌵🏛️',
     category: 'countries',
     difficulty: 'easy',
     en: {
@@ -180,7 +180,7 @@ export const COUNTRY_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'Famous for tacos, guacamole, Mayan pyramids, Mariachi music, and vibrant colorful traditions.',
     },
     ar: {
-      answer: 'المكسيك (Mexico)',
+      answer: 'المكسيك',
       options: ['المكسيك', 'إسبانيا', 'غواتيمالا', 'بيرو'],
       explanation: 'بلد التاكو والغواكامولي وأهرامات المايا وحضارة الأزتيك وموسيقى المارياتشي الشهيرة.',
     },
@@ -192,7 +192,7 @@ export const COUNTRY_EMOJI_PUZZLES: EmojiPuzzle[] = [
   },
   {
     id: 'ctry-10',
-    emojis: '🦙⛰️🇵🇪🌽🗿',
+    emojis: '🦙⛰️🌽🗿🏛️',
     category: 'countries',
     difficulty: 'medium',
     en: {
@@ -201,7 +201,7 @@ export const COUNTRY_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'Heart of the ancient Inca Empire, home to Machu Picchu high in the Andes mountains and lamas.',
     },
     ar: {
-      answer: 'بيرو (Peru)',
+      answer: 'بيرو',
       options: ['بيرو', 'بوليفيا', 'تشيلي', 'الإكوادور'],
       explanation: 'قلب إمبراطورية الإنكا القديمة، وموطن مدينة ماتشو بيتشو الأثرية على قمم جبال الأنديز وحيوان اللاما.',
     },

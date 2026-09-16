@@ -12,7 +12,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'A South Korean heiress accidentally paraglides into North Korea and falls in love with an army officer.',
     },
     ar: {
-      answer: 'هبوط اضطراري للقلب (Crash Landing on You)',
+      answer: 'هبوط اضطراري للقلب',
       options: ['هبوط اضطراري للقلب', 'أحفاد الشمس', 'فينتشنزو', 'الملك: الحاكم الأبدي'],
       explanation: 'سيدة أعمال كورية جنوبية تهبط بالمظلة بالخطأ في كوريا الشمالية وتقع في حب ضابط في الجيش.',
     },
@@ -33,7 +33,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'Hundreds of desperate contestants play deadly children\'s games for a massive 45.6 billion won prize.',
     },
     ar: {
-      answer: 'لعبة الحبار (Squid Game)',
+      answer: 'لعبة الحبار',
       options: ['لعبة الحبار', 'كلنا موتى', 'منزل جميل', 'أليس في بلاد الحدود'],
       explanation: 'مئات الأشخاص المثقلين بالديون يشاركون في ألعاب أطفال مميتة من أجل جائزة مالية ضخمة.',
     },
@@ -49,12 +49,12 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
     category: 'kdramas',
     difficulty: 'easy',
     en: {
-      answer: 'Goblin (Guardian: The Lonely and Great God)',
+      answer: 'Goblin',
       options: ['Goblin', 'Hotel Del Luna', 'My Love from the Star', 'Doom at Your Service'],
       explanation: 'An immortal goblin needs a human bride to pull the invisible sword from his chest and end his cursed life.',
     },
     ar: {
-      answer: 'العفريت (Goblin)',
+      answer: 'العفريت',
       options: ['العفريت', 'فندق ديل لونا', 'حبيبي من نجم آخر', 'الموت في خدمتك'],
       explanation: 'عفريت خالد يبحث عن عروس بشرية قادرة على سحب السيف غير المرئي من صدره لإنهاء خلوده.',
     },
@@ -75,7 +75,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'A woman meticulously plots revenge against the high school bullies who brutally traumatized and scarred her youth.',
     },
     ar: {
-      answer: 'مجد الانتقام (The Glory)',
+      answer: 'مجد الانتقام',
       options: ['مجد الانتقام', 'السقيفة (Penthouse)', 'قلعة السماء', 'فينتشنزو'],
       explanation: 'امرأة تخطط لسنوات طويلة للانتقام بدقة من زملائها الذين تنمروا عليها وعذبوها بوحشية في الثانوية.',
     },
@@ -96,7 +96,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'A brilliant young lawyer with autism spectrum disorder tackles legal challenges with her photographic memory and whale obsession.',
     },
     ar: {
-      answer: 'المحامية الاستثنائية وو (Extraordinary Attorney Woo)',
+      answer: 'المحامية الاستثنائية وو',
       options: ['المحامية الاستثنائية وو', 'فينتشنزو', 'كلية الحقوق', 'بدل المحاماة'],
       explanation: 'محامية عبقرية شابة مصابة بطيف التوحد تبتكر حلولاً قانونية مذهلة بمساعدة ذاكرتها الفوتوغرافية وعشقها للحيتان.',
     },
@@ -117,7 +117,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'A high school girl masters makeup artistry to transform into a campus goddess while hiding her bare face from classmates.',
     },
     ar: {
-      answer: 'جمال حقيقي (True Beauty)',
+      answer: 'جمال حقيقي',
       options: ['جمال حقيقي', 'هويتي هي جميلة جانجنام', 'جنية رفع الأثقال', 'أنت استثنائية'],
       explanation: 'طالبة في الثانوية تتقن فن التجميل لتصبح محط إعجاب الجميع في مدرستها مع إخفاء مظهرها الطبيعي.',
     },
@@ -138,7 +138,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'An employee goes on a blind date disguised as her rich friend, only to discover the date is her company\'s CEO.',
     },
     ar: {
-      answer: 'اقتراح عمل (Business Proposal)',
+      answer: 'اقتراح عمل',
       options: ['اقتراح عمل', 'ملك الأرض', 'ما خطب السكرتيرة كيم', 'حياتها الخاصة'],
       explanation: 'موظفة تذهب إلى موعد أعمى منتحلة شخصية صديقتها الثرية، لتتفاجأ بأن الشاب هو الرئيس التنفيذي لشركتها.',
     },
@@ -159,7 +159,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'An ex-convict opens a pub restaurant in Seoul\'s bustling Itaewon district to defeat a powerful food conglomerate.',
     },
     ar: {
-      answer: 'إتايوان كلاس (Itaewon Class)',
+      answer: 'إتايوان كلاس',
       options: ['إتايوان كلاس', 'فينتشنزو', 'ستارت أب', 'أقاتل لأجل طريقي'],
       explanation: 'شاب سجين سابق يفتتح مطعماً وحانة في حي إتايوان بسيول لتحدي وإسقاط إمبراطورية أطعمة كبرى ظلمت والده.',
     },
@@ -180,7 +180,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'An Italian-Korean mafia consigliere returns to Seoul and uses ruthless mafia methods to fight corrupt corporations.',
     },
     ar: {
-      answer: 'فينتشنزو (Vincenzo)',
+      answer: 'فينتشنزو',
       options: ['فينتشنزو', 'محامي خارج عن القانون', 'سائق التاكسي', 'طبيب السجن'],
       explanation: 'محامي مافيا إيطالي من أصل كوري يعود إلى كوريا الجنوبية ويستخدم أساليب العصابات لمعاقبة الفاسدين.',
     },
@@ -201,7 +201,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'High school students become trapped inside their school during a sudden zombie virus outbreak.',
     },
     ar: {
-      answer: 'كلنا موتى (All of Us Are Dead)',
+      answer: 'كلنا موتى',
       options: ['كلنا موتى', 'منزل جميل', 'المملكة (Kingdom)', 'السعادة (Happiness)'],
       explanation: 'مجموعة من طلاب الثانوية يحاصرون داخل مدرستهم ويقاتلون من أجل البقاء بعد تفشي فيروس الزومبي.',
     },
@@ -222,7 +222,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'A special forces captain and a dedicated surgeon fall in love while serving in a fictional war-torn country.',
     },
     ar: {
-      answer: 'أحفاد الشمس (Descendants of the Sun)',
+      answer: 'أحفاد الشمس',
       options: ['أحفاد الشمس', 'هبوط اضطراري للقلب', 'المعالج (Healer)', 'صياد المدينة'],
       explanation: 'قصة حب تنشأ بين قائد قوات خاصة وطبيبة جراحة أثناء أداء واجبهما في منطقة حروب وكوارث.',
     },
@@ -243,7 +243,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'An ancient cursed woman manages a supernatural hotel in downtown Seoul catering exclusively to dead ghosts.',
     },
     ar: {
-      answer: 'فندق ديل لونا (Hotel Del Luna)',
+      answer: 'فندق ديل لونا',
       options: ['فندق ديل لونا', 'العفريت', 'الحانة الغامضة', 'شمس السيد'],
       explanation: 'امرأة معاقبة بالخلود تدير فندقاً سحرياً وغامضاً في سيول يستقبل الأرواح والأشباح قبل عبورها للآخرة.',
     },
@@ -264,7 +264,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'A wealthy hotel heir who despises fake smiles clashes with an energetic, hardworking concierge known for her bright smile.',
     },
     ar: {
-      answer: 'ملك الأرض (King the Land)',
+      answer: 'ملك الأرض',
       options: ['ملك الأرض', 'اقتراح عمل', 'ما خطب السكرتيرة كيم', 'المرأة القوية دو بونغ سون'],
       explanation: 'وريث مجموعة فنادق فاخرة يكره الابتسامات الزائفة يقع في حب موظفة استقبال متميزة بابتسامتها الصادقة.',
     },
@@ -285,7 +285,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'Young mages navigate magic, forbidden soul-shifting spells, and love in the fictional kingdom of Daeho.',
     },
     ar: {
-      answer: 'كيمياء الأرواح (Alchemy of Souls)',
+      answer: 'كيمياء الأرواح',
       options: ['كيمياء الأرواح', 'العفريت', 'عشاق القمر', 'الجامحون'],
       explanation: 'مجموعة من السحرة الشباب يواجهون مصائر ملتوية بسبب تعويذة سحرية محظورة تسمح بتبديل الأرواح بين الأجساد.',
     },
@@ -306,7 +306,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'A reclusive high school student and his apartment building neighbors battle terrifying monsters born from human desires.',
     },
     ar: {
-      answer: 'منزل جميل (Sweet Home)',
+      answer: 'منزل جميل',
       options: ['منزل جميل', 'كلنا موتى', 'أرض الجحيم (Hellbound)', 'واجب ما بعد المدرسة'],
       explanation: 'فتى منعزل وسكان عمارة سكنية قديمة يقاتلون من أجل النجاة ضد وحوش مرعبة تتحول إليها رغبات البشر الدفينة.',
     },
@@ -327,7 +327,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'A 200-year-old pitiless demon temporarily loses his supernatural powers after getting entangled with an arrogant heiress.',
     },
     ar: {
-      answer: 'شيطاني (My Demon)',
+      answer: 'شيطاني',
       options: ['شيطاني', 'الموت في خدمتك', 'العفريت', 'حكاية الذيول التسعة'],
       explanation: 'شيطان يعيش لمئات السنين يفقد قواه الخارقة فجأة بعد انتقالها إلى وريثة شركات غنية فيبرم معها زواجاً تعاقدياً.',
     },
@@ -339,16 +339,16 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
   },
   {
     id: 'kd-17',
-    emojis: '🤺📼📻🏖️2️⃣5️⃣2️⃣1️⃣',
+    emojis: '🤺📼📻🏖️📰❤️',
     category: 'kdramas',
-    difficulty: 'easy',
+    difficulty: 'medium',
     en: {
       answer: 'Twenty-Five Twenty-One',
       options: ['Twenty-Five Twenty-One', 'Reply 1988', 'Our Beloved Summer', 'Weightlifting Fairy'],
       explanation: 'An ambitious teenage fencer and a resilient young reporter navigate sports dreams, first love, and the 1998 Asian financial crisis.',
     },
     ar: {
-      answer: 'خمسة وعشرون وواحد وعشرون (Twenty-Five Twenty-One)',
+      answer: 'خمسة وعشرون وواحد وعشرون',
       options: ['خمسة وعشرون وواحد وعشرون', 'أجبني 1988', 'صيفنا الحبيب', 'جنية رفع الأثقال'],
       explanation: 'قصة مبارزة مبارزة شابة وصحفي شاب يبنيان أحلامهما وحبهما في أواخر التسعينيات خلال الأزمة المالية الآسيوية.',
     },
@@ -360,16 +360,16 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
   },
   {
     id: 'kd-18',
-    emojis: '📼🏘️👨‍👩‍👧‍👦🍜📻1️⃣9️⃣8️⃣8️⃣',
+    emojis: '📼🏘️👨‍👩‍👧‍👦🍜📻📺',
     category: 'kdramas',
-    difficulty: 'easy',
+    difficulty: 'medium',
     en: {
       answer: 'Reply 1988',
       options: ['Reply 1988', 'Reply 1994', 'Twenty-Five Twenty-One', 'Hospital Playlist'],
       explanation: 'Five childhood friends and their warm families navigate school, friendship, and romance in a Seoul neighborhood in 1988.',
     },
     ar: {
-      answer: 'أجبني 1988 (Reply 1988)',
+      answer: 'أجبني 1988',
       options: ['أجبني 1988', 'أجبني 1994', 'خمسة وعشرون وواحد وعشرون', 'قائمة تشغيل المستشفى'],
       explanation: 'حياة خمس عائلات وخمسة أصدقاء مقربين يعيشون في نفس الحي في سيول عام 1988 مليئة بالدفء والذكريات الجميلة.',
     },
@@ -390,7 +390,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'A city dentist relocates to a peaceful seaside village and encounters a charming jack-of-all-trades handyman.',
     },
     ar: {
-      answer: 'مسقط رأس تشا تشا تشا (Hometown Cha-Cha-Cha)',
+      answer: 'مسقط رأس تشا تشا تشا',
       options: ['مسقط رأس تشا تشا تشا', 'ألواننا الزرقاء', 'إضراب صيفي', 'عندما تتفتح زهرة الكاميليا'],
       explanation: 'طبيبة أسنان تنتقل من سيول إلى قرية ساحلية هادئة وتلتقي بشاب متعدد المهارات يساعد كل سكان القرية.',
     },
@@ -411,7 +411,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'A modern criminal profiler connects with a 1980s detective through an old two-way walkie-talkie to solve cold cases.',
     },
     ar: {
-      answer: 'إشارة (Signal)',
+      answer: 'إشارة',
       options: ['إشارة', 'النفق (Tunnel)', 'الصوت (Voice)', 'الغريب (Stranger)'],
       explanation: 'محلل جنائي في الحاضر يتواصل عبر جهاز لاسلكي قديم مع محقق من عام 1989 لحل جرائم غامضة وتغيير الماضي.',
     },
@@ -432,7 +432,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'Five doctors who became friends in medical school share surgical duties, cafeteria meals, and an amateur garage rock band.',
     },
     ar: {
-      answer: 'قائمة تشغيل المستشفى (Hospital Playlist)',
+      answer: 'قائمة تشغيل المستشفى',
       options: ['قائمة تشغيل المستشفى', 'دكتور رومانسي', 'طبيب غريب', 'طبيب شبح'],
       explanation: 'خمسة أطباء جراحين أصدقاء منذ مقاعد الدراسة يوازنون بين إنقاذ المرضى في المستشفى وعزف الموسيقى في فرقتهم الخاصة.',
     },
@@ -453,7 +453,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'Teenagers with inherited supernatural abilities and their secret-agent parents fight to hide their powers from shadowy agencies.',
     },
     ar: {
-      answer: 'المتحركون (Moving)',
+      answer: 'المتحركون',
       options: ['المتحركون', 'صائد الإشاعات', 'منزل جميل', 'واجب ما بعد المدرسة'],
       explanation: 'مجموعة من الطلاب يمتلكون قوى خارقة متوارثة يتعاون آباؤهم العملاء السابقون لحمايتهم من منظمات سرية تسعى لاصطيادهم.',
     },
@@ -474,7 +474,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'A department-store conglomerate queen and her small-town legal director husband navigate marital crisis and illness.',
     },
     ar: {
-      answer: 'ملكة الدموع (Queen of Tears)',
+      answer: 'ملكة الدموع',
       options: ['ملكة الدموع', 'هبوط اضطراري للقلب', 'ملك الأرض', 'مجد الانتقام'],
       explanation: 'وريثة إمبراطورية تجارية كبرى وزوجها المحامي يواجهان أزمة زوجية وصدمة مرض مفاجئ يعيد إحياء حبهما.',
     },
@@ -495,7 +495,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'A tiny young woman endowed with hereditary superhuman strength is hired as a bodyguard by a gaming company CEO.',
     },
     ar: {
-      answer: 'المرأة القوية دو بونغ سون (Strong Girl Bong-soon)',
+      answer: 'المرأة القوية دو بونغ سون',
       options: ['المرأة القوية دو بونغ سون', 'جنية رفع الأثقال', 'أقاتل لأجل طريقي', 'الفتاة القوية نام سون'],
       explanation: 'فتاة شابة ترث قوة بدنية خارقة مذهلة يتم توظيفها كحارسة شخصية لرئيس شركة ألعاب فيديو غني ووسيم.',
     },
@@ -516,7 +516,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'A spirited collegiate weightlifter falls in love for the first time while chasing her athletic Olympic dreams.',
     },
     ar: {
-      answer: 'جنية رفع الأثقال كيم بوك جو (Weightlifting Fairy)',
+      answer: 'جنية رفع الأثقال كيم بوك جو',
       options: ['جنية رفع الأثقال كيم بوك جو', 'المرأة القوية دو بونغ سون', 'خمسة وعشرون وواحد وعشرون', 'أقاتل لأجل طريقي'],
       explanation: 'طالبة جامعية بطلة في رفع الأثقال تعيش أول تجربة حب صادقة مع صديق طفولتها السباح الموهوب.',
     },
@@ -537,7 +537,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'Three young adults who can foresee tragic future accidents in their dreams team up to prevent the catastrophes from happening.',
     },
     ar: {
-      answer: 'بينما كنت نائماً (While You Were Sleeping)',
+      answer: 'بينما كنت نائماً',
       options: ['بينما كنت نائماً', 'بينوكيو', 'أستطيع سماع صوتك', 'دبليو: عالمان'],
       explanation: 'ثلاثة أشخاص يمتلكون القدرة على رؤية الحوادث المستقبلية المؤسفة في أحلامهم يتعاونون لمنع وقوعها في الواقع.',
     },
@@ -558,7 +558,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'A 21st-century woman travels back in time during a solar eclipse to the Goryeo Dynasty and is caught between rival princes.',
     },
     ar: {
-      answer: 'عشاق القمر (Moon Lovers: Scarlet Heart Ryeo)',
+      answer: 'عشاق القمر',
       options: ['عشاق القمر', 'عاطفة الملك', 'السيد الملك (Mr. Queen)', 'هوارانج'],
       explanation: 'فتاة من القرن الحادي والعشرين تنتقل عبر الزمن أثناء كسوف الشمس إلى عصر مملكة غوريو وتقع في قلب صراع الأمراء على العرش.',
     },
@@ -579,7 +579,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'A surgical resident gets pulled into the illustrated webtoon world created by her father and meets its handsome hero.',
     },
     ar: {
-      answer: 'دبليو: عالمان (W: Two Worlds)',
+      answer: 'دبليو: عالمان',
       options: ['دبليو: عالمان', 'ذكريات قصر الحمراء', 'أنت استثنائية', 'الملك: الحاكم الأبدي'],
       explanation: 'طبيبة جراحة يتم سحبها بطريقة غامضة إلى داخل عالم الويبتون المصور الذي يؤلفه والدها لتلتقي ببطل القصة الخيالي.',
     },
@@ -595,12 +595,12 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
     category: 'kdramas',
     difficulty: 'easy',
     en: {
-      answer: 'The Heirs (The Inheritors)',
+      answer: 'The Heirs',
       options: ['The Heirs', 'Boys Over Flowers', 'Cinderella and the Four Knights', 'Sky Castle'],
       explanation: 'Privileged high school heirs of Korea\'s top business empires clash when the group\'s golden boy falls for a poor housekeeper\'s daughter.',
     },
     ar: {
-      answer: 'الورثة (The Heirs)',
+      answer: 'الورثة',
       options: ['الورثة', 'فتيان قبل الزهور', 'سندريلا والفرسان الأربعة', 'قلعة السماء'],
       explanation: 'وريث عائلة ثرية مرموقة يقع في حب فتاة فقيرة تعمل والدتها كخادمة بكماء في قصر عائلته وسط ضغوط مجتمع النخبة.',
     },
@@ -621,7 +621,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'A dry-cleaner\'s brave daughter receives a scholarship to an ultra-elite private academy ruled by four wealthy handsome boys (F4).',
     },
     ar: {
-      answer: 'فتيان قبل الزهور (Boys Over Flowers)',
+      answer: 'فتيان قبل الزهور',
       options: ['فتيان قبل الزهور', 'الورثة', 'قبلة مرحة', 'أنت جميلة'],
       explanation: 'فتاة بسيطة تحصل على منحة في مدرسة خاصة للنخبة وتقف بشجاعة في وجه مجموعة الفتيان الأثرياء الأربعة (F4).',
     },
@@ -642,7 +642,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'A girl with Pinocchio syndrome (who hiccups whenever she lies) and her adopted uncle become broadcast news reporters.',
     },
     ar: {
-      answer: 'بينوكيو (Pinocchio)',
+      answer: 'بينوكيو',
       options: ['بينوكيو', 'المعالج (Healer)', 'بينما كنت نائماً', 'أستطيع سماع صوتك'],
       explanation: 'فتاة تصاب بالحازوقة كلما كذبت تعمل برفقة صديقها كمراسلين تلفزيونيين يبحثان عن الحقيقة والعدالة في الإعلام.',
     },
@@ -663,7 +663,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'An alien who landed on Earth 400 years ago during the Joseon dynasty falls in love with a clumsy top Hallyu actress.',
     },
     ar: {
-      answer: 'حبيبي من نجم آخر (My Love from the Star)',
+      answer: 'حبيبي من نجم آخر',
       options: ['حبيبي من نجم آخر', 'أسطورة البحر الأزرق', 'العفريت', 'فندق ديل لونا'],
       explanation: 'فضائي هبط على كوكب الأرض قبل 400 عام ويستعد للرحيل يقع في حب ممثلة كورية مشهورة ومرحة تسكن بجواره.',
     },
@@ -684,7 +684,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'The last living mermaid travels from Spain to modern Seoul looking for the charming con artist she saved.',
     },
     ar: {
-      answer: 'أسطورة البحر الأزرق (Legend of the Blue Sea)',
+      answer: 'أسطورة البحر الأزرق',
       options: ['أسطورة البحر الأزرق', 'حبيبي من نجم آخر', 'العفريت', 'فندق ديل لونا'],
       explanation: 'حورية بحر تسافر إلى سيول بحثاً عن محتال وسيم أنقذته في إسبانيا وتربطهما قصة حب من عصر جوسون.',
     },
@@ -705,7 +705,7 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'A selfless psychiatric ward caregiver and an antisocial children\'s book author heal each other\'s deep emotional wounds.',
     },
     ar: {
-      answer: 'مختل لكن لا بأس (It\'s Okay to Not Be Okay)',
+      answer: 'مختل لكن لا بأس',
       options: ['مختل لكن لا بأس', 'اقتلني، اشفني', 'جدني في ذاكرتك', 'هبوط اضطراري للقلب'],
       explanation: 'ممرض في جناح الطب النفسي ومؤلفة كتب أطفال مصابة باضطراب الشخصية المعادية للمجتمع يعالجان جروحهما النفسية العميقة.',
     },
@@ -721,12 +721,12 @@ export const KDRAMA_EMOJI_PUZZLES: EmojiPuzzle[] = [
     category: 'kdramas',
     difficulty: 'medium',
     en: {
-      answer: 'Coffee Prince (The 1st Shop of Coffee Prince)',
+      answer: 'Coffee Prince',
       options: ['Coffee Prince', 'Pasta', 'Secret Garden', 'Playful Kiss'],
       explanation: 'A wealthy bachelor hires a tomboy girl disguised as a boy to work in his café and pretend to be his gay partner.',
     },
     ar: {
-      answer: 'مقهى الأمير (Coffee Prince)',
+      answer: 'مقهى الأمير',
       options: ['مقهى الأمير', 'باستا', 'الحديقة السرية', 'قبلة مرحة'],
       explanation: 'شاب ثري يوظف فتاة تتنكر في زي شاب للعمل في مقهى مميز، لتنشأ بينهما مشاعر رومانسية معقدة ومرحة.',
     },

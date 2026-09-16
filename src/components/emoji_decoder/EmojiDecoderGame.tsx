@@ -780,7 +780,7 @@ export const EmojiDecoderGame: React.FC<EmojiDecoderGameProps> = ({
   const catLabel = language === 'ar' ? currentCategoryMeta.nameAr : language === 'fr' ? currentCategoryMeta.nameFr : currentCategoryMeta.nameEn;
 
   return (
-    <div className="w-full max-w-xl mx-auto px-4 py-6 space-y-5 animate-in fade-in duration-300">
+    <div className="w-full max-w-xl mx-auto px-4 py-6 pb-8 sm:pb-6 space-y-5 animate-in fade-in duration-300">
       {/* Top Header Bar */}
       <div className="flex items-center justify-between gap-2">
         <div className="flex items-center gap-2">
@@ -849,7 +849,7 @@ export const EmojiDecoderGame: React.FC<EmojiDecoderGameProps> = ({
 
         {/* Big Emojis Box */}
         <div className="py-6 px-4 rounded-3xl bg-amber-950/25 border border-amber-500/40 shadow-inner">
-          <div className="text-5xl sm:text-6xl tracking-widest select-none drop-shadow-md">
+          <div className="text-4xl sm:text-5xl md:text-6xl tracking-wider sm:tracking-widest select-none drop-shadow-md break-all">
             {shuffledData?.emojis}
           </div>
         </div>
@@ -884,14 +884,14 @@ export const EmojiDecoderGame: React.FC<EmojiDecoderGameProps> = ({
               const isCorrectOption = idx === shuffledData.correctIndex;
               const isSelected = selectedOptionIndex === idx;
 
-              let optionStyle = 'bg-white/5 border-white/10 hover:bg-white/10 text-white';
+              let optionStyle = 'bg-white/[0.04] border-white/10 hover:bg-white/[0.08] hover:border-white/20 text-white shadow-sm';
               if (phase === 'reveal') {
                 if (isCorrectOption) {
-                  optionStyle = 'bg-emerald-600/30 border-emerald-500 text-emerald-200 ring-2 ring-emerald-500/50';
+                  optionStyle = 'bg-emerald-600/30 border-emerald-500 text-emerald-200 ring-2 ring-emerald-500/50 shadow-md shadow-emerald-950/50';
                 } else if (isSelected && !isCorrectOption) {
-                  optionStyle = 'bg-rose-600/30 border-rose-500 text-rose-200';
+                  optionStyle = 'bg-rose-600/30 border-rose-500 text-rose-200 shadow-md shadow-rose-950/50';
                 } else {
-                  optionStyle = 'bg-white/5 border-white/5 opacity-40 text-slate-400';
+                  optionStyle = 'bg-white/[0.02] border-white/5 opacity-40 text-slate-400';
                 }
               }
 
@@ -900,9 +900,9 @@ export const EmojiDecoderGame: React.FC<EmojiDecoderGameProps> = ({
                   key={idx}
                   disabled={phase === 'reveal'}
                   onClick={() => handleSelectOption(idx)}
-                  className={`w-full p-4 rounded-2xl border font-bold text-sm sm:text-base flex items-center justify-between transition-all cursor-pointer active:scale-98 ${optionStyle}`}
+                  className={`w-full min-h-[52px] p-4 rounded-2xl border font-bold text-sm sm:text-base flex items-center justify-between transition-all duration-150 cursor-pointer active:scale-[0.99] active:translate-y-0.5 ${optionStyle}`}
                 >
-                  <span className="truncate pr-2">{opt}</span>
+                  <span className="truncate pr-2 rtl:pr-0 rtl:pl-2">{opt}</span>
                   {phase === 'reveal' && isCorrectOption && (
                     <CheckCircle className="w-5 h-5 text-emerald-400 shrink-0" />
                   )}
@@ -919,7 +919,7 @@ export const EmojiDecoderGame: React.FC<EmojiDecoderGameProps> = ({
         {phase === 'puzzle' && (
           <button
             onClick={handleDirectReveal}
-            className="text-xs text-slate-400 hover:text-white font-bold transition-colors cursor-pointer flex items-center justify-center gap-1 mx-auto pt-2"
+            className="text-xs text-slate-400 hover:text-white font-bold transition-colors cursor-pointer flex items-center justify-center gap-1 mx-auto py-2 px-3 rounded-xl hover:bg-white/5"
           >
             <Eye className="w-3.5 h-3.5" />
             <span>{t.revealAnswerBtn}</span>

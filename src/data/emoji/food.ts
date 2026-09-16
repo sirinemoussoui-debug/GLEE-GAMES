@@ -12,7 +12,7 @@ export const FOOD_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'Classic Neapolitan pizza topped with red tomato sauce, white mozzarella cheese, and fresh green basil representing Italy\'s flag.',
     },
     ar: {
-      answer: 'بيتزا مارغريتا (Pizza Margherita)',
+      answer: 'بيتزا مارغريتا',
       options: ['بيتزا مارغريتا', 'كالزوني', 'لازانيا', 'فوكاتشا'],
       explanation: 'البيتزا النابولية الإيطالية الأصيلة بصلصة الطماطم الحمراء والموزاريلا البيضاء والريحان الأخضر التي تمثل ألوان علم إيطاليا.',
     },
@@ -33,7 +33,7 @@ export const FOOD_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'Traditional Japanese delicacy made of vinegared rice paired with raw seafood, nori seaweed, and wasabi.',
     },
     ar: {
-      answer: 'سوشي وساشيمي (Sushi)',
+      answer: 'سوشي وساشيمي',
       options: ['سوشي وساشيمي', 'رامين', 'تيمبورا', 'غيوزا'],
       explanation: 'طبق المطبخ الياباني الشهير عالمياً المحضر من الأرز المخلل وشرائح الأسماك الطازجة وأعشاب النوري والواسابي.',
     },
@@ -54,7 +54,7 @@ export const FOOD_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'Flaky, buttery crescent-shaped French pastry made from laminated yeast-leavened dough.',
     },
     ar: {
-      answer: 'كرواسون (Croissant)',
+      answer: 'كرواسون',
       options: ['كرواسون', 'باغيت', 'بان أو شوكولا', 'بريوش'],
       explanation: 'المخبوز الفرنسي الهلالي الهش والمورق بالزبدة الشهير عالمياً على مائدة الإفطار.',
     },
@@ -75,12 +75,12 @@ export const FOOD_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'Middle Eastern street food dish of marinated stacked meat roasted on a slow-turning vertical rotisserie and wrapped in flatbread.',
     },
     ar: {
-      answer: 'شاورما (Shawarma)',
+      answer: 'شاورما',
       options: ['شاورما', 'فلافل', 'كباب', 'تاكو'],
       explanation: 'أشهر وجبة سريعة في الشرق الأوسط تُحضر من شرائح اللحم أو الدجاج المتبلة والمشوية على سيخ دوار داخل الخبز مع الثومية والمخلل.',
     },
     fr: {
-      answer: 'Shawarma (Chawarma)',
+      answer: 'Shawarma',
       options: ['Shawarma', 'Falafel', 'Kebab', 'Tacos'],
       explanation: 'Spécialité moyen-orientale de viande marinée grillée à la broche verticale et servie dans du pain pita.',
     },
@@ -96,12 +96,12 @@ export const FOOD_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'North African UNESCO-recognized traditional dish of steamed semolina pearls topped with vegetables and spiced broth.',
     },
     ar: {
-      answer: 'الكسكسي (Couscous)',
+      answer: 'الكسكسي',
       options: ['الكسكسي', 'طاجين', 'شخشوخة', 'حريرة'],
       explanation: 'الطبق التراثي المغاربي المصنف في قائمة اليونسكو للتراث الإنساني، والمحضر من حبيبات السميد المبخرة مع الخضار واللحم والمرق الشهي.',
     },
     fr: {
-      answer: 'Couscous maghrébin',
+      answer: 'Couscous',
       options: ['Couscous', 'Tajine', 'Chakhchoukha', 'Harira'],
       explanation: 'Plat traditionnel emblématique du Maghreb inscrit au patrimoine de l\'UNESCO, à base de semoule de blé et légumes.',
     },
@@ -112,17 +112,17 @@ export const FOOD_EMOJI_PUZZLES: EmojiPuzzle[] = [
     category: 'food',
     difficulty: 'easy',
     en: {
-      answer: 'Paella (Spanish Paella)',
+      answer: 'Paella',
       options: ['Paella', 'Risotto', 'Jambalaya', 'Biryani'],
       explanation: 'Valencia\'s saffron-infused rice dish cooked in a wide shallow pan with seafood, rabbit, chicken, and beans.',
     },
     ar: {
-      answer: 'الباييلا الإسبانية (Paella)',
+      answer: 'الباييلا',
       options: ['الباييلا', 'الريزوتو', 'الجامبالايا', 'البرياني'],
       explanation: 'طبق الأرز الإسباني التقليدي الشهير من فالنسيا بنكهة الزعفران وثمار البحر والخضار والمطهو في مقلاة واسعة مسطحة.',
     },
     fr: {
-      answer: 'Paella valencienne',
+      answer: 'Paella',
       options: ['Paella', 'Risotto', 'Jambalaya', 'Biryani'],
       explanation: 'Le grand plat traditionnel de riz safrané espagnol de la région de Valence cuisiné aux fruits de mer.',
     },
@@ -133,17 +133,17 @@ export const FOOD_EMOJI_PUZZLES: EmojiPuzzle[] = [
     category: 'food',
     difficulty: 'easy',
     en: {
-      answer: 'Koshari (Egyptian Koshary)',
+      answer: 'Koshari',
       options: ['Koshari', 'Molokhia', 'Foul Mudammas', 'Hawawshi'],
       explanation: 'Egypt\'s beloved national comfort dish mixing rice, lentils, macaroni, chickpeas, spiced tomato sauce, and fried crispy onions.',
     },
     ar: {
-      answer: 'الكشري المصري (Koshari)',
+      answer: 'الكشري',
       options: ['الكشري', 'الملوخية', 'الفول المدمس', 'الحواوشي'],
       explanation: 'الطبق الشعبي الأول في مصر الذي يمزج الأرز والعدس والمعكرونة والحمص مع صلصة الطماطم الحارة والدقة والبصل المقرمش.',
     },
     fr: {
-      answer: 'Koshari (Kouchari égyptien)',
+      answer: 'Koshari',
       options: ['Koshari', 'Molokhia', 'Foul moudammas', 'Hawawshi'],
       explanation: 'Le plat national égyptien réunissant riz, lentilles, pâtes, pois chiches et oignons frits avec une sauce tomate pimentée.',
     },
@@ -159,14 +159,56 @@ export const FOOD_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'Japanese wheat noodle soup served in rich meat or fish broth flavored with soy sauce or miso and topped with sliced pork and eggs.',
     },
     ar: {
-      answer: 'الرامن الياباني (Ramen)',
+      answer: 'الرامن',
       options: ['الرامن', 'أودون', 'سوبا', 'فو'],
       explanation: 'حساء النودلز الياباني الشهير المحضر في مرق غني مع شرائح اللحم والبيض المسلوق المتبل والأعشاب البحرية.',
     },
     fr: {
-      answer: 'Ramen japonais',
+      answer: 'Ramen',
       options: ['Ramen', 'Udon', 'Soba', 'Pho'],
       explanation: 'Soupe de nouilles japonaise servie dans un bouillon parfumé avec tranches de viande, œuf mariné et algues.',
+    },
+  },
+  {
+    id: 'fd-9',
+    emojis: '🫓🥩🧅🥑🌶️🍋🇲🇽',
+    category: 'food',
+    difficulty: 'easy',
+    en: {
+      answer: 'Tacos',
+      options: ['Tacos', 'Burrito', 'Quesadilla', 'Enchiladas'],
+      explanation: 'Traditional Mexican corn or wheat tortillas folded around seasoned meat, onions, cilantro, salsa, and fresh lime.',
+    },
+    ar: {
+      answer: 'التاكو (Tacos)',
+      options: ['التاكو (Tacos)', 'بوريتو', 'كيساديلا', 'إنشيلادا'],
+      explanation: 'الطبق المكسيكي التقليدي المكون من خبز التورتيلا المطوي حول اللحم المتبل والبصل والكزبرة والصلصات الحارة وعصير الليمون.',
+    },
+    fr: {
+      answer: 'Tacos',
+      options: ['Tacos', 'Burrito', 'Quesadilla', 'Enchiladas'],
+      explanation: 'Le mets traditionnel mexicain composé d\'une tortilla pliée garnie de viande épicée, d\'oignons, de coriandre et de citron vert.',
+    },
+  },
+  {
+    id: 'fd-10',
+    emojis: '🥩🧀🥬🍅🧅🍟',
+    category: 'food',
+    difficulty: 'easy',
+    en: {
+      answer: 'Cheeseburger',
+      options: ['Cheeseburger', 'Hot Dog', 'Sandwich', 'Pizza'],
+      explanation: 'A grilled seasoned beef patty topped with melted cheese, crisp lettuce, sliced tomato, and onion between buns, paired with french fries.',
+    },
+    ar: {
+      answer: 'تشيز برغر',
+      options: ['تشيز برغر', 'هوت دوغ', 'شطيرة (ساندويتش)', 'بيتزا'],
+      explanation: 'شطيرة لحم البقر المشوي المغطاة بالجبن المذاب والخس والطماطم والبصل داخل الخبز وتقدم عادة مع البطاطس المقلية المقرمشة.',
+    },
+    fr: {
+      answer: 'Cheeseburger',
+      options: ['Cheeseburger', 'Hot Dog', 'Sandwich', 'Pizza'],
+      explanation: 'Un steak de bœuf grillé garni de fromage fondu, salade, tomate et oignon entre deux pains, accompagné de frites dorées.',
     },
   },
 ];

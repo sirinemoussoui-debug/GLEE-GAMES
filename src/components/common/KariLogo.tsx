@@ -200,13 +200,11 @@ export const KariLogo: React.FC<KariLogoProps> = ({
 
       <div className="flex flex-col items-start leading-none">
         <div className="flex items-center gap-2">
-          {/* KARI wordmark with the custom smiling 'A' */}
+          {/* GLEE wordmark */}
           <span
             className={`font-black tracking-tight font-display flex items-center ${textSizes[size]} bg-gradient-to-r from-orange-400 via-amber-300 to-purple-400 bg-clip-text text-transparent`}
           >
-            <span>K</span>
-            <KariLetterA />
-            <span>RI</span>
+            GLEE
           </span>
 
           {/* GAMES Pill Badge */}

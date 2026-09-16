@@ -45,6 +45,75 @@
   box-shadow: 0 0 25px rgba(234, 179, 8, 0.4);
 }
 
+/* KARI Ambient Environmental Animations */
+@keyframes ambientBreathing {
+  0%, 100% {
+    opacity: 0.82;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes emberDriftA {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(6px, -10px);
+  }
+}
+
+@keyframes emberDriftB {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-8px, -12px);
+  }
+}
+
+@keyframes emberDriftC {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(5px, 8px);
+  }
+}
+
+.animate-ambient-breathe {
+  animation: ambientBreathing 14s ease-in-out infinite;
+}
+
+.animate-ember-a {
+  animation: emberDriftA 11s ease-in-out infinite;
+}
+
+.animate-ember-b {
+  animation: emberDriftB 13s ease-in-out infinite;
+}
+
+.animate-ember-c {
+  animation: emberDriftC 9s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ambient-breathe,
+  .animate-ember-a,
+  .animate-ember-b,
+  .animate-ember-c,
+  .animate-pulse,
+  .animate-ping {
+    animation: none !important;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* Custom scrollbars */
 ::-webkit-scrollbar {
   width: 6px;

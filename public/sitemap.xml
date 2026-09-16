@@ -3,12 +3,18 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://glee-games.vercel.app/</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://glee-games.vercel.app/" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://glee-games.vercel.app/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://glee-games.vercel.app/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://glee-games.vercel.app/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://glee-games.vercel.app/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://glee-games.vercel.app/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://glee-games.vercel.app/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://glee-games.vercel.app/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://glee-games.vercel.app/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://glee-games.vercel.app/" />
   </url>
 </urlset>

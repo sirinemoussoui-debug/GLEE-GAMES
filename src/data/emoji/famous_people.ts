@@ -12,7 +12,7 @@ export const FAMOUS_PEOPLE_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'Theoretical physicist who developed the theory of relativity and the famous mass-energy equation E=mc².',
     },
     ar: {
-      answer: 'ألبرت أينشتاين (Albert Einstein)',
+      answer: 'ألبرت أينشتاين',
       options: ['ألبرت أينشتاين', 'إسحاق نيوتن', 'نيكولا تسلا', 'ستيفن هوكينج'],
       explanation: 'عالم الفيزياء النظرية العبقري ومبتكر نظرية النسبية ومعادلة الطاقة الشهيرة E=mc².',
     },
@@ -28,12 +28,12 @@ export const FAMOUS_PEOPLE_EMOJI_PUZZLES: EmojiPuzzle[] = [
     category: 'famous_people',
     difficulty: 'easy',
     en: {
-      answer: 'Sir Isaac Newton',
+      answer: 'Isaac Newton',
       options: ['Isaac Newton', 'Galileo Galilei', 'Albert Einstein', 'Johannes Kepler'],
       explanation: 'Formulated the laws of motion and universal gravitation after famously contemplating a falling apple.',
     },
     ar: {
-      answer: 'إسحاق نيوتن (Isaac Newton)',
+      answer: 'إسحاق نيوتن',
       options: ['إسحاق نيوتن', 'غاليليو غاليلي', 'ألبرت أينشتاين', 'يوهانس كبلر'],
       explanation: 'واضع قوانين الحركة والجاذبية الأرضية الكونية الشهير بقصة سقوط التفاحة واكتشاف علم التفاضل والتكامل.',
     },
@@ -54,12 +54,12 @@ export const FAMOUS_PEOPLE_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'Renaissance polymath who painted the Mona Lisa and The Last Supper while inventing early concept flying machines.',
     },
     ar: {
-      answer: 'ليوناردو دا فينشي (Leonardo da Vinci)',
+      answer: 'ليوناردو دا فينشي',
       options: ['ليوناردو دا فينشي', 'مايكل أنجلو', 'رافاييل', 'دوناتيلو'],
       explanation: 'عبقري عصر النهضة الشامل الذي رسم الموناليزا والعشاء الأخير ووضع مخططات أولية للطائرات والمظلات.',
     },
     fr: {
-      answer: 'Léonard de Vinci (Leonardo da Vinci)',
+      answer: 'Léonard de Vinci',
       options: ['Léonard de Vinci', 'Michel-Ange', 'Raphaël', 'Botticelli'],
       explanation: 'Le génie universel de la Renaissance qui a peint la Joconde et imaginé des machines volantes.',
     },
@@ -75,7 +75,7 @@ export const FAMOUS_PEOPLE_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'Inventor and electrical engineer who pioneered the alternating current (AC) electricity supply system.',
     },
     ar: {
-      answer: 'نيكولا تسلا (Nikola Tesla)',
+      answer: 'نيكولا تسلا',
       options: ['نيكولا تسلا', 'توماس إديسون', 'ألكسندر غراهام بيل', 'مايكل فاراداي'],
       explanation: 'مخترع ومهندس الكهرباء العبقري الذي صمم نظام التيار المتردد (AC) الذي يزود العالم بالطاقة اليوم.',
     },
@@ -96,7 +96,7 @@ export const FAMOUS_PEOPLE_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'Co-founder of Apple who revolutionized personal computing, smartphones with the iPhone, and digital music with the iPod.',
     },
     ar: {
-      answer: 'ستيف جوبز (Steve Jobs)',
+      answer: 'ستيف جوبز',
       options: ['ستيف جوبز', 'بيل غيتس', 'مارك زوكربيرغ', 'جيف بيزوس'],
       explanation: 'مؤسس شركة أبل الرؤيوي الذي أحدث ثورة في عالم الهواتف الذكية مع الآيفون والحواسيب والموسيقى.',
     },
@@ -117,7 +117,7 @@ export const FAMOUS_PEOPLE_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'Entrepreneur leading Tesla electric vehicles, SpaceX reusable rockets, and Neuralink brain-computer interfaces.',
     },
     ar: {
-      answer: 'إيلون ماسك (Elon Musk)',
+      answer: 'إيلون ماسك',
       options: ['إيلون ماسك', 'جيف بيزوس', 'ستيف جوبز', 'بيل غيتس'],
       explanation: 'الملياردير ورائد الأعمال مؤسس سبيس إكس للصواريخ الفضائية وتسلا للسيارات الكهربائية ومنصة إكس.',
     },
@@ -138,7 +138,7 @@ export const FAMOUS_PEOPLE_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'American astronaut who became the first person to walk on the Moon on July 20, 1969 ("One small step for man").',
     },
     ar: {
-      answer: 'نيل أرمسترونغ (Neil Armstrong)',
+      answer: 'نيل أرمسترونغ',
       options: ['نيل أرمسترونغ', 'باز ألدرين', 'يوري غاغارين', 'مايكل كولينز'],
       explanation: 'رائد الفضاء الأمريكي وأول إنسان يضع قدمه على سطح القمر عام 1969 قائلاً: "خطوة صغيرة لإنسان، وقفزة عملاقة للبشرية".',
     },
@@ -159,14 +159,56 @@ export const FAMOUS_PEOPLE_EMOJI_PUZZLES: EmojiPuzzle[] = [
       explanation: 'The charismatic final ruler of the Ptolemaic Kingdom of Egypt renowned for her intelligence and alliances.',
     },
     ar: {
-      answer: 'كليوباترا (Cleopatra)',
+      answer: 'كليوباترا',
       options: ['كليوباترا', 'نفرتيتي', 'حتشبسوت', 'كاترين العظيمة'],
       explanation: 'آخر ملوك الأسرة البطلمية في مصر القديمة التي اشتهرت بذكائها ودبلوماسيتها وتحالفاتها التاريخية.',
     },
     fr: {
-      answer: 'Cléopâtre (Cleopatra)',
+      answer: 'Cléopâtre',
       options: ['Cléopâtre', 'Néfertiti', 'Hatchepsout', 'Marie-Antoinette'],
       explanation: 'La dernière reine d\'Égypte de la dynastie ptolémaïque réputée pour sa vive intelligence politique.',
+    },
+  },
+  {
+    id: 'fp-9',
+    emojis: '🎨🌻👂🌌🧑‍🦰🇳🇱',
+    category: 'famous_people',
+    difficulty: 'easy',
+    en: {
+      answer: 'Vincent van Gogh',
+      options: ['Vincent van Gogh', 'Claude Monet', 'Pablo Picasso', 'Salvador Dalí'],
+      explanation: 'The Dutch Post-Impressionist painter famous for Sunflowers, The Starry Night, and famously severing his own ear.',
+    },
+    ar: {
+      answer: 'فينسنت فان غوخ',
+      options: ['فينسنت فان غوخ', 'كلود مونيه', 'بابلو بيكاسو', 'سلفادور دالي'],
+      explanation: 'الرسام الهولندي الشهير صاحب لوحات دوار الشمس وليلة النجوم، والمعروف بالحادثة الشهيرة لقطع جزء من أذنه.',
+    },
+    fr: {
+      answer: 'Vincent van Gogh',
+      options: ['Vincent van Gogh', 'Claude Monet', 'Pablo Picasso', 'Salvador Dalí'],
+      explanation: 'L\'illustre peintre postimpressionniste hollandais auteur des Tournesols et de La Nuit étoilée, célèbre pour son oreille coupée.',
+    },
+  },
+  {
+    id: 'fp-10',
+    emojis: '✒️📜💀🎭👑🇬🇧',
+    category: 'famous_people',
+    difficulty: 'easy',
+    en: {
+      answer: 'William Shakespeare',
+      options: ['William Shakespeare', 'Charles Dickens', 'Jane Austen', 'Mark Twain'],
+      explanation: 'The legendary English playwright and Bard of Avon behind immortal tragedies, comedies, Hamlet\'s soliloquy with Yorick\'s skull, and the Globe Theatre.',
+    },
+    ar: {
+      answer: 'وليم شكسبير',
+      options: ['وليم شكسبير', 'تشارلز ديكنز', 'جين أوستن', 'مارك توين'],
+      explanation: 'الشاعر والكاتب المسرحي الإنجليزي الأعظم الملقب بشاعر آفون، صاحب أشهر التراجيديات مثل هاملت وجمجمة يوريك ومسرح غلوب في لندن.',
+    },
+    fr: {
+      answer: 'William Shakespeare',
+      options: ['William Shakespeare', 'Charles Dickens', 'Jane Austen', 'Mark Twain'],
+      explanation: 'Le plus illustre dramaturge et poète anglais, auteur d\'œuvres immortelles comme Hamlet avec le crâne de Yorick, Roméo et Juliette et Macbeth.',
     },
   },
 ];

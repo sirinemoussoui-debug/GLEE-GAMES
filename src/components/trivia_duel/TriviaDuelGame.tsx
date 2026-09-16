@@ -427,20 +427,20 @@ export const TriviaDuelGame: React.FC<TriviaDuelGameProps> = ({
     };
 
     return (
-      <div className="w-full max-w-xl mx-auto px-4 py-8 space-y-6 animate-in fade-in zoom-in-95 duration-300">
-        <div className="text-center space-y-2">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-black uppercase tracking-wider">
-            <Users className="w-4 h-4 text-blue-400" />
+      <div className="w-full max-w-xl mx-auto px-3 sm:px-4 py-4 sm:py-8 space-y-4 sm:space-y-6 animate-in fade-in zoom-in-95 duration-300">
+        <div className="text-center space-y-1.5 sm:space-y-2">
+          <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-black uppercase tracking-wider">
+            <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-400" />
             <span>
               {t.question} {currentQuestionIndex} / {totalQuestions}
             </span>
           </div>
-          <p className="text-sm font-bold text-slate-400">
+          <p className="text-xs sm:text-sm font-bold text-slate-400">
             {t.passDeviceTo}
           </p>
         </div>
 
-        <div className="glass rounded-3xl p-8 sm:p-10 space-y-8 shadow-2xl border-2 border-blue-500/40 text-center relative overflow-hidden">
+        <div className="glass rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 space-y-5 sm:space-y-8 shadow-2xl border-2 border-blue-500/40 text-center relative overflow-hidden">
           {/* Glowing Ambient Background */}
           <div
             className="absolute -top-20 left-1/2 -translate-x-1/2 w-64 h-64 rounded-full blur-3xl opacity-25 pointer-events-none"
@@ -450,13 +450,13 @@ export const TriviaDuelGame: React.FC<TriviaDuelGameProps> = ({
           {/* Player Avatar */}
           <div className="relative flex justify-center">
             <div
-              className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl flex items-center justify-center text-4xl sm:text-5xl font-black text-white shadow-2xl ring-4 ring-white/20 animate-bounce duration-1000"
+              className="w-20 h-20 sm:w-28 sm:h-28 rounded-2xl sm:rounded-3xl flex items-center justify-center text-3xl sm:text-5xl font-black text-white shadow-2xl ring-4 ring-white/20 animate-bounce duration-1000"
               style={{ backgroundColor: activePlayer.avatarColor }}
             >
               {activePlayer.name.charAt(0).toUpperCase()}
             </div>
             {currentActiveStat.currentStreak >= 2 && (
-              <div className="absolute -bottom-2 px-3 py-1 rounded-full bg-amber-500 text-slate-950 font-black text-xs flex items-center gap-1 shadow-lg border border-amber-300 animate-pulse">
+              <div className="absolute -bottom-2 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-amber-500 text-slate-950 font-black text-[11px] sm:text-xs flex items-center gap-1 shadow-lg border border-amber-300 animate-pulse">
                 <Flame className="w-3.5 h-3.5 fill-slate-950" />
                 <span>{currentActiveStat.currentStreak}x {t.streakLabel}</span>
               </div>
@@ -464,31 +464,31 @@ export const TriviaDuelGame: React.FC<TriviaDuelGameProps> = ({
           </div>
 
           {/* Heading */}
-          <div className="space-y-2">
-            <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+          <div className="space-y-1.5 sm:space-y-2">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight">
               {formatString(t.playerTurnTitle, activePlayer.name)}
             </h1>
-            <p className="text-base sm:text-lg font-bold text-blue-300">
+            <p className="text-sm sm:text-base md:text-lg font-bold text-blue-300">
               {formatString(t.playerIsAnswering, activePlayer.name)}
             </p>
           </div>
 
           {/* Current Player Match Metrics */}
-          <div className="grid grid-cols-2 gap-3 max-w-sm mx-auto">
-            <div className="p-3 rounded-2xl bg-white/5 border border-white/10 text-center">
-              <span className="text-[11px] font-bold text-slate-400 uppercase">
+          <div className="grid grid-cols-2 gap-2.5 sm:gap-3 max-w-sm mx-auto">
+            <div className="p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 text-center">
+              <span className="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase">
                 {t.soloScoreLabel}
               </span>
-              <div className="text-xl font-black text-white">
+              <div className="text-lg sm:text-xl font-black text-white">
                 {activePlayer.score} {t.pts}
               </div>
             </div>
 
-            <div className="p-3 rounded-2xl bg-white/5 border border-white/10 text-center">
-              <span className="text-[11px] font-bold text-slate-400 uppercase">
+            <div className="p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 text-center">
+              <span className="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase">
                 {t.correctAnswersStat}
               </span>
-              <div className="text-xl font-black text-emerald-400">
+              <div className="text-lg sm:text-xl font-black text-emerald-400">
                 {currentActiveStat.correct} / {currentActiveStat.total}
               </div>
             </div>
@@ -497,7 +497,7 @@ export const TriviaDuelGame: React.FC<TriviaDuelGameProps> = ({
           {/* Ready Button */}
           <button
             onClick={handleStartAnswering}
-            className="w-full py-4 sm:py-5 px-8 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-black text-lg shadow-xl shadow-blue-600/40 transition-all flex items-center justify-center gap-2.5 cursor-pointer active:scale-95 ring-2 ring-blue-400/50"
+            className="w-full py-3.5 sm:py-5 px-6 sm:px-8 rounded-xl sm:rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-black text-base sm:text-lg shadow-xl shadow-blue-600/40 transition-all flex items-center justify-center gap-2.5 cursor-pointer active:scale-95 ring-2 ring-blue-400/50 min-h-[44px]"
           >
             <Play className="w-5 h-5 fill-white" />
             <span>{t.readyToAnswer}</span>
@@ -1025,13 +1025,13 @@ export const TriviaDuelGame: React.FC<TriviaDuelGameProps> = ({
       : null;
 
   return (
-    <div className="w-full max-w-xl mx-auto px-4 py-6 space-y-4 animate-in fade-in duration-300">
+    <div className="w-full max-w-xl mx-auto px-3 sm:px-4 py-3 sm:py-6 pb-8 sm:pb-6 space-y-3 sm:space-y-4 animate-in fade-in duration-300">
       {/* Top Turn & Status Bar */}
       <div className="flex items-center justify-between gap-2">
         {/* Current Turn / Question Badge */}
         <div className="flex items-center gap-2 min-w-0">
           {gameMode === 'party' && activePlayer ? (
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-2xl bg-blue-600/20 border border-blue-500/40 text-white shadow-md">
+            <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl sm:rounded-2xl bg-blue-600/20 border border-blue-500/40 text-white shadow-md min-w-0">
               <div
                 className="w-5 h-5 rounded-lg flex items-center justify-center text-[10px] font-black text-white shrink-0"
                 style={{ backgroundColor: activePlayer.avatarColor }}
@@ -1043,7 +1043,7 @@ export const TriviaDuelGame: React.FC<TriviaDuelGameProps> = ({
               </span>
             </div>
           ) : (
-            <span className="px-3 py-1 rounded-xl bg-blue-500/20 text-blue-400 text-xs font-black">
+            <span className="px-2.5 sm:px-3 py-1 rounded-xl bg-blue-500/20 text-blue-400 text-xs font-black shrink-0">
               {t.question} {currentQuestionIndex} / {totalQuestions}
             </span>
           )}
@@ -1054,10 +1054,10 @@ export const TriviaDuelGame: React.FC<TriviaDuelGameProps> = ({
         </div>
 
         {/* Right Status (Streak, Timer, Points) */}
-        <div className="flex items-center gap-2 shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           {/* Active Player Streak in Party Mode */}
           {gameMode === 'party' && activePlayerStat && activePlayerStat.currentStreak > 1 && (
-            <div className="px-2.5 py-1 rounded-xl bg-amber-500/20 text-amber-400 text-xs font-black flex items-center gap-1 border border-amber-500/30 animate-pulse">
+            <div className="px-2 sm:px-2.5 py-1 rounded-xl bg-amber-500/20 text-amber-400 text-xs font-black flex items-center gap-1 border border-amber-500/30 animate-pulse">
               <Flame className="w-3.5 h-3.5 fill-amber-400" />
               <span>{activePlayerStat.currentStreak}x</span>
             </div>
@@ -1065,14 +1065,14 @@ export const TriviaDuelGame: React.FC<TriviaDuelGameProps> = ({
 
           {/* Solo Streak & Score */}
           {gameMode === 'solo' && (
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5 sm:gap-2">
               {currentStreak > 1 && (
-                <div className="px-2.5 py-1 rounded-xl bg-amber-500/20 text-amber-400 text-xs font-black flex items-center gap-1 border border-amber-500/30 animate-pulse">
+                <div className="px-2 sm:px-2.5 py-1 rounded-xl bg-amber-500/20 text-amber-400 text-xs font-black flex items-center gap-1 border border-amber-500/30 animate-pulse">
                   <Flame className="w-3.5 h-3.5 fill-amber-400" />
                   <span>{currentStreak}x</span>
                 </div>
               )}
-              <div className="px-2.5 py-1 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-300 text-xs font-black">
+              <div className="px-2 sm:px-2.5 py-1 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-300 text-xs font-black">
                 {soloScore} {t.pts}
               </div>
             </div>
@@ -1081,7 +1081,7 @@ export const TriviaDuelGame: React.FC<TriviaDuelGameProps> = ({
           {/* Countdown Timer */}
           {phase === 'question' && (
             <div
-              className={`px-3 py-1 rounded-xl font-mono text-xs font-black flex items-center gap-1.5 ${
+              className={`px-2.5 sm:px-3 py-1 rounded-xl font-mono text-xs font-black flex items-center gap-1.5 shrink-0 ${
                 secondsRemaining <= 4
                   ? 'bg-rose-500/20 text-rose-400 border border-rose-500/30 animate-pulse'
                   : 'bg-white/10 text-white'
@@ -1094,7 +1094,7 @@ export const TriviaDuelGame: React.FC<TriviaDuelGameProps> = ({
 
           <button
             onClick={onChooseGame}
-            className="text-xs text-slate-400 hover:text-white font-bold transition-colors cursor-pointer"
+            className="text-xs text-slate-400 hover:text-white font-bold transition-colors cursor-pointer shrink-0"
           >
             {t.chooseAnotherGame}
           </button>
@@ -1110,18 +1110,18 @@ export const TriviaDuelGame: React.FC<TriviaDuelGameProps> = ({
       </div>
 
       {/* Question Card */}
-      <div className="glass rounded-3xl p-6 sm:p-8 space-y-5 shadow-2xl border-2 border-blue-500/30 text-center">
+      <div className="glass rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 space-y-3.5 sm:space-y-5 shadow-2xl border-2 border-blue-500/30 text-center">
         {/* Question Counter Sub-label */}
-        <div className="text-xs font-black text-blue-400 uppercase tracking-wider">
+        <div className="text-[11px] sm:text-xs font-black text-blue-400 uppercase tracking-wider">
           {t.question} {currentQuestionIndex} / {totalQuestions} • {currentQuestion?.category}
         </div>
 
-        <h2 className="text-xl sm:text-2xl font-black text-white leading-snug">
+        <h2 className="text-lg sm:text-xl md:text-2xl font-black text-white leading-snug">
           {qData?.question}
         </h2>
 
         {/* 4 Multiple Choice Options */}
-        <div className="grid grid-cols-1 gap-2.5 pt-2 text-left">
+        <div className="grid grid-cols-1 gap-2 sm:gap-2.5 pt-1 sm:pt-2 text-left rtl:text-right">
           {qData?.options.map((option, idx) => {
             const isCorrect = idx === qData.correctIndex;
             const isSelected = selectedOptionIndex === idx;
@@ -1143,13 +1143,13 @@ export const TriviaDuelGame: React.FC<TriviaDuelGameProps> = ({
                 key={idx}
                 disabled={isOptionLocked || phase === 'reveal'}
                 onClick={() => handleSelectOption(idx)}
-                className={`w-full p-4 rounded-2xl border font-bold text-sm sm:text-base flex items-center justify-between transition-all cursor-pointer active:scale-98 disabled:cursor-default ${optionStyle}`}
+                className={`w-full p-3 sm:p-4 rounded-xl sm:rounded-2xl border font-bold text-xs sm:text-sm md:text-base flex items-center justify-between transition-all cursor-pointer active:translate-y-0.5 active:scale-[0.99] disabled:cursor-default min-h-[48px] sm:min-h-[52px] ${optionStyle}`}
               >
-                <div className="flex items-center gap-3">
-                  <span className="w-7 h-7 rounded-xl bg-white/10 flex items-center justify-center text-xs font-black shrink-0">
+                <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                  <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg sm:rounded-xl bg-white/10 flex items-center justify-center text-xs font-black shrink-0">
                     {String.fromCharCode(65 + idx)}
                   </span>
-                  <span>{option}</span>
+                  <span className="leading-snug break-words text-left rtl:text-right">{option}</span>
                 </div>
 
                 {phase === 'reveal' && isCorrect && (
@@ -1165,7 +1165,7 @@ export const TriviaDuelGame: React.FC<TriviaDuelGameProps> = ({
 
         {/* Educational Insight Box */}
         {phase === 'reveal' && (
-          <div className="p-4 rounded-2xl bg-blue-950/50 border border-blue-500/30 text-left space-y-1.5 animate-in fade-in">
+          <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-blue-950/50 border border-blue-500/30 text-left rtl:text-right space-y-1 sm:space-y-1.5 animate-in fade-in">
             <div className="text-[11px] font-black text-blue-400 uppercase tracking-wider flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5" />
               <span>{t.explanationLabel}</span>
@@ -1179,12 +1179,12 @@ export const TriviaDuelGame: React.FC<TriviaDuelGameProps> = ({
 
       {/* Action Footer in Reveal Phase */}
       {phase === 'reveal' && (
-        <div className="glass rounded-3xl p-5 space-y-4 shadow-xl border border-white/10 animate-in fade-in">
+        <div className="glass rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 space-y-3 sm:space-y-4 shadow-xl border border-white/10 animate-in fade-in">
           {/* Result Banner */}
           <div className="text-center space-y-1">
             {selectedOptionIndex === qData?.correctIndex ? (
               <div className="space-y-0.5">
-                <div className="text-lg font-black text-emerald-400">
+                <div className="text-base sm:text-lg font-black text-emerald-400">
                   {t.correctResultBanner}
                 </div>
                 {gameMode === 'party' && activePlayer && (
@@ -1199,11 +1199,11 @@ export const TriviaDuelGame: React.FC<TriviaDuelGameProps> = ({
                 )}
               </div>
             ) : isTimeUp ? (
-              <div className="text-base font-black text-rose-400">
+              <div className="text-sm sm:text-base font-black text-rose-400">
                 ⏰ {t.timeUpTrivia} (+0 {t.pts})
               </div>
             ) : (
-              <div className="text-base font-black text-rose-400">
+              <div className="text-sm sm:text-base font-black text-rose-400">
                 {t.incorrectResultBanner} (+0 {t.pts})
               </div>
             )}
@@ -1215,13 +1215,13 @@ export const TriviaDuelGame: React.FC<TriviaDuelGameProps> = ({
               <div className="text-[11px] font-black text-slate-400 uppercase tracking-wider text-center">
                 {t.matchScoresTitle}
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 sm:gap-2">
                 {players.map((p) => {
                   const isCurrent = p.id === activePlayer?.id;
                   return (
                     <div
                       key={p.id}
-                      className={`p-2 rounded-xl border flex items-center justify-between text-xs transition-all ${
+                      className={`p-1.5 sm:p-2 rounded-xl border flex items-center justify-between text-xs transition-all ${
                         isCurrent
                           ? 'bg-blue-600/25 border-blue-400 ring-2 ring-blue-500/30'
                           : 'bg-white/5 border-white/10 opacity-70'
@@ -1247,7 +1247,7 @@ export const TriviaDuelGame: React.FC<TriviaDuelGameProps> = ({
           {/* Next Button */}
           <button
             onClick={handleNextQuestion}
-            className="w-full py-4 px-6 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white font-black text-base shadow-xl shadow-blue-600/30 transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95"
+            className="w-full py-3 sm:py-4 px-4 sm:px-6 rounded-xl sm:rounded-2xl bg-blue-600 hover:bg-blue-500 text-white font-black text-sm sm:text-base shadow-xl shadow-blue-600/30 transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95 min-h-[44px]"
           >
             <span>
               {currentQuestionIndex >= totalQuestions
@@ -1258,7 +1258,7 @@ export const TriviaDuelGame: React.FC<TriviaDuelGameProps> = ({
                 ? `${t.nextTriviaQuestion} (${formatString(t.nextPlayerNotice, nextPlayer.name)})`
                 : t.nextTriviaQuestion}
             </span>
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 rtl:rotate-180 shrink-0" />
           </button>
         </div>
       )}
